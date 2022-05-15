@@ -1,7 +1,9 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/register">ลงทะเบียน</router-link> |
+    <router-link to="/login">เข้าสู่ระบบ</router-link> |
+    <router-link to="/recipe">สูตรอาหาร</router-link> |
+    <router-link to="/recommend-menu">เมนูแนะนำ</router-link>
   </nav>
   <router-view/>
 </template>
