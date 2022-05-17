@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import RecommendMenuPage from '../views/RecommendMenuPage.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import LoginPage from '../views/LoginPage.vue'
 import RecipePage from '../views/RecipePage.vue'
-import RecommendMenuPage from '../views/RecommendMenuPage.vue'
 
 const routes = [
   {
@@ -11,7 +11,7 @@ const routes = [
     component: RegisterPage
   },
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: LoginPage
   },

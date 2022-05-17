@@ -1,10 +1,10 @@
 <template>
-  <nav>
+  <!-- <div>
     <router-link to="/register">ลงทะเบียน</router-link> |
     <router-link to="/login">เข้าสู่ระบบ</router-link> |
     <router-link to="/recipe">สูตรอาหาร</router-link> |
     <router-link to="/recommend-menu">เมนูแนะนำ</router-link>
-  </nav>
+  </div> -->
   <router-view/>
 </template>
 

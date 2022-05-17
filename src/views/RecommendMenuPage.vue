@@ -1,5 +1,6 @@
 <template>
-  <h1>Recommend Menu page</h1>
+  <div class="h-screen ">
+  </div>
 </template>
 
 <script>
