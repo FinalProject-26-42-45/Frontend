@@ -8,8 +8,8 @@
         
         <div class="flex flex-col w-full md:w-1/2 p-4">
           <div class="flex flex-col flex-1 justify-center mb-8">
-            <div class="flex justify-center">
-              <img src="../assets/logo.png" class="object-cover h-30 w-28" />
+            <div class="flex justify-center mt-3">
+              <img src="../assets/logo.png" class="object-cover h-16 w-auto" />
             </div>
             <div class="grid grid-cols-1 divide-y-4 divide-yellow">
               <div class="mb-1">

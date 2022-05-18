@@ -6,12 +6,12 @@ import RecipePage from '../views/RecipePage.vue'
 
 const routes = [
   {
-    path: '/register',
+    path: '/',
     name: 'register',
     component: RegisterPage
   },
   {
-    path: '/',
+    path: '/login',
     name: 'login',
     component: LoginPage
   },
