@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen overflow-y-hidden bg-yellow fontNoto">
+  <div class="h-screen overflow-y-hidden bg-coral2 fontNoto">
     <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
-      <div class="flex rounded-3xl shadow-lg w-full lg:w-2/3 h-auto overflow-auto bg-white sm:mx-0">
+      <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 h-auto overflow-auto bg-white sm:mx-0">
         
         <div class="flex flex-col w-full md:w-2/3 px-2 mb-3">
           <div class="flex flex-col flex-1 justify-center">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="flex flex-col mt-1">
                       <p class="text-sm text-left font-medium ">วัน/เดือน/ปีเกิด</p>
-                      <input id="birthday" type="Date" class="flex-grow h-7 w-auto px-2 rounded border border-grey-400 bg-gray-200" name="dirthday" required >
+                      <input id="birthday" type="Date" class="flex-grow h-7 lg:w-52 px-2 rounded border border-grey-400 bg-gray-200" name="dirthday" required >
                     </div>
                   </div>
 
@@ -108,7 +108,7 @@
                   </div>
 
                   <div class="flex flex-col mt-2">
-                    <button type="submit" class="bg-yellow hover:bg-coral text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
+                    <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
                       ลงทะเบียน
                     </button>
                   </div>

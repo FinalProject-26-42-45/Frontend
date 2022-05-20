@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen overflow-y-hidden bg-yellow fontNoto">
+  <div class="h-screen overflow-y-hidden bg-coral2 fontNoto">
     <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
-      <div class="flex rounded-3xl shadow-lg w-full lg:w-2/3 bg-white sm:mx-0" style="height: 500px">
+      <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 bg-white sm:mx-0" style="height: 500px">
         <div class="hidden md:block md:w-2/3">
           <img src="../assets/pic-login.png" class="rounded-l-3xl h-full">
         </div>
@@ -40,7 +40,7 @@
                   </div>
                 </div>
                 <div class="flex flex-col mt-4">
-                  <button type="submit" class="bg-yellow hover:bg-coral text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
+                  <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
                     เข้าสู่ระบบ
                   </button>
                 </div>
@@ -49,7 +49,7 @@
                 <p class="text-xs">
                   ยังไม่มีบัญชีผู้ใช้? 
                 </p>
-                <p class="no-underline hover:underline text-coral text-xs"><router-link to="/register">สมัครที่นี่</router-link></p>
+                <p class="no-underline hover:underline text-coral1 text-xs"><router-link to="/register">สมัครที่นี่</router-link></p>
               </div>
             </div>
           </div>
