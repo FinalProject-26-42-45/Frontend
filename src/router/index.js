@@ -6,7 +6,7 @@ import RecipePage from '../views/RecipePage.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/register',
     name: 'register',
     component: RegisterPage
   },
@@ -21,7 +21,7 @@ const routes = [
     component: RecipePage
   },
   {
-    path: '/recommend-menu',
+    path: '/',
     name: 'recommend-menu',
     component: RecommendMenuPage
   }

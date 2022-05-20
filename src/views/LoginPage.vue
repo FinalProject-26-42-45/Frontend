@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen overflow-y-hidden bg-yellow fontNoto">
     <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
-      <div class="flex rounded-3xl shadow-lg w-full sm:w-3/4 lg:w-2/3 bg-white sm:mx-0" style="height: 500px">
+      <div class="flex rounded-3xl shadow-lg w-full lg:w-2/3 bg-white sm:mx-0" style="height: 500px">
         <div class="hidden md:block md:w-2/3">
           <img src="../assets/pic-login.png" class="rounded-l-3xl h-full">
         </div>
@@ -21,7 +21,7 @@
               </div>
             </div>
             <div class="w-full mt-3">
-              <form class="form-horizontal w-3/4 mx-auto" method="POST" action="#">
+              <form class="form-horizontal w-3/4 mx-auto" @submit.prevent="signIn(username,password)">
                 <div class="flex flex-col mt-2">
                   <p class="text-base text-left font-medium ">ชื่อผู้ใช้งาน</p>
                   <input id="username" type="text" class="flex-grow h-8 px-2 border rounded border-grey-400 bg-gray-200" name="username" value="" >
@@ -49,9 +49,7 @@
                 <p class="text-xs">
                   ยังไม่มีบัญชีผู้ใช้? 
                 </p>
-                <p class="no-underline hover:underline text-coral text-xs">
-                  สมัครที่นี่
-                </p>
+                <p class="no-underline hover:underline text-coral text-xs"><router-link to="/register">สมัครที่นี่</router-link></p>
               </div>
             </div>
           </div>
