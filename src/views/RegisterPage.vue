@@ -1,6 +1,7 @@
 <template>
-  <div class="h-screen overflow-y-hidden bg-coral2 fontNoto">
-    <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
+  <div class="h-screen overflow-y-hidden bg-coral2 fontNoto pb-24">
+    <base-navbar></base-navbar>
+    <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0 ">
       <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 h-auto overflow-auto bg-white sm:mx-0">
         
         <div class="flex flex-col w-full md:w-2/3 px-2 mb-3">

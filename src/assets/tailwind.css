@@ -3,3 +3,7 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.show-modal {
+    @apply bg-opacity-50 fixed inset-0 z-40 bg-black;
+}

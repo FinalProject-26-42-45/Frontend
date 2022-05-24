@@ -1,6 +1,5 @@
 <template>
-  <div class="h-screen overflow-y-hidden bg-coral2 fontNoto pb-24">
-    <base-navbar></base-navbar>
+  <div class="h-screen overflow-y-hidden bg-yellow fontNoto">
     <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
       <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 bg-white sm:mx-0" style="height: 500px">
         <div class="hidden md:block md:w-2/3">
@@ -8,20 +7,15 @@
         </div>
         
         <div class="flex flex-col w-full md:w-1/2 p-4">
-          <div class="flex flex-col flex-1 justify-center mb-8">
-            <div class="flex justify-center mt-3">
+          <div class="flex flex-col flex-1 justify-center items-center mb-8">
+            <div class="flex justify-center">
               <img src="../assets/logo.png" class="object-cover h-16 w-auto" />
             </div>
-            <div class="grid grid-cols-1 divide-y-4 divide-yellow">
-              <div class="mb-1">
-                <p class="text-2xl text-center font-semibold">เข้าสู่ระบบ</p>
-              </div>
-              <div class="">
-                <p class="text-base text-center font-medium mt-1">มีเมนูในใจแล้วหรือยัง?</p>
-                <p class="text-base text-center font-medium ">มาค้นหาเมนูในใจของคุณกับ FOODRAND สิ่</p>
-              </div>
+            <div class="grid grid-cols-1">
+                <p class="text-2xl text-center font-semibold">เข้าสู่ระบบผู้ดูแล</p>
+                <img src="../assets/line.png" class="object-cover h-1 w-48 mt-1" />
             </div>
-            <div class="w-full mt-3">
+            <div class="w-full mt-12">
               <form class="form-horizontal w-3/4 mx-auto" @submit.prevent="signIn(username,password)">
                 <div class="flex flex-col mt-2">
                   <p class="text-base text-left font-medium ">ชื่อผู้ใช้งาน</p>
@@ -31,27 +25,12 @@
                   <p class="text-base text-left font-medium ">รหัสผ่าน</p>
                   <input id="password" type="password" class="flex-grow h-8 px-2 rounded border border-grey-400 bg-gray-200" name="password" required >
                 </div>
-                <div class="flex justify-between mt-2">
-                  <div>
-                    <input type="checkbox" name="remember" id="remember" class="mr-2 "> 
-                    <label for="remember" class="text-sm text-grey-dark ">จดจำฉันไว้</label>
-                  </div>
-                  <div>
-                    <p class="text-sm text-grey-dark ">ลืมรหัสผ่าน ?</p>
-                  </div>
-                </div>
-                <div class="flex flex-col mt-4">
+                <div class="flex flex-col mt-8">
                   <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
                     เข้าสู่ระบบ
                   </button>
                 </div>
               </form>
-              <div class="flex flex-row justify-center space-x-1 mt-4">
-                <p class="text-xs">
-                  ยังไม่มีบัญชีผู้ใช้? 
-                </p>
-                <p class="no-underline hover:underline text-coral1 text-xs"><router-link to="/register">สมัครที่นี่</router-link></p>
-              </div>
             </div>
           </div>
         </div>
@@ -61,12 +40,10 @@
 </template>
 
 <script>
-import BaseNavbar from '@/components/BaseNavbar.vue'
 
 
 export default {
   components: {
-    BaseNavbar
 
   }
 }
