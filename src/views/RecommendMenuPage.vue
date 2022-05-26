@@ -117,7 +117,7 @@
     </div>
     <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 text-left justify-items-center my-4 mx-16">
       <div v-for="m in menu" :key="m.MenuId" class="w-full p-1 md:p-2">
-        <base-block class="relative">
+        <base-block class="relative bg-nood">
           <img :src="getMenuImage(m.MenuImg)" class="object-cover w-full rounded-t-md border-gray-200 lg:h-48 sm:h-36 bg-gray-200"/>
           <div class="text-left p-2">
             <p class="mt-3">เมนู: {{ m.MenuName }}</p>
@@ -134,8 +134,8 @@
       </div> 
     </div>
     
-    <div v-if="openRecipe"  class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none flex justify-center items-center mb-4">
-      <div class="h-96 border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 md:w-1/2 bg-white outline-none focus:outline-none">
+    <div v-if="openRecipe"  class="overflow-x-hidden fixed inset-0 z-50 outline-none focus:outline-none flex justify-center items-center">
+      <div class=" h-auto border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 md:w-1/2 bg-white outline-none focus:outline-none ">
               
         <div class="flex justify-end pr-3 pt-2">
           <button class="close text-black" type="button" @click="closeModal()" > X </button>
@@ -146,20 +146,21 @@
             <h3 class="text-3xl uppercase text-darkgray">{{ n.MenuName }}</h3>
           </div>
           <div class="lg:flex lg:flex-row justify-around mt-2 space-x-5 sm:flex sm:flex-col">
-            <div class="lg:flex lg:justify-center sm:justify-center mt-2 w-3/5 rounded-md border-gray-200 bg-gray-200">
-              <img class="object-cover w-auto lg:h-52 p-2 mt-12" :src="getMenuImage( n.MenuImg )"/>
+            <div class="lg:flex lg:justify-center sm:justify-center mt-2 w-4/5 rounded-md">
+              <img class="object-cover w-auto lg:h-64 p-2" :src="getMenuImage( n.MenuImg )"/>
             </div>
 
             <!-- <div class=" mt-2 w-2/5 space-y-2 ">
-              <p class="text-xl text-left whitespace-nowrap">Name: {{pr.productName}}</p>
-              <p class="text-lg text-left whitespace-nowrap">Type: {{pr.productType}}</p>
-              <p class="text-lg text-left whitespace-nowrap">Price: {{pr.productPrice}}</p>
-              <p class="text-lg text-left whitespace-nowrap">Size: {{pr.productSize}}</p>                       
+              <p class="text-xl font-semibold text-justify">วัตถุดิบ</p>
+              <p class="text-xl text-left whitespace-nowrap">{{ n.IngredientName }}</p>
+              <p class="text-lg text-left whitespace-nowrap">{{ n.Quantity }}</p>
+              <p class="text-lg text-left whitespace-nowrap">{{ n.Unit }}</p>              
             </div> -->
           </div>
                                       
-          <div class="mt-6">
-            <p class="text-lg text-justify">{{ n.Preparation }}</p>
+          <div class="mt-6 ">
+            <p class="text-xl font-semibold text-justify">วิธีการทำ</p>
+            <p class="text-lg whitespace-pre-line ">{{ n.Preparation }}</p>
           </div>
         </div>
             
@@ -183,6 +184,7 @@ export default {
     return {
       menu: [],
       category: [],
+      recipe: [],
       popupMenu: [],
       MenuId: null,
       showModal: false,
@@ -220,6 +222,12 @@ export default {
     },
     getMenuImage(MenuImg){
       return "http://localhost:3000/"+MenuImg;
+    },
+    getRecipe() {
+      MenuService.get("/recipe")
+        .then(response => {
+          this.recipe = response.data;
+        })
     },
   },
   created() {

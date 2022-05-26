@@ -1,0 +1,46 @@
+name: Vue.js deploy 
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - 
+      name: Login to Gitgub Container Registry
+      uses: docker/login-action@v1
+      with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+    - name: build docker images
+      run: |
+          docker build . --tag ghcr.io/finalproject-26-42-45/frontend
+          docker images
+    - name: push docker images to registry
+      run: |
+          docker push ghcr.io/finalproject-26-42-45/frontend
+  deploy:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - name: executing remote ssh commands using password
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.IP }}
+            username: ${{ secrets.USERNAME }}
+            password: ${{ secrets.PASSWORD }}
+            port: ${{ secrets.PORT }}
+            script: |
+              export CR_PAT=${{ secrets.GITHUB_TOKEN }} 
+              echo $CR_PAT | sudo docker login ghcr.io -u jeongchedah --password-stdin
+              sudo docker pull ghcr.io/finalproject-26-42-45/frontend
+              sudo docker images
+              sudo docker rm frontend -f
+              sudo docker run -d --name frontend --network foodrandnetwork --ip 172.18.0.4 ghcr.io/finalproject-26-42-45/frontend

@@ -7,7 +7,9 @@ module.exports = {
         yellow: '#FFB911',
         coral1: '#F95335',
         coral2: '#FD756D',
-        gray1: '#F3F4F5'
+        gray1: '#F3F4F5',
+        nood: '#E8DFDE',
+        oldrose: '#F8DAD4'
       },
     },
   },

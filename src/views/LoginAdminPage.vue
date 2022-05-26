@@ -25,11 +25,13 @@
                   <p class="text-base text-left font-medium ">รหัสผ่าน</p>
                   <input id="password" type="password" class="flex-grow h-8 px-2 rounded border border-grey-400 bg-gray-200" name="password" required >
                 </div>
-                <div class="flex flex-col mt-8">
-                  <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
-                    เข้าสู่ระบบ
-                  </button>
-                </div>
+                <router-link to="/admin-manage">
+                  <div class="flex flex-col mt-8">
+                    <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
+                      เข้าสู่ระบบ
+                    </button>
+                  </div>
+                </router-link>
               </form>
             </div>
           </div>

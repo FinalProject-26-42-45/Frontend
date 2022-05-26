@@ -3,6 +3,7 @@ import RecommendMenuPage from '../views/RecommendMenuPage.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import LoginPage from '../views/LoginPage.vue'
 import LoginAdminPage from '../views/LoginAdminPage.vue'
+import AdminPage from '../views/AdminPage.vue'
 
 const routes = [
   {
@@ -24,7 +25,13 @@ const routes = [
     path: '/',
     name: 'recommend-menu',
     component: RecommendMenuPage
-  }
+  },
+  {
+    path: '/admin-manage',
+    name: 'admin-manage',
+    component: AdminPage
+  },
+
 ]
 
 const router = createRouter({

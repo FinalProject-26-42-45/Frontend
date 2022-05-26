@@ -6,9 +6,16 @@ import {
   faUser,
   faChevronRight,
   faChevronLeft,
-  faArrowRight
+  faArrowRight,
+  faAddressBook,
+  faRectangleList,
+  faNewspaper,
+  faArrowRightFromBracket,
+  faEdit,
+  faTrashAlt
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faUserCircle, faCarrot, faUser, faChevronRight, faChevronLeft, faArrowRight);
+library.add(faUserCircle, faCarrot, faUser, faChevronRight, faChevronLeft, faArrowRight, faRectangleList, faNewspaper, 
+  faAddressBook,faArrowRightFromBracket, faEdit, faTrashAlt);
 
 export { FontAwesomeIcon };
