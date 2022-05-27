@@ -131,7 +131,7 @@ export default {
                     'Content-Type': 'multipart/form-data'
                 }
                 }).then(response => {
-                if(response.status === 200){
+                if(response.status === 201){
                     alert("Menu was add!")
                     this.$router.go()
                 }
