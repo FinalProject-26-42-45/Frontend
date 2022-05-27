@@ -100,14 +100,17 @@
       </nav>
     </div> -->
 
-    <div class="flex justify-center items-center my-4">
+    <div class="flex justify-center my-4 space-x-2">
       <div>
-        <input placeholder="ค้นหา"
-          class="p-2 py-2 mt-1 lg:w-80 sm:w-60 bg-white rounded-l-md border-2 border-gray-400">
+        <input v-model="boxsearch" v-show="search.click" placeholder="ค้นหา"
+          class="p-2 py-2 lg:w-80 sm:w-60 bg-white rounded border-2 border-oldrose">
       </div>
-      <div class="">
-        <button class="bg-coral1 rounded-r-md text-white py-2 px-2 w-11 h-11 mt-1">
+      <div>
+        <button class="bg-coral1 rounded-full text-white py-2 px-2 w-10 h-10 hover:text-pink"  @click="statusSearch" v-show="search.nClick">
           <span class="material-icons">search</span>
+        </button>
+        <button class="hover:bg-coral2 bg-coral1 py-1.5 px-3 mt-0.5 rounded text-white lg:text-lg sm:text-base" v-show="search.click" @click="statusSearch">
+          ยกเลิก
         </button>
       </div>
     </div>
@@ -116,7 +119,7 @@
       <p class=" text-xl text-black font-bold">{{ m.MenuName }}</p>
     </div>
     <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 text-left justify-items-center my-4 mx-16">
-      <div v-for="m in menu" :key="m.MenuId" class="w-full p-1 md:p-2">
+      <div v-for="(m, index) in filterMenu" :key="index" :id="m.MenuId" class="w-full p-1 md:p-2">
         <base-block class="relative bg-nood">
           <img :src="getMenuImage(m.MenuImg)" class="object-cover w-full rounded-t-md border-gray-200 lg:h-48 sm:h-36 bg-gray-200"/>
           <div class="text-left p-2">
@@ -189,6 +192,8 @@ export default {
       MenuId: null,
       showModal: false,
       openRecipe: false,
+      search: {click: false, nClick: true},
+      boxsearch: "",
     };
   },
   methods: {
@@ -229,10 +234,24 @@ export default {
           this.recipe = response.data;
         })
     },
+    statusSearch(){
+      this.search.click = !this.search.click
+      this.search.nClick = !this.search.nClick
+      this.boxsearch = ""
+    }
   },
   created() {
     this.retrieveMenu(); 
   },
+  computed: {
+    filterMenu(){
+      return this.menu.filter(({ MenuName }) =>
+      { return MenuName.toLowerCase()
+      .includes(this.boxsearch.toLowerCase())
+      }
+    );
+    }
+  }
 };
 </script>
 
