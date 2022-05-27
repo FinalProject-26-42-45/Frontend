@@ -226,7 +226,8 @@ export default {
         })
     },
     getMenuImage(MenuImg){
-      return "http://localhost:3000/"+MenuImg;
+      // return "http://localhost:3000/"+MenuImg;
+      return "https://foodrand.hopto.org/backend/"+MenuImg;
     },
     getRecipe() {
       MenuService.get("/recipe")
