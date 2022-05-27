@@ -124,6 +124,8 @@ export default {
             formData.append('file', this.ImageFile);
             formData.append('json', blob);
 
+            console.log(formData);
+
             console.log(this.ImageFile);
 
             MenuService.post("/menu", formData, {

@@ -106,6 +106,8 @@ export default {
 
             formData.append('json', blob);
 
+            console.log(formData);
+
             MenuService.put(`/menu`, formData,{
                 headers: {
                     'Content-Type' : 'multipart/form-data'
