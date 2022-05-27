@@ -5,15 +5,16 @@
       <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 h-auto overflow-auto bg-white sm:mx-0">
         
         <div class="flex flex-col w-full md:w-2/3 px-2 mb-3">
-          <div class="flex flex-col flex-1 justify-center">
+          <div class="flex flex-col flex-1 justify-center items-center">
             <div class="inset-0 top-4 flex justify-center mt-3">
               <img src="../assets/logo.png" class="object-cover h-16 w-auto" />
             </div>
-            <div class="grid grid-cols-1 divide-y-4 divide-yellow">
-              <div class="mb-1">
+              <div class="">
                 <p class="text-lg text-center font-semibold">ลงทะเบียน</p>
                 <p class="text-base text-center font-medium">เพื่อเข้าถึงฟีเจอร์มากมาย</p>
               </div>
+
+              <hr class="my-1 border-2 border-yellow dark:bg-yellow w-60" />
             
               <div class="w-full">
                 <form class="form-horizontal w-3/4 mx-auto p-2">
@@ -115,7 +116,6 @@
                   </div>
                 </form>
               </div>
-            </div>
           </div>
         </div>
 

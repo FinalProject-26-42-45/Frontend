@@ -8,11 +8,11 @@
             
             <div class="flex flex-col justify-between flex-1 mt-6">
                 <nav>
-                    <a class="flex items-center px-4 py-3 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+                    <!-- <a class="flex items-center px-4 py-3 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
                         <font-awesome-icon icon="address-book" class="block h-6 w-6 " />
 
                         <span class="mx-4 font-medium">ข้อมูลผู้ใช้</span>
-                    </a>
+                    </a> -->
 
                     <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
                         <font-awesome-icon icon="rectangle-list" class="block h-6 w-6 " />
@@ -20,13 +20,13 @@
                         <span class="mx-4 font-medium">เมนูอาหาร</span>
                     </a>
 
-                    <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+                    <!-- <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
                         <font-awesome-icon icon="newspaper" class="block h-6 w-6 " />
 
                         <span class="mx-4 font-medium">บทความ</span>
-                    </a>
+                    </a> -->
 
-                    <hr class="my-6 border-gray-200 dark:border-gray-600" />
+                    
 
                 </nav>
                 <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" >

@@ -33,17 +33,17 @@
               <nav class="mb-8 list-none">
                 <router-link to="/">
                 <li>
-                    <p class="mt-3 text-sm text-white">Nike Air</p>
+                    <p class="mt-3 text-sm text-white">6 สิ่งที่จะเกิดขึ้นเมื่อหยุดทานมื้อดึก</p>
                 </li>
                 </router-link>
                 <router-link to="/">
                   <li>
-                    <p class="text-sm text-white">Sperstar NMD</p>
+                    <p class="text-sm text-white">อาหารปราศจากกลูเตน</p>
                   </li>
                 </router-link>
                 <router-link to="/">
                 <li>
-                    <p class="text-sm text-white">574</p>
+                    <p class="text-sm text-white">อาหารทานเล่นที่มีค่าดัชนีน้ำตาลต่ำ</p>
                 </li>
                 </router-link>
               </nav>
