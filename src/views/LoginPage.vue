@@ -8,19 +8,18 @@
         </div>
         
         <div class="flex flex-col w-full md:w-1/2 p-4">
-          <div class="flex flex-col flex-1 justify-center mb-8">
+          <div class="flex flex-col flex-1 justify-center items-center mb-8">
             <div class="flex justify-center mt-3">
               <img src="../assets/logo.png" class="object-cover h-16 w-auto" />
             </div>
-            <div class="grid grid-cols-1 divide-y-4 divide-yellow">
               <div class="mb-1">
                 <p class="text-2xl text-center font-semibold">เข้าสู่ระบบ</p>
               </div>
+              <hr class="my-2 border-2 border-yellow dark:bg-yellow w-48" />
               <div class="">
                 <p class="text-base text-center font-medium mt-1">มีเมนูในใจแล้วหรือยัง?</p>
                 <p class="text-base text-center font-medium ">มาค้นหาเมนูในใจของคุณกับ FOODRAND สิ่</p>
               </div>
-            </div>
             <div class="w-full mt-3">
               <form class="form-horizontal w-3/4 mx-auto" @submit.prevent="signIn(username,password)">
                 <div class="flex flex-col mt-2">
