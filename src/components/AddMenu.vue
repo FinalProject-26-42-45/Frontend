@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="fontNoto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none flex justify-center items-center mb-4">
-            <div class="h-96 border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 bg-oldrose outline-none focus:outline-none">
+            <div class="h-96 border-0 rounded-md shadow-lg flex flex-col lg:w-2/3 bg-oldrose outline-none focus:outline-none">
                 <div class="flex justify-end">
                     <button class="close text-black pt-2 pr-2" type="button" @click="closeModal" > X </button>
                 </div>
@@ -24,6 +24,17 @@
                                     v-model="Calories"  class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2"/>
                                     <p v-if="invalidCalories" class="error">"Please enter calories"</p>
                                 </div>
+                                
+                                <div class="flex flex-col">
+                                    <label class="label text-left">เลือกรูปภาพ: </label>
+                                    <input type="file" class="text-black" accept="product.productImg/png" @change="selectPic" />
+                                    <div class="mt-2">
+                                        <img :src="imageUpload" class="object-cover lg:h-52 w-full sm:h-36" />
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="mt-2 lg:w-3/5 lg:space-y-2">
                                 <div>
                                     <label class="label">ประเภทอาหาร: </label>
                                     <select id="category"  v-model="selectCategory"  name="category" class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2" >  
@@ -31,13 +42,10 @@
                                     </select>
                                     <p v-if="invalidCategory" class="error">"Please select category"</p>
                                 </div>
-                        
-                            </div>
-                            <div class="mt-2 lg:w-3/5 lg:space-y-1">
                                 <div>
                                     <label class="label">วิธีการทำ: </label>
                                     <textarea rows="4" cols="50" type="text" id="Preparation" name="Preparation"
-                                     v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-60 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
+                                     v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-80 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
                                     <p v-if="invalidPreparation" class="error">"Please enter preparation"</p>
                                 </div>
                                 <!-- <div>
@@ -49,13 +57,7 @@
                                 
                             </div>
                         </div>
-                        <div class="flex flex-col items-center">
-                             <label class="label">เลือกรูปภาพ: </label>
-                            <input type="file" class="text-black" accept="product.productImg/png" @change="selectPic" />
-                            <div class="mt-2">
-                                <img :src="imageUpload" class="object-cover lg:h-60 w-full sm:h-36" />
-                            </div>
-                        </div>
+                        
                         <div class=" flex flex-row justify-center space-x-2 mt-4 mb-4">
                             <button class="bg-green-500 hover:bg-green-600 hover:text-black text-white py-2 px-16 mx-2 rounded text-darkgray text-xl font-medium" @click="menuForm">
                                 เพิ่มเมนู
@@ -129,11 +131,11 @@ export default {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then(response => {
-                if(response.status === 200){
-                    alert("Menu was added!")
-                    this.$router.go();
-                }
-            })
+                response.status === 200 ? alert("Menu was add!") : alert("Error")
+            }).catch(error => {
+            let errorObject=JSON.parse(JSON.stringify(error));
+            console.log(errorObject);
+            })     
         },
         closeModal(){
             this.$emit("close", true);

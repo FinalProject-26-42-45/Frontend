@@ -125,7 +125,7 @@ export default {
       return "http://localhost:3000/"+MenuImg;
     },
     toggleModal: function() {
-      this.showModal = !this.showModal;
+        this.showModal = !this.showModal;
     },
     closeModal(){
       this.openEdit = false;
