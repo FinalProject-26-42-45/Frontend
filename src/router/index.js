@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import RecommendMenuPage from '../views/RecommendMenuPage.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import LoginPage from '../views/LoginPage.vue'
-import RecipePage from '../views/RecipePage.vue'
+import LoginAdminPage from '../views/LoginAdminPage.vue'
+import AdminPage from '../views/AdminPage.vue'
 
 const routes = [
   {
@@ -11,20 +12,26 @@ const routes = [
     component: RegisterPage
   },
   {
-    path: '/',
+    path: '/login',
     name: 'login',
     component: LoginPage
   },
   {
-    path: '/recipe',
-    name: 'recipe',
-    component: RecipePage
+    path: '/login-admin',
+    name: 'login-admin',
+    component: LoginAdminPage
   },
   {
-    path: '/recommend-menu',
+    path: '/',
     name: 'recommend-menu',
     component: RecommendMenuPage
-  }
+  },
+  {
+    path: '/admin-manage',
+    name: 'admin-manage',
+    component: AdminPage
+  },
+
 ]
 
 const router = createRouter({

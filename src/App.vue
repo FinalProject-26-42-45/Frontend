@@ -1,32 +1,33 @@
 <template>
-  <!-- <div>
-    <router-link to="/register">ลงทะเบียน</router-link> |
-    <router-link to="/login">เข้าสู่ระบบ</router-link> |
-    <router-link to="/recipe">สูตรอาหาร</router-link> |
-    <router-link to="/recommend-menu">เมนูแนะนำ</router-link>
-  </div> -->
+
   <router-view/>
 </template>
+<script>
+
+
+export default {
+  components: {
+
+  }
+}
+</script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #nav {
+    padding: 16px;
+  }
+  .fontKanit {
+    font-family: 'Kanit', sans-serif;
+    
+  }
+  .fontNoto {
+    font-family: 'Noto Sans Thai', sans-serif;
+  }
+  .textShadow {
+    text-shadow: 2px 2px 4px #2b2b2b;
+  }
+  .bgIcon {
+    color: #F95335;
+  }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
