@@ -137,13 +137,7 @@ export default {
                     alert("Menu was add!")
                     this.$router.go()
                 }
-            })
-            // }).then(response => {
-            //     response.status === 200 ? alert("Menu was add!") : alert("Error")
-            // }).catch(error => {
-            // let errorObject=JSON.parse(JSON.stringify(error));
-            // console.log(errorObject);
-            // })     
+            })   
         },
         closeModal(){
             this.$emit("close", true);
