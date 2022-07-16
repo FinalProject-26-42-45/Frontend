@@ -17,63 +17,64 @@
               <hr class="my-1 border-2 border-yellow dark:bg-yellow w-60" />
             
               <div class="w-full">
-                <form class="form-horizontal w-3/4 mx-auto p-2">
+                <form @submit.prevent="signUp(firstname,lastname,email,tel,username,password, gender, birth, religion, foodallergens)" class="form-horizontal w-3/4 mx-auto p-2">
                   <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
                     <div class="flex flex-col mt-1">
                       <p class="text-sm text-left font-medium ">ชื่อจริง</p>
-                      <input id="firstname" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="firstname" value="" required >
+                      <input v-model="firstname" id="firstname" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="firstname"  required >
                     </div>
                     <div class="flex flex-col mt-1">
                       <p class="text-sm text-left font-medium ">นามสกุล</p>
-                      <input id="lastname" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="lastname" value="" required >
+                      <input v-model="lastname" id="lastname" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="lastname"  required >
                     </div>
                   </div>
 
                   <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
                     <div class="flex flex-col mt-1">
                       <p class="text-sm text-left font-medium ">อีเมล์</p>
-                      <input id="email" type="email" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="email" value="" required >
+                      <input v-model="email" id="email" type="email" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="email"  required >
                     </div>
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">ชื่อผู้ใช้งาน</p>
-                      <input id="username" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="username" value="" required >
-                    </div>
-                  </div>
-
-                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">รหัสผ่าน</p>
-                      <input id="password" type="password" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="password" value="" required>
-                    </div>
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">ยืนยันรหัสผ่าน</p>
-                      <input id="passwordConfirm" type="password" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="passwordConfirm" value="" required >
-                    </div>
-                  </div>
-
-                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
                     <div class="flex flex-col mt-1">
                       <p class="text-sm text-left font-medium ">เบอร์โทรศัพท์</p>
-                      <input id="tel" type="number" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="tel" value="" required>
+                      <input v-model="tel" id="tel" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="tel"  required>
+                    </div>
+                    
+                  </div>
+
+                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                    <div class="flex flex-col mt-1">
+                      <p class="text-sm text-left font-medium ">ชื่อผู้ใช้งาน</p>
+                      <input v-model="username" id="username" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="username"  required >
                     </div>
                     <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">วัน/เดือน/ปีเกิด</p>
-                      <input id="birthday" type="Date" class="flex-grow h-7 lg:w-52 px-2 rounded border border-grey-400 bg-gray-200" name="dirthday" required >
-                    </div>
+                      <p class="text-sm text-left font-medium ">รหัสผ่าน</p>
+                      <input v-model="password" id="password" type="password" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="password"  required>
+                    </div>        
                   </div>
 
                   <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
                     <div class="flex flex-col mt-1">
                       <p class="text-sm text-left font-medium ">เพศ</p>
-                      <input id="gender" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="gender" value="" required >
+                      <input v-model="gender" id="gender" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="gender"  required >
                     </div>
                     <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">ศาสนา</p>
-                      <input id="religion" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="religion" value="" required >
+                      <p class="text-sm text-left font-medium ">วัน/เดือน/ปีเกิด</p>
+                      <input v-model="birth" id="birthday" type="Date" class="flex-grow h-7 lg:w-52 px-2 rounded border border-grey-400 bg-gray-200" name="dirthday" required >
                     </div>
                   </div>
 
-                  <div class="flex flex-col mt-1">
+                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">                   
+                    <div class="flex flex-col mt-1">
+                      <p class="text-sm text-left font-medium ">ศาสนา</p>
+                      <input v-model="religion" id="religion" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="religion"  required >
+                    </div>
+                    <div class="flex flex-col mt-1">
+                      <p class="text-sm text-left font-medium ">อาหารที่แพ้</p>
+                      <input v-model="foodallergens" id="foodallergens" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="foodallergens"  required >
+                    </div>
+                  </div>
+
+                  <!-- <div class="flex flex-col mt-1">
                     <p class="text-sm text-left font-medium ">อาหารที่แพ้</p>
                     <div class="flex justify-start space-x-4">
                       <div>
@@ -107,7 +108,7 @@
                       </div>
                     </div>
                     
-                  </div>
+                  </div> -->
 
                   <div class="flex flex-col mt-2">
                     <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
@@ -131,8 +132,64 @@
 
 
 export default {
-  components: {
+  data() {
+      return {
+        firstname: "",
+        lastname: "",
+        birth: null,
+        gender: "",
+        email: "",
+        tel: "",
+        username: "",
+        password: "",
+        religion: "",
+        foodallergens: "",
+        successful: false,
+        loading: false,
+        message: ""
+      }
+  },
 
+  computed: {
+      loggedIn() {
+          return this.$store.state.auth.status.loggedIn;
+      },
+  },
+  mounted(){
+      if (this.loggedIn) {
+          this.$router.push('/');
+      }
+  },
+
+  methods: {
+      signUp(firstname, lastname, email, tel, username, password, gender, birth, religion, foodallergens) {
+          const users = {firstname:firstname, lastname:lastname, birth:birth, gender:gender, email:email, tel:tel, 
+          username:username, password:password, religion:religion, foodallergens: foodallergens}
+          console.log(users);
+          this.message = "";
+          this.successful = false;
+          this.loading = true;
+          this.$store.dispatch("auth/register", users).then(
+              (data) => {
+                  this.message = data.message;
+                  this.successful = true;
+                  this.loading = false;
+                  alert("You was registered!")
+                  this.$router.push('/login');
+                  
+              },
+              (error) => {
+                  this.message = 
+                  (error.response &&
+                  error.response.data &&
+                  error.response.data.message) ||
+                  error.message ||
+                  error.toString();
+                  this.successful = false;
+                  this.loading = false;
+              }
+          );
+      },
   }
 }
 </script>

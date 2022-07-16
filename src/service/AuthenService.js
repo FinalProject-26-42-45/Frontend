@@ -23,17 +23,19 @@ logout() {
 
 register(users) {
     const data = JSON.parse(JSON.stringify({
-      "firstname": users.firstname,
-      "lastname": users.lastname,
-      "birth": users.birth,
-      "gender": users.gender,
-      "email": users.email,
-      "tel": users.tel,
-      "username": users.username,
-      "password": users.password
+      "Firstname": users.firstname,
+      "Lastname": users.lastname,
+      "Username": users.username,
+      "Password": users.password,
+      "DOB": users.birth,
+      "Gender": users.gender,
+      "Email": users.email,
+      "Tel": users.tel,
+      "FoodAllergens": users.foodallergens,
+      "Religion": users.religion,
     }));
-    return axios.post("https://foodrand.hopto.org/backend/auth/signup", data)
-    // return axios.post("http://localhost:3000/auth/signup", data)
+    // return axios.post("https://foodrand.hopto.org/backend/auth/signup", data)
+    return axios.post("http://localhost:3000/auth/register", data)
     }
 
 
