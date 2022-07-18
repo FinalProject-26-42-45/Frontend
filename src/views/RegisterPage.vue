@@ -17,103 +17,114 @@
               <hr class="my-1 border-2 border-yellow dark:bg-yellow w-60" />
             
               <div class="w-full">
-                <form @submit.prevent="signUp(firstname,lastname,email,tel,username,password, gender, birth, religion, foodallergens)" class="form-horizontal w-3/4 mx-auto p-2">
-                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">ชื่อจริง</p>
-                      <input v-model="firstname" id="firstname" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="firstname"  required >
+                <form @submit.prevent="signUp(firstname,lastname,email,tel,username,password, gender, birth, religion, foodalligens)" class="form-horizontal w-3/4 mx-auto p-2">
+                  <div v-if="!successful">
+                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">ชื่อจริง</p>
+                        <input v-model="firstname" id="firstname" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="firstname"  required >
+                      </div>
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">นามสกุล</p>
+                        <input v-model="lastname" id="lastname" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="lastname"  required >
+                      </div>
                     </div>
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">นามสกุล</p>
-                      <input v-model="lastname" id="lastname" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="lastname"  required >
-                    </div>
-                  </div>
 
-                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">อีเมล์</p>
-                      <input v-model="email" id="email" type="email" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="email"  required >
+                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">อีเมล์</p>
+                        <input v-model="email" id="email" type="email" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="email"  required >
+                      </div>
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">เบอร์โทรศัพท์</p>
+                        <input v-model="tel" id="tel" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="tel"  required>
+                      </div>
+                      
                     </div>
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">เบอร์โทรศัพท์</p>
-                      <input v-model="tel" id="tel" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="tel"  required>
-                    </div>
-                    
-                  </div>
 
-                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">ชื่อผู้ใช้งาน</p>
-                      <input v-model="username" id="username" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="username"  required >
+                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">ชื่อผู้ใช้งาน</p>
+                        <input v-model="username" id="username" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="username"  required >
+                      </div>
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">รหัสผ่าน</p>
+                        <input v-model="password" id="password" type="password" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="password"  required>
+                      </div>        
                     </div>
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">รหัสผ่าน</p>
-                      <input v-model="password" id="password" type="password" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="password"  required>
-                    </div>        
-                  </div>
 
-                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">เพศ</p>
-                      <input v-model="gender" id="gender" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="gender"  required >
+                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                      <!-- <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">เพศ</p>
+                        <input v-model="gender" id="gender" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="gender"  required >
+                      </div> -->
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">เพศ</p>
+                        <select v-model="gender" class="flex-grow h-7 lg:w-52 px-2 border rounded border-grey-400 bg-gray-200" name="gender">
+                          <option disabled value="">เลือกเพศ</option>
+                          <option>หญิง</option>
+                          <option>ชาย</option>
+                        </select>
+                      </div>
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">วัน/เดือน/ปีเกิด</p>
+                        <input v-model="birth" id="birthday" type="Date" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" 
+                        class="flex-grow h-7 lg:w-52 px-2 rounded border border-grey-400 bg-gray-200" name="birthday" required >
+                      </div>
                     </div>
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">วัน/เดือน/ปีเกิด</p>
-                      <input v-model="birth" id="birthday" type="Date" class="flex-grow h-7 lg:w-52 px-2 rounded border border-grey-400 bg-gray-200" name="dirthday" required >
-                    </div>
-                  </div>
 
-                  <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">                   
-                    <div class="flex flex-col mt-1">
-                      <p class="text-sm text-left font-medium ">ศาสนา</p>
-                      <input v-model="religion" id="religion" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="religion"  required >
+                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">                   
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">ศาสนา</p>
+                        <input v-model="religion" id="religion" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="religion"  required >
+                      </div>
+                      <div class="flex flex-col mt-1">
+                        <p class="text-sm text-left font-medium ">อาหารที่แพ้</p>
+                        <input v-model="foodalligens" id="foodalligens" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="foodalligens"  required >
+                      </div>
                     </div>
-                    <div class="flex flex-col mt-1">
+
+                    <!-- <div class="flex flex-col mt-1">
                       <p class="text-sm text-left font-medium ">อาหารที่แพ้</p>
-                      <input v-model="foodallergens" id="foodallergens" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="foodallergens"  required >
+                      <div class="flex justify-start space-x-4">
+                        <div>
+                          <input type="checkbox" name="egg" id="egg" class="mr-1 "> 
+                          <label for="egg" class="text-xs text-grey-dark ">ไข่</label>
+                        </div>
+
+                        <div>
+                          <input type="checkbox" name="milk" id="milk" class="mr-1 "> 
+                          <label for="milk" class="text-xs text-grey-dark ">นม</label>
+                        </div>
+
+                        <div>
+                          <input type="checkbox" name="nut" id="nut" class="mr-1 "> 
+                          <label for="nut" class="text-xs text-grey-dark ">ถั่ว</label>
+                        </div>
+
+                        <div>
+                          <input type="checkbox" name="wheat" id="wheat" class="mr-1 "> 
+                          <label for="wheat" class="text-xs text-grey-dark ">ข้าวสาลี</label>
+                        </div>
+
+                        <div>
+                          <input type="checkbox" name="seafood" id="seafood" class="mr-1 "> 
+                          <label for="seafood" class="text-xs text-grey-dark ">อาหารทะเล</label>
+                        </div>
+
+                        <div>
+                          <input type="checkbox" name="fish" id="fish" class="mr-1 "> 
+                          <label for="fish" class="text-xs text-grey-dark ">ปลา</label>
+                        </div>
+                      </div>
+                      
+                    </div> -->
+
+                    <div class="flex flex-col mt-2">
+                      <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
+                        ลงทะเบียน
+                      </button>
                     </div>
-                  </div>
-
-                  <!-- <div class="flex flex-col mt-1">
-                    <p class="text-sm text-left font-medium ">อาหารที่แพ้</p>
-                    <div class="flex justify-start space-x-4">
-                      <div>
-                        <input type="checkbox" name="egg" id="egg" class="mr-1 "> 
-                        <label for="egg" class="text-xs text-grey-dark ">ไข่</label>
-                      </div>
-
-                      <div>
-                        <input type="checkbox" name="milk" id="milk" class="mr-1 "> 
-                        <label for="milk" class="text-xs text-grey-dark ">นม</label>
-                      </div>
-
-                      <div>
-                        <input type="checkbox" name="nut" id="nut" class="mr-1 "> 
-                        <label for="nut" class="text-xs text-grey-dark ">ถั่ว</label>
-                      </div>
-
-                      <div>
-                        <input type="checkbox" name="wheat" id="wheat" class="mr-1 "> 
-                        <label for="wheat" class="text-xs text-grey-dark ">ข้าวสาลี</label>
-                      </div>
-
-                      <div>
-                        <input type="checkbox" name="seafood" id="seafood" class="mr-1 "> 
-                        <label for="seafood" class="text-xs text-grey-dark ">อาหารทะเล</label>
-                      </div>
-
-                      <div>
-                        <input type="checkbox" name="fish" id="fish" class="mr-1 "> 
-                        <label for="fish" class="text-xs text-grey-dark ">ปลา</label>
-                      </div>
-                    </div>
-                    
-                  </div> -->
-
-                  <div class="flex flex-col mt-2">
-                    <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
-                      ลงทะเบียน
-                    </button>
                   </div>
                 </form>
               </div>
@@ -143,7 +154,7 @@ export default {
         username: "",
         password: "",
         religion: "",
-        foodallergens: "",
+        foodalligens: "",
         successful: false,
         loading: false,
         message: ""
@@ -162,9 +173,9 @@ export default {
   },
 
   methods: {
-      signUp(firstname, lastname, email, tel, username, password, gender, birth, religion, foodallergens) {
+      signUp(firstname, lastname, email, tel, username, password, gender, birth, religion, foodalligens) {
           const users = {firstname:firstname, lastname:lastname, birth:birth, gender:gender, email:email, tel:tel, 
-          username:username, password:password, religion:religion, foodallergens: foodallergens}
+          username:username, password:password, religion:religion,foodalligens: foodalligens}
           console.log(users);
           this.message = "";
           this.successful = false;
@@ -174,8 +185,8 @@ export default {
                   this.message = data.message;
                   this.successful = true;
                   this.loading = false;
-                  alert("You was registered!")
-                  this.$router.push('/login');
+                  alert("คุณลงทะเบียนเรียบร้อยแล้ว!")
+                  this.$router.push('/');
                   
               },
               (error) => {
