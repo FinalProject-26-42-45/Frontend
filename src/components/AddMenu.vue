@@ -134,7 +134,7 @@ export default {
                 }
                 }).then(response => {
                 if(response.status === 201){
-                    alert("Menu was add!")
+                    alert("เพิ่มเมนูเรียบร้อยแล้ว!")
                     this.$router.go()
                 }
             })   

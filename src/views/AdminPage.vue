@@ -1,68 +1,62 @@
 <template>
-    <div class="h-screen overflow-x-hidden bg-nood fontNoto flex flex-row">
-        <div class="flex flex-col h-auto px-4 py-8 border-r dark:bg-yellow">
-            <div class="flex justify-center">
-            <img src="../assets/logo.png" class="object-cover h-36 w-auto">
-            </div>
-            <p class="text-3xl font-bold text-white text-center mt-5 textShadow">FOODRAND</p>
+  <div class="bg-nood fontNoto flex relative ">
+    <aside class="fixed left-0 top-0 h-screen p-10 px-4 py-8 border-r dark:bg-yellow">
+      <div class="flex justify-center">
+        <img src="../assets/logo.png" class="object-cover h-36 w-auto">
+      </div>
+      <p class="text-3xl font-bold text-white text-center mt-5 textShadow">FOODRAND</p>
             
-            <div class="flex flex-col justify-between flex-1 mt-6">
-                <nav>
-                    <!-- <a class="flex items-center px-4 py-3 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
-                        <font-awesome-icon icon="address-book" class="block h-6 w-6 " />
+      <div class="flex flex-col justify-between flex-1 mt-12">
+          <a class="flex items-center px-4 py-3 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+            <font-awesome-icon icon="address-book" class="block h-6 w-6 " />
 
-                        <span class="mx-4 font-medium">ข้อมูลผู้ใช้</span>
-                    </a> -->
+            <span class="mx-4 font-medium">ข้อมูลผู้ใช้</span>
+          </a>
 
-                    <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
-                        <font-awesome-icon icon="rectangle-list" class="block h-6 w-6 " />
+          <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+            <font-awesome-icon icon="rectangle-list" class="block h-6 w-6 " />
 
-                        <span class="mx-4 font-medium">เมนูอาหาร</span>
-                    </a>
+             <span class="mx-4 font-medium">เมนูอาหาร</span>
+          </a>
 
-                    <!-- <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
-                        <font-awesome-icon icon="newspaper" class="block h-6 w-6 " />
+          <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+            <font-awesome-icon icon="newspaper" class="block h-6 w-6 " />
 
-                        <span class="mx-4 font-medium">บทความ</span>
-                    </a> -->
+            <span class="mx-4 font-medium">บทความ</span>
+          </a>
 
-                    
-
-                </nav>
-                <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" >
-                    <span class="font-medium pl-2 pr-4">ออกจากระบบ</span>
-
-                    <font-awesome-icon icon="arrow-right-from-bracket" class="block h-6 w-6 " />
-                </a>
-
-            </div>
+            <a class="absolute inset-x-4 bottom-3 flex px-4 py-3 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" >
+              <span class="font-medium pl-2 pr-4">ออกจากระบบ</span>
+              <font-awesome-icon icon="arrow-right-from-bracket" class="block h-6 w-6 " />
+            </a>
+      </div>
+    </aside>
+    <main class="flex-1 ml-52">
+      <!-- <div class="flex my-4">
+        <div>
+          <input placeholder="ค้นหา" v-model="search"
+            class="p-2 py-2 mt-1 lg:w-80 sm:w-60 bg-white rounded-l-md border-2 border-gray-400">
         </div>
-        <div class="flex flex-col items-center justify-items-center">
-            <!-- <div class="flex my-4">
-                <div>
-                    <input placeholder="ค้นหา" v-model="search"
-                    class="p-2 py-2 mt-1 lg:w-80 sm:w-60 bg-white rounded-l-md border-2 border-gray-400">
-                </div>
-                <div class="">
-                    <button class="bg-coral1 rounded-r-md text-white py-2 px-2 w-11 h-11 mt-1">
-                    <span class="material-icons">search</span>
-                    </button>
-                </div>
-            </div> -->
-            <div class="flex justify-center my-4 space-x-2">
-              <div>
-                <input v-model="boxsearch" v-show="search.click" placeholder="ค้นหา"
-                        class="p-2 py-2 lg:w-80 sm:w-60 bg-white rounded border-2 border-oldrose">
-                </div>
-              <div>
-                <button class="bg-coral1 rounded-full text-white py-2 px-2 w-10 h-10 hover:text-pink"  @click="statusSearch" v-show="search.nClick">
-                  <span class="material-icons">search</span>
-                </button>
-                <button class="hover:bg-coral2 bg-coral1 py-1.5 px-3 mt-0.5 rounded text-white lg:text-lg sm:text-base" v-show="search.click" @click="statusSearch">
-                  ยกเลิก
-                </button>
-              </div>
-            </div>
+        <div class="">
+          <button class="bg-coral1 rounded-r-md text-white py-2 px-2 w-11 h-11 mt-1">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      /div> -->
+      <div class="flex justify-center my-4">
+        <div>
+          <input v-model="boxsearch" v-show="search.click" placeholder="ค้นหา"
+            class="p-2 py-2 lg:w-80 sm:w-60 bg-white rounded border-2 border-oldrose">
+        </div>
+        <div>
+          <button class="bg-coral1 rounded-full text-white py-2 px-2 w-10 h-10 hover:text-pink"  @click="statusSearch" v-show="search.nClick">
+            <span class="material-icons">search</span>
+          </button>
+          <button class="hover:bg-coral2 bg-coral1 py-1.5 px-3 mt-0.5 rounded text-white lg:text-lg sm:text-base" v-show="search.click" @click="statusSearch">
+            ยกเลิก
+          </button>
+        </div>
+      </div>
             <div class="lg:flex lg:justify-center pb-4">
                 <button @click="toggleModal" class=" hover:bg-amber-400 bg-yellow py-2 px-20 rounded-sm text-black hover:text-white text-lg font-medium">
                     เพิ่มเมนู
@@ -102,8 +96,8 @@
                 </div> 
             </div>
 
-        </div>
-    </div>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -156,7 +150,7 @@ export default {
       MenuService.delete("/menu/"+ MenuId)
       .then(response => {
         this.menu = response.data;
-        alert("The menu was delete!");
+        alert("เมนูถูกลบแล้ว!");
         this.$router.go();
       })
     },

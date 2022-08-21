@@ -114,7 +114,7 @@ export default {
                 }
             }).then(response => {
                 if(response.status === 200){
-                    alert("Already edited!")
+                    alert("แก้ไขเมนูเรียบร้อยแล้ว!")
                     this.$router.go()
                 }
             })

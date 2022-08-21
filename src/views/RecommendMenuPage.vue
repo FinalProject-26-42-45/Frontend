@@ -137,8 +137,8 @@
       </div> 
     </div>
     
-    <div v-if="openRecipe"  class="overflow-x-hidden fixed inset-0 z-50 outline-none focus:outline-none flex justify-center items-center">
-      <div class=" h-auto border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 md:w-1/2 bg-white outline-none focus:outline-none ">
+    <div v-if="openRecipe"  class="overflow-x-hidden overflow-y-hidden fixed inset-10 z-50 outline-none focus:outline-none flex justify-center items-center">
+      <div class="h-full border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 md:w-1/2 bg-white outline-none focus:outline-none overflow-auto">
               
         <div class="flex justify-end pr-3 pt-2">
           <button class="close text-black" type="button" @click="closeModal()" > X </button>
@@ -148,23 +148,23 @@
           <div class="pt-3 flex justify-center md:justify-center">
             <h3 class="text-3xl uppercase text-darkgray">{{ n.MenuName }}</h3>
           </div>
-          <div class="lg:flex lg:flex-row justify-around mt-2 space-x-5 sm:flex sm:flex-col">
-            <div class="lg:flex lg:justify-center sm:justify-center mt-2 w-4/5 rounded-md">
-              <img class="object-cover w-auto lg:h-64 p-2" :src="getMenuImage( n.MenuImg )"/>
+          <div class="lg:flex lg:flex-row justify-around mt-2 sm:flex sm:flex-col">
+            <div class="lg:flex lg:justify-center sm:justify-center md:justify-center  w-3/4 rounded-md">
+              <img class="object-cover w-auto lg:h-80" :src="getMenuImage( n.MenuImg )"/>
             </div>
 
-            <!-- <div class=" mt-2 w-2/5 space-y-2 ">
-              <p class="text-xl font-semibold text-justify">วัตถุดิบ</p>
-              <p class="text-xl text-left whitespace-nowrap">{{ n.IngredientName }}</p>
-              <p class="text-lg text-left whitespace-nowrap">{{ n.Quantity }}</p>
-              <p class="text-lg text-left whitespace-nowrap">{{ n.Unit }}</p>              
-            </div> -->
-          </div>
-                                      
-          <div class="mt-6 ">
-            <p class="text-xl font-semibold text-justify">วิธีการทำ</p>
-            <p class="text-lg whitespace-pre-line ">{{ n.Preparation }}</p>
-          </div>
+        
+        </div>
+            <div class=" pl-4">
+            <p class="text-xl font-semibold">วัตถุดิบ</p>
+              <ol v-for="r in recipe" :key="r.IngredientId" class="list-disc mt-2 pl-8">
+                <li class="text-lg">{{ r.IngredientName }} {{ r.Quantity }} {{ r.Unit }}</li>
+              </ol>            
+            </div>              
+            <div class="mt-6 ">
+              <p class="text-xl font-semibold pl-4">วิธีการทำ</p>
+              <p class="text-lg whitespace-pre-line pl-8">{{ n.Preparation }}</p>
+            </div>
         </div>
             
       </div>
@@ -211,14 +211,15 @@ export default {
         mn = res.data;
         this.popupMenu.push(mn);
       });
+      this.getRecipe(MenuId);
       this.openRecipe = true;
     },
-    retrieveCategory() {
-      MenuService.get("/menucategory")
-        .then(response => {
-          this.category = response.data;
-        })
-    },
+    // retrieveCategory() {
+    //   MenuService.get("/menucategory")
+    //     .then(response => {
+    //       this.category = response.data;
+    //     })
+    // },
     retrieveMenu() {
       MenuService.get("/menu")
         .then(response => {
@@ -229,8 +230,9 @@ export default {
       return "http://localhost:3000/"+MenuImg;
       // return "https://foodrand.hopto.org/backend/"+MenuImg;
     },
-    getRecipe() {
-      MenuService.get("/recipe")
+    getRecipe(MenuId) {
+      console.log("MenuId:"+MenuId);
+      MenuService.get("/menu/ingredient/"+MenuId)
         .then(response => {
           this.recipe = response.data;
         })
