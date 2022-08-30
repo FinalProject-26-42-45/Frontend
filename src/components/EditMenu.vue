@@ -15,12 +15,13 @@
                             <label class="label">ชื่อเมนู: </label>
                             <input  type="text" id="MenuName" name="MenuName"
                                 v-model="MenuName"   class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2 focus:ring-2 focus:ring-yellow"/>
+                            <p v-if="invalidMenuName" class="error">"กรุณาใส่ชื่อเมนูอาหาร"</p>
                         </div>
                         <div>
                             <label class="label">แคลอรี: </label>
                             <input  type="decimal" 
                                 v-model="Calories"  class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2"/>
-                
+                            <p v-if="invalidCalories" class="error">"กรุณาใส่แคลอรี"</p>
                         </div>
                         <!-- <div>
                             <label class="label">ประเภทอาหาร: </label>
@@ -41,15 +42,15 @@
                             <label class="label">วิธีการทำ: </label>
                             <textarea rows="4" cols="50" type="text" id="Preparation" name="Preparation"
                                 v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-64 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
-                            
+                            <p v-if="invalidPreparation" class="error">"กรุณาใส่วิธีการทำ"</p>
                         </div>
 
                     </div>
                 </div>
             
                 <div class=" flex flex-row justify-center space-x-2 mt-4 mb-4">
-                    <button class="bg-yellow hover:bg-amber-400 hover:text-black text-white py-2 px-16 mx-2 rounded text-darkgray text-xl font-medium" @click="updateMenu(MenuId)" >
-                        แก้ไข
+                    <button class="bg-yellow hover:bg-amber-400 hover:text-black text-white py-2 px-16 mx-2 rounded text-darkgray text-xl font-medium" @click="menuForm(MenuId)" >
+                        แก้ไขเมนู
                     </button>
                 </div>
             </div>     
@@ -71,7 +72,10 @@ export default {
             Ingredient: "",
             selectCategory: null,
             MenuId: this.mId,
-
+            invalidMenuName: false,
+            invalidCalories: false,
+            invalidPreparation: false,
+            invalidCategory: false,
         }
     },
     methods: {
@@ -88,6 +92,16 @@ export default {
                 this.selectCategory = response.data.Category
             })
         },
+        menuForm() {
+            this.invalidMenuName = this.MenuName === "" ? true:false;
+            this.invalidCalories = this.Calories === "" ? true:false;
+            this.invalidPreparation = this.Preparation === "" ? true : false;
+            this.invalidCategory= this.selectCategory === null ? true:false;
+            if(this.invalidMenuName || this.invalidCalories || this.invalidPreparation || this.invalidCategory ) {
+                return;
+            }
+            this.updateMenu();
+        },
         updateMenu() {
             const formData = new FormData();
             let edit = {
@@ -99,14 +113,11 @@ export default {
                 Category: this.selectCategory
             }
             const menuData = JSON.stringify(edit);
-            console.log(menuData);
             const blob = new Blob([menuData], {
                 type: 'application/json'
             });
 
             formData.append('json', blob);
-
-            console.log(formData);
 
             MenuService.put(`/menu`, formData,{
                 headers: {

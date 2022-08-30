@@ -130,7 +130,9 @@ export default {
       MenuService.get("/menu")
         .then(response => {
           this.menu = response.data;
+          
         })
+        
     },
     getMenuImage(MenuImg){
       return "http://localhost:3000/"+MenuImg;

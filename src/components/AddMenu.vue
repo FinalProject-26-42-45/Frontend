@@ -14,15 +14,16 @@
                             <div class="mt-2 lg:w-2/5 lg:space-y-2 ">
                                 <div>
                                     <label class="label">ชื่อเมนู: </label>
-                                    <input  type="text" id="MenuName" name="MenuName"
+                                    <input  type="text" id="MenuName" name="MenuName" @keyup="validateMenuName"
                                     v-model="MenuName"   class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2 focus:ring-2 focus:ring-yellow"/>
-                                    <p v-if="invalidMenuName" class="error">"Please enter menu name"</p>
+                                    <p v-if="invalidMenuName" class="error">"กรุณาใส่ชื่อเมนูอาหาร"</p>
+                                    <p class="error">{{ duplicateMenuName }}</p>
                                 </div>
                                 <div>
                                     <label class="label">แคลอรี: </label>
                                     <input  type="number" 
                                     v-model="Calories"  class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2"/>
-                                    <p v-if="invalidCalories" class="error">"Please enter calories"</p>
+                                    <p v-if="invalidCalories" class="error">"กรุณาใส่แคลอรี"</p>
                                 </div>
                                 
                                 <div class="flex flex-col">
@@ -40,13 +41,13 @@
                                     <select id="category"  v-model="selectCategory"  name="category" class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2" >  
                                         <option v-for="c in Category" :value="c"  :key="c.CategoryId">{{ c.CategoryName }}</option> 
                                     </select>
-                                    <p v-if="invalidCategory" class="error">"Please select category"</p>
+                                    <p v-if="invalidCategory" class="error">"กรุณาเลือกประเภทของเมนู"</p>
                                 </div>
                                 <div>
                                     <label class="label">วิธีการทำ: </label>
                                     <textarea rows="4" cols="50" type="text" id="Preparation" name="Preparation"
                                      v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-80 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
-                                    <p v-if="invalidPreparation" class="error">"Please enter preparation"</p>
+                                    <p v-if="invalidPreparation" class="error">"กรุณาใส่วิธีการทำ"</p>
                                 </div>
                                 <!-- <div>
                                     <label class="label mt-2">วัตถุดิบ: </label>
@@ -79,6 +80,7 @@ export default {
             imageUpload: this.imageDb ? this.imageDb : imageUpload,
             Category: [],
             Menu: [],
+            menuName: [],
             ImageFile: null,
             MenuImg: null,
             MenuName: "",
@@ -90,7 +92,7 @@ export default {
             invalidCalories: false,
             invalidPreparation: false,
             invalidCategory: false,
-
+            duplicateMenuName: "",
         }
     },
     methods: {
@@ -99,15 +101,28 @@ export default {
             this.invalidCalories = this.Calories === "" ? true:false;
             this.invalidPreparation = this.Preparation === "" ? true : false;
             this.invalidCategory= this.selectCategory === null ? true:false;
-            console.log(this.selectCategory);
             if(this.invalidMenuName || this.invalidCalories || this.invalidPreparation || this.invalidCategory ) {
-                console.log('invalidMenuName',this.invalidMenuName);
-                console.log('invalidCalories',this.invalidCalories );
-                console.log('invalidPreparation',this.invalidPreparation);
-                console.log('invalidCategory',this.invalidCategory);
                 return;
             }
             this.addMenu();
+        },
+        validateMenuName(){
+            if(!this.MenuName){
+                this.duplicateMenuName = ''
+                return;
+            }
+            const res = this.menuName ;
+            this.duplicateMenuName = (res.includes(this.MenuName)) ? "ชื่อเมนูนี้มีอยู่แล้ว" : "" ;
+        },
+        retrieveMenu() {
+            MenuService.get("/menu")
+                .then(response => {
+                for(let each in response.data){
+                    this.menuName.push(response.data[each].MenuName);
+                }
+                console.log(this.menuName);
+            })
+                
         },
         addMenu(){
             const formData = new FormData();
@@ -123,10 +138,6 @@ export default {
             });
             formData.append('file', this.ImageFile);
             formData.append('json', blob);
-
-            console.log(formData);
-
-            console.log(this.ImageFile);
 
             MenuService.post("/menu", formData, {
                 headers: {
@@ -160,6 +171,7 @@ export default {
     },
     created(){
         this.listCategory();
+        this.retrieveMenu(); 
     }
 
 };
