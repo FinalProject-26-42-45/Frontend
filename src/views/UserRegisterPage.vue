@@ -168,7 +168,7 @@ export default {
   },
   mounted(){
       if (this.loggedIn) {
-          this.$router.push('/login');
+          this.$router.push('/login-user');
       }
   },
 
@@ -185,7 +185,7 @@ export default {
                   this.successful = true;
                   this.loading = false;
                   alert("คุณลงทะเบียนเรียบร้อยแล้ว!")
-                  this.$router.push('/login');
+                  this.$router.push('/login-user');
                   
               },
               (error) => {

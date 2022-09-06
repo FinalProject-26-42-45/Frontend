@@ -57,7 +57,7 @@
                 <p class="text-xs">
                   ยังไม่มีบัญชีผู้ใช้? 
                 </p>
-                <p class="no-underline hover:underline text-coral1 text-xs"><router-link to="/register">สมัครที่นี่</router-link></p>
+                <p class="no-underline hover:underline text-coral1 text-xs"><router-link to="/user-register">สมัครที่นี่</router-link></p>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default {
   },
   created() {
       if (this.loggedIn) {
-          this.$router.push('/');
+          this.$router.push('/user-random');
       }
   },
   methods: {
@@ -100,7 +100,7 @@ export default {
       this.loading = true;
       this.$store.dispatch("auth/login", users).then(
         () => {
-          this.$router.push('/');
+          this.$router.push('/user-random');
         },
         (error) => {
           this.loading = false;

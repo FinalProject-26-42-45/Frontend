@@ -17,11 +17,11 @@
             class="block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-coral1 mr-2">
             หน้าแรก
           </p> -->
-          <router-link to="/">
+          <!-- <router-link to="/">
             <p class="block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-coral1 mr-2 pb-2">
               แนะนำอาหาร
             </p>
-          </router-link>
+          </router-link> -->
           <!-- <p
             class="block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-coral1 mr-2">
             บทความ
@@ -33,7 +33,7 @@
         </div>
         
         <div v-if="!currentUser">
-          <router-link to="/login">
+          <router-link to="/login-user">
             <div class="flex ">
               <font-awesome-icon icon="user-circle" class="block text-md rounded-full ml-2 h-10 w-10 bg-white border-2 border-white lg:mt-0" style="color:#F95335" />
       
@@ -46,7 +46,7 @@
 
         <div v-if="currentUser">
             <div class="flex ">
-              <router-link to="/profile" >
+              <router-link to="/" >
                 <div class="flex pr-3">
                   <font-awesome-icon icon="user-circle" class="block rounded-full ml-2 h-10 w-10 bg-white border-2 border-white lg:mt-0" style="color:#F95335" />
                   <p class="mt-2 pl-2 text-white text-base font-bold"> {{ currentUser.Username }} </p>
@@ -68,7 +68,7 @@ export default {
   data(){
     return {
       logoutShow: false,
-      loginShow: true
+      loginShow: true,
     }
   },
   computed: {
@@ -79,7 +79,7 @@ export default {
   methods: {
     logOut() {
       this.$store.dispatch('auth/logout');
-      this.$router.push('/login');
+      this.$router.push('/login-user');
       
     },
   }

@@ -83,7 +83,7 @@
                         </div>
                         
                         <div class=" flex flex-row justify-center space-x-2 mt-4 mb-4">
-                            <button class="bg-green-500 hover:bg-green-600 hover:text-black text-white py-2 px-16 mx-2 rounded text-darkgray text-xl font-medium" @click="menuForm">
+                            <button class="bg-green hover:text-white text-black py-2 px-16 mx-2 rounded text-darkgray text-xl font-medium" @click="menuForm">
                                 เพิ่มเมนู
                             </button>
                         </div>

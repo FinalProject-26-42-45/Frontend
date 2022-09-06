@@ -7,25 +7,25 @@
       <p class="text-3xl font-bold text-white text-center mt-5 textShadow">FOODRAND</p>
             
       <div class="flex flex-col justify-between flex-1 mt-12">
-          <a class="flex items-center px-4 py-3 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+          <a class=" cursor-pointer flex items-center px-4 py-3 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
             <font-awesome-icon icon="address-book" class="block h-6 w-6 " />
 
             <span class="mx-4 font-medium">ข้อมูลผู้ใช้</span>
           </a>
 
-          <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+          <a class="cursor-pointer flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
             <font-awesome-icon icon="rectangle-list" class="block h-6 w-6 " />
 
              <span class="mx-4 font-medium">เมนูอาหาร</span>
           </a>
 
-          <a class="flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
+          <a class="cursor-pointer flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
             <font-awesome-icon icon="newspaper" class="block h-6 w-6 " />
 
             <span class="mx-4 font-medium">บทความ</span>
           </a>
 
-            <a v-if="currentUser" class="absolute inset-x-4 bottom-3 flex px-4 py-3 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" @click.prevent="logOut">
+            <a v-if="currentUser" class="cursor-pointer absolute inset-x-4 bottom-3 flex px-4 py-3 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" @click.prevent="logOut">
               <span class="font-medium pl-2 pr-4">ออกจากระบบ</span>
               <font-awesome-icon icon="arrow-right-from-bracket" class="block h-6 w-6 " />
             </a>
