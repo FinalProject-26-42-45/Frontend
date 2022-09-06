@@ -97,7 +97,6 @@ export default {
   methods: {
     signIn(username,password) {
       const users = {username:username,password:password}
-      // console.log(users);
       this.loading = true;
       this.$store.dispatch("auth/login", users).then(
         () => {

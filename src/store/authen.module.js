@@ -1,6 +1,6 @@
 import AuthenService from "../service/AuthenService";
 
-const users = JSON.parse(localStorage.getItem('users'));
+const users = JSON.parse(localStorage.getItem('accessToken'));
 const initialState = users
     ? { status: { loggedIn: true }, users }
     : { status: { loggedIn: false }, users: null };

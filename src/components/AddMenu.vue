@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="fontNoto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none flex justify-center items-center mb-4">
+        <div class="fontNoto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 top-10 outline-none focus:outline-none flex justify-center mb-4">
             <div class="h-96 border-0 rounded-md shadow-lg flex flex-col lg:w-2/3 bg-oldrose outline-none focus:outline-none">
                 <div class="flex justify-end">
                     <button class="close text-black pt-2 pr-2" type="button" @click="closeModal" > X </button>
@@ -11,7 +11,7 @@
 
                 <div class=" bg-oldrose rounded-md px-4 ">
                         <div class="lg:flex lg:flex-row justify-around mt-2 lg:space-x-5 sm:flex-col">
-                            <div class="mt-2 lg:w-2/5 lg:space-y-2 ">
+                            <div class="mt-2 lg:w-2.5/5 lg:space-y-2 ">
                                 <div>
                                     <label class="label">ชื่อเมนู: </label>
                                     <input  type="text" id="MenuName" name="MenuName" @keyup="validateMenuName"
@@ -20,41 +20,64 @@
                                     <p class="error">{{ duplicateMenuName }}</p>
                                 </div>
                                 <div>
-                                    <label class="label">แคลอรี: </label>
+                                    <label class="label mt-2">แคลอรี: </label>
                                     <input  type="number" 
-                                    v-model="Calories"  class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2"/>
+                                    v-model="Calories"  class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2 focus:ring-2 focus:ring-yellow"/>
                                     <p v-if="invalidCalories" class="error">"กรุณาใส่แคลอรี"</p>
+                                </div>
+
+                                <!-- <div>
+                                    <label class="label mt-2" for="Multiselect">ประเภทอาหาร: </label>
+                                    <select id="category"  
+                                            v-model="selectCategory"  
+                                            name="category" 
+                                            class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2"
+                                            multiple>  
+                                        <option v-for="c in Category" :value="c"  :key="c.CategoryId">{{ c.CategoryName }}</option> 
+                                    </select>
+                                    <p v-if="invalidCategory" class="error">"กรุณาเลือกประเภทของเมนู"</p>
+                                </div> -->
+                                <div>
+                                    <label class="label mt-2">ประเภทอาหาร: </label>
+                                    <div class="grid grid-cols-3 justify-items-start">
+                                    <div v-for="c in Category" :key="c.CategoryId" class="flex flex-row">
+                                    <input type="checkbox" id="category"  
+                                            :value="c"  
+                                            v-model="selectCategory"  
+                                            name="category" 
+                                            class="w-5 h-5 accent-yellow"
+                                            />  
+                                    <p class="pl-1 ">{{ c.CategoryName }}</p>     
+                                    </div>
+                                    </div>
+
+                                    <p v-if="invalidCategory" class="error">"กรุณาเลือกประเภทของเมนู"</p>
                                 </div>
                                 
                                 <div class="flex flex-col">
-                                    <label class="label text-left">เลือกรูปภาพ: </label>
-                                    <input type="file" class="text-black" accept="product.productImg/png" @change="selectPic" />
-                                    <div class="mt-2">
-                                        <img :src="imageUpload" class="object-cover lg:h-52 w-full sm:h-36" />
+                                    <label class="label text-left lg:mt-3">เลือกรูปภาพ: </label>
+                                    <input type="file" class="text-black" @change="selectPic" />
+                                    <div class=" mt-4">
+                                        <img :src="imageUpload" class="object-cover lg:h-80 w-full sm:h-36" />
                                     </div>
                                 </div>
                         
                             </div>
                             <div class="mt-2 lg:w-3/5 lg:space-y-2">
                                 <div>
-                                    <label class="label">ประเภทอาหาร: </label>
-                                    <select id="category"  v-model="selectCategory"  name="category" class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2" >  
-                                        <option v-for="c in Category" :value="c"  :key="c.CategoryId">{{ c.CategoryName }}</option> 
-                                    </select>
-                                    <p v-if="invalidCategory" class="error">"กรุณาเลือกประเภทของเมนู"</p>
+                                    <label class="label">วัตถุดิบ: </label>
+                                    <textarea rows="4" cols="50" type="text" id="Ingredients" name="Ingredients"
+                                     v-model="Ingredients"  class="w-full px-3 py-2 mb-1 h-80 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md focus:ring-2 focus:ring-yellow"/>
+                                    <p v-if="invalidIngredients" class="error">"กรุณาใส่วัตถุดิบ"</p>
                                 </div>
+
                                 <div>
-                                    <label class="label">วิธีการทำ: </label>
+                                    <label class="label lg:mt-8">วิธีการทำ: </label>
                                     <textarea rows="4" cols="50" type="text" id="Preparation" name="Preparation"
-                                     v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-80 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
+                                     v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-96 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md focus:ring-2 focus:ring-yellow"/>
                                     <p v-if="invalidPreparation" class="error">"กรุณาใส่วิธีการทำ"</p>
                                 </div>
-                                <!-- <div>
-                                    <label class="label mt-2">วัตถุดิบ: </label>
-                                    <textarea rows="4" cols="50" type="text" id="Ingredient" name="Ingredient"
-                                     v-model="Ingredient"  class="w-full px-3 py-2 mb-1 h-52 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
-                                    <p v-if="invalidIngrdient" class="error">"Please enter ingredient"</p>
-                                </div> -->
+                                
                                 
                             </div>
                         </div>
@@ -73,6 +96,7 @@
 <script>
 import imageUpload from "../assets/imageupload.png";
 import MenuService from '../service/MenuService.js';
+import authHeader from '../service/AuthenHeader';
 export default {
     emits: ["close", "save-menu"],
     data() {
@@ -86,12 +110,14 @@ export default {
             MenuName: "",
             Calories: "",
             Preparation: "",
-            selectCategory: null,
+            Ingredients: "",
+            selectCategory: [],
             image: null,
             invalidMenuName: false,
             invalidCalories: false,
             invalidPreparation: false,
             invalidCategory: false,
+            invalidIngredients: false,
             duplicateMenuName: "",
         }
     },
@@ -100,8 +126,9 @@ export default {
             this.invalidMenuName = this.MenuName === "" ? true:false;
             this.invalidCalories = this.Calories === "" ? true:false;
             this.invalidPreparation = this.Preparation === "" ? true : false;
-            this.invalidCategory= this.selectCategory === null ? true:false;
-            if(this.invalidMenuName || this.invalidCalories || this.invalidPreparation || this.invalidCategory ) {
+            this.invalidIngredients = this.Ingredients === "" ? true : false;
+            this.invalidCategory= this.selectCategory.length === 0 ? true:false;
+            if(this.invalidMenuName || this.invalidCalories || this.invalidPreparation || this.invalidIngredients || this.invalidCategory  ) {
                 return;
             }
             this.addMenu();
@@ -120,7 +147,6 @@ export default {
                 for(let each in response.data){
                     this.menuName.push(response.data[each].MenuName);
                 }
-                console.log(this.menuName);
             })
                 
         },
@@ -130,7 +156,9 @@ export default {
                 MenuName: this.MenuName,
                 Calories: this.Calories,
                 Preparation: this.Preparation,
-                menucategory: this.selectCategory   
+                Ingredients: this.Ingredients,
+                menucategory: this.selectCategory
+                
             }
             const menuData = JSON.stringify(add);
             const blob = new Blob([menuData], {
@@ -138,18 +166,24 @@ export default {
             });
             formData.append('file', this.ImageFile);
             formData.append('json', blob);
-
             MenuService.post("/menu", formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    Authorization: authHeader().Authorization,
+                    'Content-Type' : 'multipart/form-data'
                 }
                 }).then(response => {
                 if(response.status === 201){
                     alert("เพิ่มเมนูเรียบร้อยแล้ว!")
                     this.$router.go()
                 }
+            }).catch(error => {
+                if(error.response.status === 401){
+                alert("ต้องเข้าสู่ระบบก่อนทำการเพิ่มเมนู!")
+                this.$router.push('/login-admin');
+                }
             })   
         },
+        
         closeModal(){
             this.$emit("close", true);
         },

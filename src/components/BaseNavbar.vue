@@ -57,31 +57,7 @@
               </button>
             </div>
         </div>
-
-        <!-- <div v-if="currentUser" class="flex-no-grow flex-no-shrink py-2 px-4 leading-normal text-white no-underline flex items-center">
-          <div class="flex-no-grow flex-no-shrink py-2 pr-4 leading-normal text-white no-underline flex items-center"> 
-            <router-link to="/profile" >
-              <font-awesome-icon icon="user" class="mr-3"/>
-                {{ currentUser.username }}
-            </router-link>
-          </div>
-        </div>
-        <button  v-if="currentUser" class="flex-no-grow flex-no-shrink py-2 px-4 leading-normal text-white no-underline flex items-center " @click.prevent="logOut">
-          <font-awesome-icon icon="sign-out-alt" class="mr-2"/>LOG OUT
-        </button> -->
       </div>    
-
-
-    <!-- <div class="lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow">
-      <div class="lg:flex lg:items-stretch lg:justify-end ml-auto">
-        <router-link to="/">
-          <font-awesome-icon icon="user-circle" class="flex-no-grow flex-no-shrink relative leading-normal text-white no-underline flex items-center h-10 w-10 bg-white border-2 border-white rounded-full" style="color:#F95335" />
-        </router-link> 
-        <button type="submit" class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center bg-coral1 hover:bg-coral2 rounded-md">
-          เข้าสู่ระบบ
-        </button> 
-      </div>
-    </div> -->
         <slot></slot>
     </div>
     <router-view/>

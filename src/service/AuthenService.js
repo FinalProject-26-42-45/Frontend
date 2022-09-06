@@ -11,14 +11,16 @@ class AuthenService {
     return axios.post("http://localhost:3000/auth/login", data)
         .then(response => {
             if (response.data.accessToken) {
-                localStorage.setItem('users', JSON.stringify(response.data));
+                localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken));
+                localStorage.setItem('role', JSON.stringify(response.data.RoleId));
+                
             }
             return response.data;
         });
 }
 
 logout() {
-    localStorage.removeItem('users');
+    localStorage.removeItem('accessToken');
 }
 
 register(users) {

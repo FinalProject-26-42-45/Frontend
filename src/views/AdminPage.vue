@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-nood fontNoto flex relative ">
+  <div class="bg-nood fontNoto flex relative overflow-y-auto">
     <aside class="fixed left-0 top-0 h-screen p-10 px-4 py-8 border-r dark:bg-yellow">
       <div class="flex justify-center">
         <img src="../assets/logo.png" class="object-cover h-36 w-auto">
@@ -25,7 +25,7 @@
             <span class="mx-4 font-medium">บทความ</span>
           </a>
 
-            <a class="absolute inset-x-4 bottom-3 flex px-4 py-3 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" >
+            <a v-if="currentUser" class="absolute inset-x-4 bottom-3 flex px-4 py-3 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" @click.prevent="logOut">
               <span class="font-medium pl-2 pr-4">ออกจากระบบ</span>
               <font-awesome-icon icon="arrow-right-from-bracket" class="block h-6 w-6 " />
             </a>
@@ -43,6 +43,28 @@
           </button>
         </div>
       /div> -->
+      <!-- <div>
+        <div class="flex items-center">
+            <button id="left-button" @click="scroll_left">
+              <font-awesome-icon icon="chevron-left" class="block h-14 w-14 mt-4" style="color:#FFB911" />
+            </button>
+            <ul class="container wrapper-box mt-8">
+              <li v-for="list in category" :key="list.id" @click="clickCategory(list.CategoryId)">
+                <div class=" w-36">
+                  <img :src="require(`../assets/${list.CategoryName}.png`)" 
+                      class="object-cover h-32 w-auto"/>
+                  <p class="text-lg whitespace-nowrap text-center">{{ list.CategoryName }} </p>
+                </div>
+              </li>
+            </ul>
+            <button id="right-button" @click="scroll_right" class="page-item">
+              <font-awesome-icon icon="chevron-right" class="block h-14 w-14 mt-12" style="color:#FFB911"/>
+            </button>            
+        </div>
+        <button @click="retrieveMenu">
+          เมนูทั้งหมด
+        </button>  
+      </div> -->
       <div class="flex justify-center my-4">
         <div>
           <input v-model="boxsearch" v-show="search.click" placeholder="ค้นหา"
@@ -70,9 +92,6 @@
             </edit-menu>
             <div v-if="openEdit" class="show-modal"></div>
 
-            <div v-for="c in category" :key="c.CategoryId" class=" pl-16">
-            <p class=" text-xl text-black font-bold">{{ m.MenuName }}</p>
-            </div>
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-left">
                 <div v-for="(m, index) in filterMenu" :key="index" :id="m.MenuId" class="w-full p-1 md:p-2">
                     <base-block class="relative bg-oldrose">
@@ -104,6 +123,7 @@
 import MenuService from '../service/MenuService.js';
 import AddMenu from '../components/AddMenu.vue';
 import EditMenu from '../components/EditMenu.vue';
+import authHeader from '../service/AuthenHeader';
 
 export default {
   components: {
@@ -149,21 +169,56 @@ export default {
       this.openEdit = true;
     },
     deleteMenu(MenuId) {
-      MenuService.delete("/menu/"+ MenuId)
-      .then(response => {
+      MenuService.delete("/menu/"+ MenuId, {
+        headers: {
+          Authorization: authHeader().Authorization,
+        },
+      }).then(response => {
         this.menu = response.data;
         alert("เมนูถูกลบแล้ว!");
         this.$router.go();
-      })
+      }).catch(error => {
+        if(error.response.status === 401){
+          alert("ต้องเข้าสู่ระบบก่อนทำการลบรูป!")
+          this.$router.push('/');
+        }
+          })
     },
     statusSearch(){
       this.search.click = !this.search.click
       this.search.nClick = !this.search.nClick
       this.boxsearch = ""
+    },
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login-admin');
+      
+    },
+    retrieveCategory() {
+      MenuService.get("/menucategory")
+        .then(response => {
+          this.category = response.data;
+        })
+    },
+    clickCategory(CategoryId) {
+      MenuService.get("/menu/category/"+CategoryId)
+        .then(response => {
+          this.menu = response.data;
+        });
+
+    },
+    scroll_left() {
+      let content = document.querySelector(".wrapper-box");
+      content.scrollLeft -= 1000;
+    },
+    scroll_right() {
+      let content = document.querySelector(".wrapper-box");
+      content.scrollLeft += 1000;
     }
   },
   created() {
     this.retrieveMenu(); 
+    this.retrieveCategory();
   },
   computed: {
     filterMenu(){
@@ -172,7 +227,10 @@ export default {
       .includes(this.boxsearch.toLowerCase())
       }
     );
-    }
+    },
+    currentUser() {
+      return this.$store.state.auth.users;
+    },
   }
 };
 </script>
@@ -190,6 +248,20 @@ export default {
   }
   .bgIcon {
     color: #F95335;
+  }
+
+  .container {
+    display: flex;
+    overflow-x: auto;
+  } 
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wrapper-box {
+  max-width: 1000px;
+  overflow: auto;
+  scroll-behavior: smooth;
   }
 
 </style>

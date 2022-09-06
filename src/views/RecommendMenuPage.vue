@@ -1,161 +1,65 @@
 <template>
-  <div class="h-full fontNoto bg-gray1">
-    <base-navbar></base-navbar>
-    <!-- <div class="flex flex-wrap h-screen">
+  <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
+    <base-navbar>
+      
+    </base-navbar>
       <section class="relative mx-auto">
-        <nav class="flex justify-between bg-white text-black w-screen">
-          <div class="px-5 xl:px-12 py-6 flex w-full items-center">
+        <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
+          <div class="px-5 py-6 flex w-full items-center">
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-              <li><a class="hover:text-gray-200" href="#">หน้าแรก</a></li>
-              <li><a class="hover:text-gray-200" href="#">แนะนำอาหาร</a></li>
-              <li><a class="hover:text-gray-200" href="#">บทความ</a></li>
-              <li><a class="hover:text-gray-200" href="#">สุ่มอาหาร</a></li>
+              <router-link to="/">
+                <div><a class="hover:text-coral1">หน้าแรก</a></div>
+              </router-link>
+              <router-link to="/">
+                <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
+              </router-link>
+              <router-link to="/">
+                <div><a class="hover:text-coral1">บทความ</a></div>
+              </router-link>
+              <router-link to="/">
+                <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
+              </router-link>
             </ul>
           </div>
         </nav>
         
       </section>
-    </div> -->
+      
     <div>
       <img class="object-cover w-full" alt="home" src="../assets/pic-home1.png">
     </div>
     <div>
-      <div class="flex items-center menuSlider pl-4">
-          <ul class="flex list-style-none">
-            <li class="page-item">
-                <font-awesome-icon icon="chevron-left" class="block h-14 w-14 mt-12" style="color:#FFB911" />
+      <div class="flex items-center">
+          <button id="left-button" @click="scroll_left">
+            <font-awesome-icon icon="chevron-left" class="block h-14 w-14 mt-4" style="color:#FFB911" />
+          </button>
+          <ul class="container wrapper-box mt-8 list-style-none">
+            <li @click="retrieveMenu" class="hoverCate">
+              <div class=" w-28 cursor-pointer">
+                <img src="../assets/อาหารทั้งหมด.png" class="object-cover picCateAll w-auto mt-2" />
+                <p class="text-lg mt-2 pl-4">เมนูทั้งหมด</p>  
+              </div>
             </li>
-
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/1.อาหารไทย.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/2.อาหารอีสาน.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/3.อาหารเหนือ.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/4.อาหารใต้.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/5.อาหารจานเดียว.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/6.อาหารญี่ปุ่น.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/7.ของหวาน.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/8.ก๋วยเตี๋ยว.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/9.อาหารทะเล.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/10.อาหารตามสั่ง.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <!-- <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/11.อาหารริมทาง.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/12.Fastfood.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/13.อาหารเกาหลี.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/14.อาหารเพื่อสุขภาพ.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/15.อาหารเช้า.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/16.เครื่องดื่ม.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/17.ยำ.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/18.อาหารทานเล่น.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/19.ต้มแกง.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/20.ผัด.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/21.ทอดย่าง.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li> 
-            <li class=" page-item page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 hover:bg-gray-200 focus:shadow-none">
-              <img src="../assets/22.อาหารจีน.png"
-                class="object-cover h-32 w-auto"
-                />
-            </li>  -->
-
-            <li class="page-item">
-              <font-awesome-icon icon="chevron-right" class="block h-14 w-14 mt-12" style="color:#FFB911"/>
+            <li v-for="list in category" 
+                :key="list.id" 
+                @click="clickCategory(list.CategoryId)"
+                class="hoverCate ">
+              <div class=" w-28 cursor-pointer">
+                <img :src="require(`../assets/${list.CategoryName}.png`)" 
+                    class="object-cover h-28 w-auto"/>
+                <p class="text-lg text-center">{{ list.CategoryName }} </p>
+              </div>
             </li>
           </ul>
+      <button id="right-button" @click="scroll_right" class="page-item">
+        <font-awesome-icon icon="chevron-right" class="block h-14 w-14 mt-4" style="color:#FFB911"/>
+      </button>
           
-      </div>
-      <div>
-        <button @click="retrieveMenu">
-          เมนูทั้งหมด
-        </button>  
-      </div>
-      <div class="flex items-center pl-12">
-        <div v-for="c in category" :key="c.CategoryId" class="flex list-style-none space-y-14">
-          <button @click="clickCategory(c.CategoryId)" class="text-lg whitespace-nowrap pl-16">{{ c.CategoryName }} </button>
-        </div>
-      </div>
     </div>
+  </div>
+  
 
-    <div class="flex justify-center my-4 space-x-2">
+    <div class="flex justify-center my-4">
       <div>
         <input v-model="boxsearch" v-show="search.click" placeholder="ค้นหา"
           class="p-2 py-2 lg:w-80 sm:w-60 bg-white rounded border-2 border-oldrose">
@@ -181,7 +85,8 @@
           <div class="mt-8">
             <router-link to="/">
               <button @click="clickRecipe(m.MenuId)"  class="bg-yellow hover:text-white py-1.5 w-32 rounded-md text-black text-base absolute bottom-2 right-2">
-                <p class="md:hidden lg:inline">สูตรอาหาร</p> <font-awesome-icon icon="arrow-right"/>
+                <p class="lg:inline">สูตรอาหาร</p>
+                <!-- <font-awesome-icon class="sm:hidden md:hidden lg:inline" icon="arrow-right"/> -->
               </button>
             </router-link>
           </div>
@@ -207,13 +112,11 @@
             </div>
 
         
-        </div>
-            <div class=" pl-4">
-            <p class="text-xl font-semibold">วัตถุดิบ</p>
-              <ol v-for="r in recipe" :key="r.IngredientId" class="list-disc mt-2 pl-8">
-                <li class="text-lg">{{ r.IngredientName }} {{ r.Quantity }} {{ r.Unit }}</li>
-              </ol>            
-            </div>              
+        </div>   
+            <div class="mt-6 ">
+              <p class="text-xl font-semibold pl-4">วัตถุดิบ</p>
+              <p class="text-lg whitespace-pre-line pl-8">{{ n.Ingredients }}</p>
+            </div>           
             <div class="mt-6 ">
               <p class="text-xl font-semibold pl-4">วิธีการทำ</p>
               <p class="text-lg whitespace-pre-line pl-8">{{ n.Preparation }}</p>
@@ -240,7 +143,7 @@ export default {
     return {
       menu: [],
       category: [],
-      recipe: [],
+      // recipe: [],
       popupMenu: [],
       MenuId: null,
       CategoryId: null,
@@ -265,7 +168,7 @@ export default {
         mn = res.data;
         this.popupMenu.push(mn);
       });
-      this.getRecipe(MenuId);
+      // this.getRecipe(MenuId);
       this.openRecipe = true;
     },
     retrieveCategory() {
@@ -291,22 +194,32 @@ export default {
       return "http://localhost:3000/"+MenuImg;
       // return "https://foodrand.hopto.org/backend/"+MenuImg;
     },
-    getRecipe(MenuId) {
-      console.log("MenuId:"+MenuId);
-      MenuService.get("/menu/ingredient/"+MenuId)
-        .then(response => {
-          this.recipe = response.data;
-        })
-    },
+    // getRecipe(MenuId) {
+    //   console.log("MenuId:"+MenuId);
+    //   MenuService.get("/menu/ingredient/"+MenuId)
+    //     .then(response => {
+    //       this.recipe = response.data;
+    //     })
+    // },
     statusSearch(){
       this.search.click = !this.search.click
       this.search.nClick = !this.search.nClick
       this.boxsearch = ""
+    },
+    scroll_left() {
+      let content = document.querySelector(".wrapper-box");
+      content.scrollLeft -= 1000;
+    },
+    scroll_right() {
+      let content = document.querySelector(".wrapper-box");
+      content.scrollLeft += 1000;
     }
+    
   },
   created() {
     this.retrieveMenu(); 
     this.retrieveCategory();
+
   },
   computed: {
     filterMenu(){
@@ -321,9 +234,20 @@ export default {
 </script>
 
 <style>
-  .menuSlider {
-    width: 1625px;
-    height: 221px;
+  .container {
+    overflow-x: auto;
+  } 
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wrapper-box {
+  overflow: auto;
+  scroll-behavior: smooth;
+  }
+
+  .picCateAll {
+    height: 100px;
   }
 
 </style>
