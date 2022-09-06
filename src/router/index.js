@@ -83,12 +83,14 @@ const routes = [
   {
     path: '/anonymous-select-category',
     name: 'anonymous-select-category',
-    component: AnonymousSelectCategoryPage
+    component: AnonymousSelectCategoryPage,
+    props: true
   },
   {
     path: '/anonymous-random-menu',
     name: 'anonymous-random-menu',
-    component: AnonymousRandomMenuPage
+    component: AnonymousRandomMenuPage,
+    props: true
   },
 
   {

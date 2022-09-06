@@ -25,7 +25,7 @@
         <div class="w-5/6 h-auto p-6 bg-white flex justify-center mt-12 mb-10 ">
           
             <div class="w-3/6 flex justify-center cursor-pointer">
-              <router-link to="/user-select-category">
+              <router-link to="/user-random-menu">
                 <img src="../assets/user-category.png" 
                     class="object-cover h-auto w-auto"/>
               </router-link>

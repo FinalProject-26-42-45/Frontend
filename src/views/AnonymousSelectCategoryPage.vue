@@ -14,7 +14,7 @@
               <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">บทความ</a></div>
               </router-link> -->
-              <router-link to="/anonymous-select-category">
+              <router-link to="/anonymous-random-menu">
                 <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
               </router-link>
             </ul>
@@ -41,7 +41,12 @@
               <li v-for="list in category" 
                   :key="list.id" 
                   class="">
-                  <router-link to="/anonymous-random-menu">
+                  <router-link :to="{
+                    name: 'anonymous-random-menu',
+                    params: {
+                      categoryId: list.CategoryId,
+                    },
+                  }">
                   <div class="bg-coral2 pic rounded-md cursor-pointer">
                     <div class="pt-4 pl-4 pr-4 pb-1">
                     <img :src="require(`../assets/${list.CategoryName}.png`)" 
@@ -72,7 +77,9 @@ export default {
     },
     data() {
       return {
-        category: []
+        menu: [],
+        category: [],
+        CategoryId: null,
       }
     },
     methods: {
@@ -82,8 +89,8 @@ export default {
           this.category = response.data;
           
         })
-        console.log("category");
       },
+      
     },
     created() {
       this.retrieveCategory();

@@ -16,7 +16,7 @@
               <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">บทความ</a></div>
               </router-link> -->
-              <router-link to="/anonymous-select-category">
+              <router-link to="/anonymous-random-menu">
                 <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
               </router-link>
             </ul>

@@ -14,7 +14,7 @@
               <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">บทความ</a></div>
               </router-link> -->
-              <router-link to="/anonymous-select-category">
+              <router-link to="/anonymous-random-menu">
                 <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
               </router-link>
             </ul>
@@ -26,6 +26,7 @@
           <div class="w-2/5 flex justify-center">
             <img src="../assets/random.png" 
                 class="object-cover h-auto w-auto"/>
+            
           </div>
           <div class="w-2/5 flex justify-center">
             <div class=" bg-yellow1 p-6 rounded-lg flex items-center">
@@ -37,7 +38,7 @@
                     name="category" 
                     class="w-5 h-5 accent-coral1"
                   />  
-                <p class="pl-1 ">{{ c.CategoryName }}</p>     
+                  <p class="pl-1 ">{{ c.CategoryName }}</p>     
                 </div>
               </div>
             </div>
@@ -52,6 +53,7 @@
 import MenuService from '../service/MenuService.js';
 
 export default {
+    // props:["categoryId", "menuName"],
     components: {
       
     },
@@ -66,6 +68,15 @@ export default {
           this.Category = response.data;
         });
       },
+      // clickCategory(categoryId) {
+      //   MenuService.get("/menu/category/"+categoryId)
+      //     .then(response => {
+      //       for(let each in response.data){
+      //             this.menu.push({Menuname: response.data[each].MenuName, MenuImg: response.data[each].MenuImg});
+      //           }
+      //     });
+
+      // },
    
     },
     created() {

@@ -98,7 +98,7 @@ import imageUpload from "../assets/imageupload.png";
 import MenuService from '../service/MenuService.js';
 import authHeader from '../service/AuthenHeader';
 export default {
-    emits: ["close", "save-menu"],
+    emits: ["close"],
     data() {
         return {
             imageUpload: this.imageDb ? this.imageDb : imageUpload,
