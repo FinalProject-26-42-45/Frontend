@@ -3,11 +3,8 @@
   <router-view/>
 </template>
 <script>
-
-
 export default {
   components: {
-
   }
 }
 </script>
@@ -29,5 +26,4 @@ export default {
   .bgIcon {
     color: #F95335;
   }
-
 </style>

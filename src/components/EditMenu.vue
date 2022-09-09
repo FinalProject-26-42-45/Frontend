@@ -1,5 +1,5 @@
 <template>
-    <div class="fontNoto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none flex justify-center items-center mb-4">
+    <div class="fontNoto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 top-20 outline-none focus:outline-none flex justify-center mb-4">
         <div class="h-96 border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 bg-oldrose outline-none focus:outline-none">
             <div class="flex justify-end">
                 <button class="close text-black" type="button" @click="closeModal" > X </button>
@@ -10,46 +10,44 @@
 
             <div class=" bg-oldrose rounded-md px-4 ">
                 <div class="lg:flex lg:flex-row justify-around mt-2 lg:space-x-5 sm:flex-col">
-                    <div class="mt-2 lg:w-2/5 lg:space-y-2 ">
+                    <div class="mt-2 lg:w-3/5 lg:space-y-2 ">
                         <div>
                             <label class="label">ชื่อเมนู: </label>
                             <input  type="text" id="MenuName" name="MenuName"
                                 v-model="MenuName"   class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2 focus:ring-2 focus:ring-yellow"/>
+                            <p v-if="invalidMenuName" class="error">"กรุณาใส่ชื่อเมนูอาหาร"</p>
                         </div>
+                        
+                        <div>
+                            <label class="label">วัตถุดิบ: </label>
+                            <textarea rows="4" cols="50" type="text" id="Ingredients" name="Ingredients"
+                                v-model="Ingredients"  class="w-full px-3 py-2 mb-1 h-72 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md focus:ring-2 focus:ring-yellow"/>
+                            <p v-if="invalidIngredients" class="error">"กรุณาใส่วัตถุดิบ"</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 lg:w-3/5 lg:space-y-2">
                         <div>
                             <label class="label">แคลอรี: </label>
                             <input  type="decimal" 
-                                v-model="Calories"  class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2"/>
-                
+                                v-model="Calories"  class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2 focus:ring-2 focus:ring-yellow"/>
+                            <p v-if="invalidCalories" class="error">"กรุณาใส่แคลอรี"</p>
                         </div>
-                        <!-- <div>
-                            <label class="label">ประเภทอาหาร: </label>
-                            <select id="category"  v-model="selectCategory"  name="category" class="font-medium rounded-md border-2 border-yellow border-opacity-50y w-full px-3 py-2" >  
-                                <option v-for="c in Category" :value="Category"  :key="c.CategoryId">{{ c.CategoryName }}</option> 
-                            </select>
-                          
-                        </div> -->
-                    </div>
-                    <div class=" lg:w-3/5 lg:space-y-1">
-                        <!-- <div>
-                            <label class="label mt-2">วัตถุดิบ: </label>
-                            <textarea rows="4" cols="50" type="text" id="Ingredient" name="Ingredient"
-                                     v-model="Ingredient"  class="w-full px-3 py-2 mb-1 h-52 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
-                                    <p v-if="invalidIngrdient" class="error">"Please enter ingredient"</p>
-                        </div> -->
+                        
                         <div>
                             <label class="label">วิธีการทำ: </label>
                             <textarea rows="4" cols="50" type="text" id="Preparation" name="Preparation"
-                                v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-64 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md"/>
-                            
+                                        v-model="Preparation"  class="w-full px-3 py-2 mb-1 h-72 font-medium text-left bg-white border-2 border-yellow border-opacity-50y rounded-md focus:ring-2 focus:ring-yellow"/>
+                            <p v-if="invalidPreparation" class="error">"กรุณาใส่วิธีการทำ"</p>
                         </div>
-
+                        
                     </div>
+                    
                 </div>
+                
             
                 <div class=" flex flex-row justify-center space-x-2 mt-4 mb-4">
-                    <button class="bg-yellow hover:bg-amber-400 hover:text-black text-white py-2 px-16 mx-2 rounded text-darkgray text-xl font-medium" @click="updateMenu(MenuId)" >
-                        แก้ไข
+                    <button class="bg-yellow hover:bg-amber-400 hover:text-black text-white py-2 px-16 mx-2 rounded text-darkgray text-xl font-medium" @click="menuForm(MenuId)" >
+                        แก้ไขเมนู
                     </button>
                 </div>
             </div>     
@@ -59,6 +57,7 @@
 
 <script>
 import MenuService from "../service/MenuService.js";
+import authHeader from "../service/AuthenHeader.js"
 export default {
     props: ["mId"],
     data(){
@@ -68,10 +67,12 @@ export default {
             MenuName: "",
             Calories: "",
             Preparation: "",
-            Ingredient: "",
-            selectCategory: null,
+            Ingredients: "",
             MenuId: this.mId,
-
+            invalidMenuName: false,
+            invalidCalories: false,
+            invalidPreparation: false,
+            invalidIngredients: false,
         }
     },
     methods: {
@@ -84,9 +85,19 @@ export default {
                 this.MenuName = response.data.MenuName,
                 this.Calories = response.data.Calories,
                 this.Preparation = response.data.Preparation,
-                this.Ingredient = response.data.Ingredient,
-                this.selectCategory = response.data.Category
+                this.Ingredients = response.data.Ingredients
             })
+            
+        },
+        menuForm() {
+            this.invalidMenuName = this.MenuName === "" ? true:false;
+            this.invalidCalories = this.Calories === "" ? true:false;
+            this.invalidPreparation = this.Preparation === "" ? true : false;
+            this.invalidIngredients = this.Ingredients === "" ? true : false;
+            if(this.invalidMenuName || this.invalidCalories || this.invalidPreparation || this.invalidIngredients) {
+                return;
+            }
+            this.updateMenu();
         },
         updateMenu() {
             const formData = new FormData();
@@ -95,29 +106,31 @@ export default {
                 MenuName: this.MenuName,
                 Calories: this.Calories,
                 Preparation: this.Preparation,
-                Ingredient: this.Ingredient,
-                Category: this.selectCategory
+                Ingredients: this.Ingredients
             }
             const menuData = JSON.stringify(edit);
-            console.log(menuData);
             const blob = new Blob([menuData], {
                 type: 'application/json'
             });
 
             formData.append('json', blob);
 
-            console.log(formData);
-
             MenuService.put(`/menu`, formData,{
                 headers: {
+                    Authorization: authHeader().Authorization,
                     'Content-Type' : 'multipart/form-data'
                 }
             }).then(response => {
                 if(response.status === 200){
-                    alert("Already edited!")
+                    alert("แก้ไขเมนูเรียบร้อยแล้ว!")
                     this.$router.go()
                 }
-            })
+            }).catch(error => {
+                if(error.status === 401){
+                alert("ต้องเข้าสู่ระบบก่อนทำการแก้ไขเมนู!")
+                this.$router.push('/login-admin');
+                }
+            })   
         },
         listCategory() {
             MenuService.get("/menucategory").then(response => {

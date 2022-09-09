@@ -24,13 +24,13 @@
               <form class="form-horizontal w-3/4 mx-auto" @submit.prevent="signIn(username,password)">
                 <div class="flex flex-col mt-2">
                   <p class="text-base text-left font-medium ">ชื่อผู้ใช้งาน</p>
-                  <input id="username" type="text" class="flex-grow h-8 px-2 border rounded border-grey-400 bg-gray-200" name="username" value="" >
+                  <input v-model="username" id="username" type="text" class="flex-grow h-8 px-2 border rounded border-grey-400 bg-gray-200" name="username" required >
                 </div>
                 <div class="flex flex-col mt-2">
                   <p class="text-base text-left font-medium ">รหัสผ่าน</p>
-                  <input id="password" type="password" class="flex-grow h-8 px-2 rounded border border-grey-400 bg-gray-200" name="password" required >
+                  <input v-model="password" id="password" type="password" class="flex-grow h-8 px-2 rounded border border-grey-400 bg-gray-200" name="password" required >
                 </div>
-                <div class="flex justify-between mt-2">
+                <!-- <div class="flex justify-between mt-2">
                   <div>
                     <input type="checkbox" name="remember" id="remember" class="mr-2 "> 
                     <label for="remember" class="text-sm text-grey-dark ">จดจำฉันไว้</label>
@@ -38,18 +38,26 @@
                   <div>
                     <p class="text-sm text-grey-dark ">ลืมรหัสผ่าน ?</p>
                   </div>
-                </div>
+                </div> -->
                 <div class="flex flex-col mt-4">
                   <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
+                    <span
+                      v-show="loading"
+                      class="spinner-border spinner-border-sm"
+                    ></span>
                     เข้าสู่ระบบ
                   </button>
+                </div>
+
+                <div v-if="message" class="alert alert-danger" role="alert">
+                  {{ message }}
                 </div>
               </form>
               <div class="flex flex-row justify-center space-x-1 mt-4">
                 <p class="text-xs">
                   ยังไม่มีบัญชีผู้ใช้? 
                 </p>
-                <p class="no-underline hover:underline text-coral1 text-xs"><router-link to="/register">สมัครที่นี่</router-link></p>
+                <p class="no-underline hover:underline text-coral1 text-xs"><router-link to="/user-register">สมัครที่นี่</router-link></p>
               </div>
             </div>
           </div>
@@ -60,14 +68,52 @@
 </template>
 
 <script>
-import BaseNavbar from '@/components/BaseNavbar.vue'
+// import BaseNavbar from '@/components/BaseNavbar.vue'
 
 
 export default {
   components: {
-    BaseNavbar
+    // BaseNavbar
 
-  }
+  },
+  data() {
+      return {
+          username: "",
+          password: "",
+          loading: false,
+          message: "",
+      };
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  created() {
+      if (this.loggedIn) {
+          this.$router.push('/user-random');
+      }
+  },
+  methods: {
+    signIn(username,password) {
+      const users = {username:username,password:password}
+      this.loading = true;
+      this.$store.dispatch("auth/login", users).then(
+        () => {
+          this.$router.push('/user-random');
+        },
+        (error) => {
+          this.loading = false;
+          this.message = 
+            (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+            error.message ||
+            error.toString();
+        }
+      );
+    },
+  },
 }
 </script>
 <style>

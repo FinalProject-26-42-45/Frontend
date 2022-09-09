@@ -6,6 +6,7 @@ import BaseBlock from './components/BaseBlock.vue'
 import BaseFooter from './components/BaseFooter.vue'
 import BaseNavbar from './components/BaseNavbar.vue'
 import { FontAwesomeIcon } from './plugins/font-awesome.js'
+import store from "./store";
 
 
 const app = createApp(App)
@@ -14,4 +15,5 @@ app.component('base-footer', BaseFooter)
 app.component('base-navbar', BaseNavbar)
 app.use(router)
 app.component("font-awesome-icon", FontAwesomeIcon)
+app.use(store)
 .mount('#app');
