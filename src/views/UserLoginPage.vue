@@ -30,7 +30,7 @@
                   <p class="text-base text-left font-medium ">รหัสผ่าน</p>
                   <input v-model="password" id="password" type="password" class="flex-grow h-8 px-2 rounded border border-grey-400 bg-gray-200" name="password" required >
                 </div>
-                <div class="flex justify-between mt-2">
+                <!-- <div class="flex justify-between mt-2">
                   <div>
                     <input type="checkbox" name="remember" id="remember" class="mr-2 "> 
                     <label for="remember" class="text-sm text-grey-dark ">จดจำฉันไว้</label>
@@ -38,7 +38,7 @@
                   <div>
                     <p class="text-sm text-grey-dark ">ลืมรหัสผ่าน ?</p>
                   </div>
-                </div>
+                </div> -->
                 <div class="flex flex-col mt-4">
                   <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
                     <span

@@ -22,25 +22,34 @@
         </nav>    
       </section>
       <div class="flex justify-center">
-        <div class="w-5/6 h-auto p-6 bg-white flex justify-center mt-12 mb-10 ">
-          <div class="w-2/5 flex justify-center">
+        <div class="w-5/6 h-auto py-10 bg-white flex justify-center mt-12 mb-10 ">
+          <div class="relative w-2/5 flex justify-center">
             <img src="../assets/random.png" 
-                class="object-cover h-auto w-auto"/>
-            
+                class="object-cover h-auto w-auto lg:-ml-64 z-0"/>       
+            <img v-if="showImg" :src="getImg()"
+                class="object-cover h-32 w-auto z-10 -ml-80 mt-40"/>      
+              <p class="absolute z-10 inset-x-0 margin-name">{{ randomMenu.Menuname }}</p> 
           </div>
+
           <div class="w-2/5 flex justify-center">
-            <div class=" bg-yellow1 p-6 rounded-lg flex items-center">
+            <div class=" bg-yellow1 pl-6 pt-6 pr-6 rounded-lg items-center">
               <div class="grid grid-cols-2 gap-x-8 gap-y-4">
                 <div v-for="c in Category" :key="c.CategoryId" class="flex flex-row">
-                  <input type="checkbox" id="category"  
+                  <input type="radio" id="category"  
                     :value="c"  
                     v-model="selectCategory"  
                     name="category" 
                     class="w-5 h-5 accent-coral1"
                   />  
-                  <p class="pl-1 ">{{ c.CategoryName }}</p>     
+                  <p class="pl-1 ">{{ c.CategoryName }}</p>  
+
+                     
                 </div>
               </div>
+              <div class="mt-3 flex justify-center">
+                <button @click="clickCategory()" class="bg-green px-3 py-2 h-10 w-20 rounded-3xl font-semibold">สุ่มเมนู</button>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -60,6 +69,10 @@ export default {
     data() {
       return {
         Category: [],
+        menuInCategory: [],
+        randomMenu: '',
+        selectCategory: null,
+        showImg: false,
       }
     },
     methods: {
@@ -68,19 +81,27 @@ export default {
           this.Category = response.data;
         });
       },
-      // clickCategory(categoryId) {
-      //   MenuService.get("/menu/category/"+categoryId)
-      //     .then(response => {
-      //       for(let each in response.data){
-      //             this.menu.push({Menuname: response.data[each].MenuName, MenuImg: response.data[each].MenuImg});
-      //           }
-      //     });
+      getImg(){
+        return `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+      },
+      clickCategory() {
+        MenuService.get("/menu/category/"+this.selectCategory.CategoryId)
+          .then(response => {
+            for(let each in response.data){
+                  this.menuInCategory.push({Menuname: response.data[each].MenuName, MenuImg: response.data[each].MenuImg});
+                }
+            var randomMenu = Math.floor(Math.random() * this.menuInCategory.length);
+              this.randomMenu = this.menuInCategory[randomMenu];
+          });
+          this.showImg = true;
+        
+      },
 
-      // },
    
     },
     created() {
       this.listCategory();
+
 
     },
     computed: {
@@ -113,9 +134,14 @@ export default {
   }
 
   .wrapper-box {
-  max-width: 1000px;
-  overflow: auto;
-  scroll-behavior: smooth;
+    max-width: 1000px;
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+
+  .margin-name {
+    margin-left: 16rem;
+    bottom: 4.25rem
   }
 
 </style>
