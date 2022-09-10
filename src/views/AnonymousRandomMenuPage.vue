@@ -23,12 +23,22 @@
       </section>
       <div class="flex justify-center">
         <div class="w-5/6 h-auto py-10 bg-white flex justify-center mt-12 mb-10 ">
-          <div class="relative w-2/5 flex justify-center">
-            <img src="../assets/random.png" 
-                class="object-cover h-auto w-auto lg:-ml-64 z-0"/>       
-            <img v-if="showImg" :src="getImg()"
-                class="object-cover h-32 w-auto z-10 -ml-80 mt-40"/>      
-              <p class="absolute z-10 inset-x-0 margin-name">{{ randomMenu.Menuname }}</p> 
+          <div class=" bg-yellow1 w-2/5 pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center">
+            <!-- <img src="../assets/random.png" 
+                class="object-cover h-auto w-auto lg:-ml-64 z-0"/>        -->
+            <div v-if="showImg">
+            <div class="flex justify-center">
+              <img :src="imgSrc" class="object-cover h-64 w-auto" />
+            </div>
+            <div class="flex justify-center mt-4">
+              <input
+                type="text"
+                class="font-medium text-center rounded-md border-2 border-yellow border-opacity-50y w-48 px-3 py-2"
+                v-model="randomMenu.Menuname"
+                disabled
+              />
+            </div>
+          </div>
           </div>
 
           <div class="w-2/5 flex justify-center">
@@ -46,7 +56,7 @@
                      
                 </div>
               </div>
-              <div class="mt-3 flex justify-center">
+              <div class="my-3 flex justify-center">
                 <button @click="clickCategory()" class="bg-green px-3 py-2 h-10 w-20 rounded-3xl font-semibold">สุ่มเมนู</button>
               </div>
               
@@ -81,21 +91,24 @@ export default {
           this.Category = response.data;
         });
       },
-      getImg(){
-        return `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-      },
       clickCategory() {
-        MenuService.get("/menu/category/"+this.selectCategory.CategoryId)
-          .then(response => {
-            for(let each in response.data){
-                  this.menuInCategory.push({Menuname: response.data[each].MenuName, MenuImg: response.data[each].MenuImg});
-                }
-            var randomMenu = Math.floor(Math.random() * this.menuInCategory.length);
-              this.randomMenu = this.menuInCategory[randomMenu];
-          });
+      MenuService.get("/menu/category/" + this.selectCategory.CategoryId).then(
+        (response) => {
+          for (let each in response.data) {
+            this.menuInCategory.push({
+              Menuname: response.data[each].MenuName,
+              MenuImg: response.data[each].MenuImg,
+            });
+          }
+          var random = Math.floor(Math.random() * this.menuInCategory.length);
+          this.randomMenu = this.menuInCategory[random];
+
+          // this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+          this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
           this.showImg = true;
-        
-      },
+        }
+      );
+    },
 
    
     },
