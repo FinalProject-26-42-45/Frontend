@@ -36,7 +36,7 @@ register(users) {
       "FoodAllergens": users.foodallergens,
       "Religion": users.religion,
     }));
-    return axios.post("https://foodrand.hopto.org/backend/auth/signup", data)
+    return axios.post("https://foodrand.hopto.org/backend/auth/register", data)
     // return axios.post("http://localhost:3000/auth/register", data)
     }
 
