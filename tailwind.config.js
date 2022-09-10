@@ -2,6 +2,11 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: ['./public/**/*.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      'sm': '320px',
+      'md': '768px',
+      'lg': '1024px'
+    },
     extend: {
       colors: {
         yellow: '#FFB911',

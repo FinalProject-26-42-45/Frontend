@@ -22,25 +22,7 @@
         </nav>    
       </section>
       <div class="flex justify-center">
-        <div class="w-5/6 h-auto py-10 bg-white flex justify-center mt-12 mb-10 ">
-          <div class=" bg-yellow1 w-2/5 pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center">
-            <!-- <img src="../assets/random.png" 
-                class="object-cover h-auto w-auto lg:-ml-64 z-0"/>        -->
-            <div v-if="showImg">
-            <div class="flex justify-center">
-              <img :src="imgSrc" class="object-cover h-64 w-auto" />
-            </div>
-            <div class="flex justify-center mt-4">
-              <input
-                type="text"
-                class="font-medium text-center rounded-md border-2 border-yellow border-opacity-50y w-48 px-3 py-2"
-                v-model="randomMenu.Menuname"
-                disabled
-              />
-            </div>
-          </div>
-          </div>
-
+        <div class="w-5/6 h-auto py-10 bg-white flex justify-center lg:space-x-6 md:flex-col mt-12 mb-10 ">
           <div class="w-2/5 flex justify-center">
             <div class=" bg-yellow1 pl-6 pt-6 pr-6 rounded-lg items-center">
               <div class="grid grid-cols-2 gap-x-8 gap-y-4">
@@ -61,6 +43,23 @@
               </div>
               
             </div>
+          </div>
+          <div class=" bg-yellow1 h-screen w-2/5 pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center">
+            <!-- <img src="../assets/random.png" 
+                class="object-cover h-auto w-auto lg:-ml-64 z-0"/>        -->
+            <div v-if="showImg">
+            <div class="flex justify-center">
+              <img :src="imgSrc" class="object-cover h-64 w-auto" />
+            </div>
+            <div class="flex justify-center mt-4">
+              <input
+                type="text"
+                class="font-medium text-center rounded-md border-2 border-yellow border-opacity-50y w-48 px-3 py-2"
+                v-model="randomMenu.Menuname"
+                disabled
+              />
+            </div>
+          </div>
           </div>
         </div>
       </div> 
@@ -103,8 +102,8 @@ export default {
           var random = Math.floor(Math.random() * this.menuInCategory.length);
           this.randomMenu = this.menuInCategory[random];
 
-          // this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-          this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+          this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+          // this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
           this.showImg = true;
         }
       );
