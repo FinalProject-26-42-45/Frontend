@@ -17,7 +17,7 @@
               <hr class="my-1 border-2 border-yellow dark:bg-yellow w-60" />
             
               <div class="w-full">
-                <form @submit.prevent="signUp(firstname,lastname,email,tel,username,password, gender, birth, religion, foodalligens)" class="form-horizontal w-3/4 mx-auto p-2">
+                <form @submit.prevent="signUp(firstname,lastname,email,tel,username,password, gender, birth, religion, foodallergens)" class="form-horizontal w-3/4 mx-auto p-2">
                   <div v-if="!successful">
                     <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
                       <div class="flex flex-col mt-1">
@@ -80,7 +80,7 @@
                       </div>
                       <div class="flex flex-col mt-1">
                         <p class="text-sm text-left font-medium ">อาหารที่แพ้</p>
-                        <input v-model="foodalligens" id="foodalligens" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="foodalligens"  required >
+                        <input v-model="foodallergens" id="foodallergens" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="foodallergens"  required >
                       </div>
                     </div>
 
