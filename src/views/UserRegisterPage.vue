@@ -154,7 +154,7 @@ export default {
         username: "",
         password: "",
         religion: "",
-        foodalligens: "",
+        foodallergens: "",
         successful: false,
         loading: false,
         message: ""
@@ -173,9 +173,9 @@ export default {
   },
 
   methods: {
-      signUp(firstname, lastname, email, tel, username, password, gender, birth, religion, foodalligens) {
+      signUp(firstname, lastname, email, tel, username, password, gender, birth, religion, foodallergens) {
           const users = {firstname:firstname, lastname:lastname, birth:birth, gender:gender, email:email, tel:tel, 
-          username:username, password:password, religion:religion,foodalligens: foodalligens}
+          username:username, password:password, religion:religion, foodallergens: foodallergens}
           this.message = "";
           this.successful = false;
           this.loading = true;

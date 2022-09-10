@@ -6,7 +6,7 @@
       <section class="relative mx-auto">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
-            <ul class="hidden md:flex px-4 mx-auto font-heading space-x-12">
+            <ul class="md:flex px-4 mx-auto font-heading space-x-12">
               <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
               </router-link> -->
@@ -28,15 +28,15 @@
     <div>
       <img class="object-cover w-full" alt="home" src="../assets/pic-home1.png">
     </div>
-    <div>
       <div class="flex items-center">
           <button id="left-button" @click="scroll_left">
-            <font-awesome-icon icon="chevron-left" class="block h-14 w-14 mt-4" style="color:#FFB911" />
+            <font-awesome-icon icon="chevron-left" class="lg:inline-block sm:hidden h-14 w-14 mt-4" style="color:#FFB911" />
           </button>
           <ul class="container wrapper-box mt-8 list-style-none">
             <li @click="retrieveMenu" class="hoverCate">
               <div class=" w-28 cursor-pointer">
-                <img src="../assets/อาหารทั้งหมด.png" class="object-cover picCateAll w-auto mt-2 pl-1" />
+                <img src="../assets/อาหารทั้งหมด.png" 
+                class="object-cover w-auto picCateAll mt-1 ml-1" />
                 <p class="text-lg mt-2 pl-4">เมนูทั้งหมด</p>  
               </div>
             </li>
@@ -46,17 +46,16 @@
                 class="hoverCate ">
               <div class=" w-28 cursor-pointer">
                 <img :src="require(`../assets/${list.CategoryName}.png`)" 
-                    class="object-cover h-28 w-auto"/>
+                    class="object-cover w-auto lg:h-28"/>
                 <p class="text-lg text-center">{{ list.CategoryName }} </p>
               </div>
             </li>
           </ul>
       <button id="right-button" @click="scroll_right" class="page-item">
-        <font-awesome-icon icon="chevron-right" class="block h-14 w-14 mt-4" style="color:#FFB911"/>
+        <font-awesome-icon icon="chevron-right" class="lg:inline-block sm:hidden h-14 w-14 mt-4" style="color:#FFB911"/>
       </button>
           
     </div>
-  </div>
   
 
     <div class="flex justify-center my-4">
@@ -191,8 +190,8 @@ export default {
         })
     },
     getMenuImage(MenuImg){
-      // return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      return "http://localhost:3000/images/"+MenuImg;
+      // return "https://foodrand.hopto.org/backend/images/"+MenuImg;
     },
     // getRecipe(MenuId) {
     //   console.log("MenuId:"+MenuId);
@@ -208,11 +207,11 @@ export default {
     },
     scroll_left() {
       let content = document.querySelector(".wrapper-box");
-      content.scrollLeft -= 1000;
+      content.scrollLeft -= 500;
     },
     scroll_right() {
       let content = document.querySelector(".wrapper-box");
-      content.scrollLeft += 1000;
+      content.scrollLeft += 500;
     }
     
   },
