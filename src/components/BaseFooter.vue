@@ -72,7 +72,7 @@
             </nav>
         </div>
     </div>
-    <div class="absolute bottom-0 right-0 hidden sm:block w-full lg:w-1/4 md:w-1/2 lg:pl-44">
+    <div class="absolute bottom-0 right-0 lg:inline-block sm:hidden md:hidden w-full lg:w-1/4 md:w-1/2 lg:pl-44">
       <img class="object-cover h-40 w-auto " alt="picfooter" src="../assets/pic-footer.png" />
     </div>         
   </footer>
