@@ -1,25 +1,25 @@
 <template>
-  <div class="h-screen overflow-y-hidden bg-coral2 fontNoto pb-24">
+  <div class="h-screen overflow-y-auto bg-coral2 fontNoto pb-24">
     <base-navbar></base-navbar>
-    <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0 ">
-      <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 h-auto overflow-auto bg-white sm:mx-0">
+    <div class="flex flex-col items-center h-full justify-center px-4 sm:px-0 ">
+      <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 h-auto overflow-auto bg-white sm:mx-0 sm:mt-12">
         
-        <div class="flex flex-col w-full md:w-2/3 px-2 mb-3">
-          <div class="flex flex-col flex-1 justify-center items-center">
-            <div class="inset-0 top-4 flex justify-center mt-3">
-              <img src="../assets/logo.png" class="object-cover h-16 w-auto" />
-            </div>
-              <div class="">
-                <p class="text-lg text-center font-semibold">ลงทะเบียน</p>
-                <p class="text-base text-center font-medium">เพื่อเข้าถึงฟีเจอร์มากมาย</p>
+        <div class="flex flex-col justify-center w-full mb-3">
+          <div class="flex flex-col justify-center items-center lg:-ml-32 md:-ml-28">
+            <div class="lg:ml-32 md:ml-32 sm:mt-56 md:mt-0">
+              <div class=" flex justify-center mt-3">
+                <img src="../assets/logo.png" class="object-cover h-16 w-auto" />
               </div>
-
+                <div class="">
+                  <p class="text-lg text-center font-semibold">ลงทะเบียน</p>
+                  <p class="text-base text-center font-medium">เพื่อเข้าถึงฟีเจอร์มากมาย</p>
+                </div>
               <hr class="my-1 border-2 border-yellow dark:bg-yellow w-60" />
-            
-              <div class="w-full">
+            </div>
+              <div class="w-auto">
                 <form @submit.prevent="signUp(firstname,lastname,email,tel,username,password, gender, birth, religion, foodallergens)" class="form-horizontal w-3/4 mx-auto p-2">
                   <div v-if="!successful">
-                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                    <div class="flex lg:flex-row lg:space-x-3 md:flex-row sm:flex-col md:space-x-2">
                       <div class="flex flex-col mt-1">
                         <p class="text-sm text-left font-medium ">ชื่อจริง</p>
                         <input v-model="firstname" id="firstname" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="firstname"  required >
@@ -30,7 +30,7 @@
                       </div>
                     </div>
 
-                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                    <div class="flex lg:flex-row lg:space-x-3 md:flex-row sm:flex-col md:space-x-2">
                       <div class="flex flex-col mt-1">
                         <p class="text-sm text-left font-medium ">อีเมล์</p>
                         <input v-model="email" id="email" type="email" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="email"  required >
@@ -42,7 +42,7 @@
                       
                     </div>
 
-                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                    <div class="flex lg:flex-row lg:space-x-3 md:flex-row sm:flex-col md:space-x-2">
                       <div class="flex flex-col mt-1">
                         <p class="text-sm text-left font-medium ">ชื่อผู้ใช้งาน</p>
                         <input v-model="username" id="username" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="username"  required >
@@ -53,7 +53,7 @@
                       </div>        
                     </div>
 
-                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">
+                    <div class="flex lg:flex-row lg:space-x-3 md:flex-row sm:flex-col md:space-x-2">
                       <!-- <div class="flex flex-col mt-1">
                         <p class="text-sm text-left font-medium ">เพศ</p>
                         <input v-model="gender" id="gender" type="text" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="gender"  required >
@@ -73,7 +73,7 @@
                       </div>
                     </div>
 
-                    <div class="lg:flex lg:flex-row lg:space-x-3 md:flex md:flex-col sm:flex sm:flex-col">                   
+                    <div class="flex lg:flex-row lg:space-x-3 md:flex-row sm:flex-col md:space-x-2">                   
                       <div class="flex flex-col mt-1">
                         <p class="text-sm text-left font-medium ">ศาสนา</p>
                         <input v-model="religion" id="religion" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="religion"  required >
@@ -120,7 +120,7 @@
                       
                     </div> -->
 
-                    <div class="flex flex-col mt-2">
+                    <div class="flex flex-col lg:ml-32 md:ml-32 mt-2">
                       <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
                         ลงทะเบียน
                       </button>
@@ -131,7 +131,7 @@
           </div>
         </div>
 
-        <div class="hidden md:block md:w-1/2">
+        <div class="sm:hidden md:block md:w-1/2 lg:w-2/3">
           <img src="../assets/pic-register.png" class="rounded-r-3xl h-full">
         </div>
       </div>

@@ -4,7 +4,7 @@
     <section class="relative mx-auto">
       <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
         <div class="px-5 py-6 flex w-full items-center">
-          <ul class="hidden md:flex px-4 mx-auto font-heading space-x-12">
+          <ul class="md:flex px-4 mx-auto font-heading space-x-12">
             <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
               </router-link> -->
@@ -22,11 +22,38 @@
       </nav>
     </section>
     <div class="flex justify-center">
-      <div class="w-5/6 h-auto p-6 bg-white flex justify-center mt-12 mb-10">
-        <div class=" bg-yellow1 w-2/5 pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center"
+      <div class="w-5/6 p-4 bg-white flex lg:flex-row md:flex-row sm:flex-col justify-center mt-12 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4">
+        <div class="bg-yellow1 lg:w-2/6 h-full py-6 pl-3 rounded-lg flex flex-col items-center">
+            <div class="grid grid-cols-2 gap-x-4 gap-y-4">
+              <div
+                v-for="c in Category"
+                :key="c.CategoryId"
+                class="flex flex-row"
+              >
+                <input
+                  type="radio"
+                  id="category"
+                  :value="c"
+                  v-model="selectCategory"
+                  name="category"
+                  class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
+                />
+                <p class="pl-1">{{ c.CategoryName }}</p>
+              </div>
+            </div>
+            <div class="mt-3 flex justify-center">
+              <button
+                @click="clickCategory()"
+                class="bg-green px-3 py-2 h-10 w-20 rounded-3xl font-semibold"
+              >
+                สุ่มเมนู
+              </button>
+            </div>
+          </div> 
+        <div class=" bg-yellow1 lg:w-2/6 md:w-1/2 h-full py-6 px-3 rounded-lg flex flex-col justify-center"
         >
           <!-- <img src="../assets/random.png" 
-                class="object-cover h-auto w-auto z-0"/>        -->
+                class="object-cover h-auto w-auto z-0"/>        --> 
           <div v-if="showImg">
             <div class="flex justify-center">
               <img :src="imgSrc" class="object-cover h-64 w-auto" />
@@ -68,35 +95,7 @@
             </div>
           </div>
         </div>
-        <div class="w-2/5 flex justify-center">
-          <div class="bg-yellow1 pl-6 pt-6 pr-6 rounded-lg items-center">
-            <div class="grid grid-cols-2 gap-x-8 gap-y-4">
-              <div
-                v-for="c in Category"
-                :key="c.CategoryId"
-                class="flex flex-row"
-              >
-                <input
-                  type="radio"
-                  id="category"
-                  :value="c"
-                  v-model="selectCategory"
-                  name="category"
-                  class="w-5 h-5 accent-coral1"
-                />
-                <p class="pl-1">{{ c.CategoryName }}</p>
-              </div>
-            </div>
-            <div class="my-4 flex justify-center">
-              <button
-                @click="clickCategory()"
-                class="bg-green px-3 py-2 h-10 w-20 rounded-3xl font-semibold"
-              >
-                สุ่มเมนู
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
     <base-footer></base-footer>
@@ -140,8 +139,8 @@ export default {
           }
           var random = Math.floor(Math.random() * this.menuInCategory.length);
           this.randomMenu = this.menuInCategory[random];
-          // this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-          this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+          this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+          // this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
           this.showImg = true;
         }
       );

@@ -28,9 +28,9 @@
     <div>
       <img class="object-cover w-full" alt="home" src="../assets/pic-home1.png">
     </div>
-      <div class="flex items-center">
+      <div class="flex items-center w-screen">
           <button id="left-button" @click="scroll_left">
-            <font-awesome-icon icon="chevron-left" class="lg:inline-block sm:hidden h-14 w-14 mt-4" style="color:#FFB911" />
+            <font-awesome-icon icon="chevron-left" class="block lg:inline sm:hidden h-14 w-14 mt-4" style="color:#FFB911" />
           </button>
           <ul class="container wrapper-box mt-8 list-style-none">
             <li @click="retrieveMenu" class="hoverCate">
@@ -52,7 +52,7 @@
             </li>
           </ul>
       <button id="right-button" @click="scroll_right" class="page-item">
-        <font-awesome-icon icon="chevron-right" class="lg:inline-block sm:hidden h-14 w-14 mt-4" style="color:#FFB911"/>
+        <font-awesome-icon icon="chevron-right" class="block lg:inline sm:hidden h-14 w-14 mt-4" style="color:#FFB911"/>
       </button>
           
     </div>
@@ -190,8 +190,8 @@ export default {
         })
     },
     getMenuImage(MenuImg){
-      // return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      return "http://localhost:3000/images/"+MenuImg;
+      // return "https://foodrand.hopto.org/backend/images/"+MenuImg;
     },
     // getRecipe(MenuId) {
     //   console.log("MenuId:"+MenuId);
@@ -235,6 +235,7 @@ export default {
 <style>
   .container {
     overflow-x: auto;
+    width: 1024px;
   } 
   .container::-webkit-scrollbar {
     display: none;

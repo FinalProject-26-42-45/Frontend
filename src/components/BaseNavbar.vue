@@ -45,15 +45,20 @@
         </div>
 
         <div v-if="currentUser">
-            <div class="flex ">
+            <div class="flex mt-2">
               <router-link to="/" >
                 <div class="flex pr-3">
-                  <font-awesome-icon icon="user-circle" class="block rounded-full ml-2 h-10 w-10 bg-white border-2 border-white lg:mt-0" style="color:#F95335" />
-                  <p class="mt-2 pl-2 text-white text-base font-bold"> {{ currentUser.Username }} </p>
+                  <font-awesome-icon icon="user-circle" class="block rounded-full h-10 w-10 bg-white border-2 border-white lg:mt-0" style="color:#F95335" />
+                  <p class="mt-2 pl-2 text-white text-base font-semibold"> {{ currentUser.Username }} </p>
                 </div>
               </router-link>
-              <button type="submit" class="block h-10 text-md px-2 ml-2 py-2 rounded-md text-white bg-coral1 hover:bg-coral2 lg:mt-0" @click.prevent="logOut">
-                <font-awesome-icon icon="sign-out-alt" class="mr-2"/>ออกจากระบบ
+            </div>
+        </div>
+        <div v-if="currentUser">
+            <div class="flex mt-2">
+              <button type="submit" class="block h-10 px-2 py-2 rounded-md text-white bg-coral1 hover:bg-coral2 lg:mt-0" @click.prevent="logOut">
+                <font-awesome-icon icon="sign-out-alt" class=""/>
+                ออกจากระบบ
               </button>
             </div>
         </div>
