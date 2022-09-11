@@ -4,7 +4,7 @@
     <section class="relative mx-auto">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
-            <ul class="hidden md:flex px-4 mx-auto font-heading space-x-12">
+            <ul class="md:flex px-4 mx-auto font-heading space-x-12">
               <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
               </router-link> -->
