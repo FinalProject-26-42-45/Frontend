@@ -22,7 +22,7 @@
         </nav>    
       </section>
       <div class="flex justify-center">
-        <div class="w-5/6 h-auto p-6 bg-white flex justify-center mt-12 mb-10 ">
+        <div class="w-5/6 h-auto p-6 bg-white flex justify-center space-x-4 mt-12 mb-10 ">
           
             <div class="w-3/6 flex justify-center cursor-pointer">
               <router-link to="/user-random-menu">

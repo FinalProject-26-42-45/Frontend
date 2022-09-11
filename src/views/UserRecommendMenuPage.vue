@@ -6,7 +6,7 @@
       <section class="relative mx-auto">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
-            <ul class="hidden md:flex px-4 mx-auto font-heading space-x-12">
+            <ul class="md:flex px-4 mx-auto font-heading space-x-12">
               <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
               </router-link> -->
@@ -31,7 +31,7 @@
     <div>
       <div class="flex items-center">
           <button id="left-button" @click="scroll_left">
-            <font-awesome-icon icon="chevron-left" class="block h-14 w-14 mt-4" style="color:#FFB911" />
+            <font-awesome-icon icon="chevron-left" class="lg:inline-block sm:hidden md:hidden h-14 w-14 mt-4" style="color:#FFB911" />
           </button>
           <ul class="container wrapper-box mt-8 list-style-none">
             <li @click="retrieveMenu" class="hoverCate">
@@ -52,7 +52,7 @@
             </li>
           </ul>
       <button id="right-button" @click="scroll_right" class="page-item">
-        <font-awesome-icon icon="chevron-right" class="block h-14 w-14 mt-4" style="color:#FFB911"/>
+        <font-awesome-icon icon="chevron-right" class="lg:inline-block sm:hidden md:hidden h-14 w-14 mt-4" style="color:#FFB911"/>
       </button>
           
     </div>

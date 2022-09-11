@@ -4,7 +4,7 @@
     <section class="relative mx-auto">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
-            <ul class="hidden md:flex px-4 mx-auto font-heading space-x-12">
+            <ul class="md:flex px-4 mx-auto font-heading space-x-12">
               <!-- <router-link to="/">
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
               </router-link> -->
@@ -22,22 +22,22 @@
         </nav>    
       </section>
       <div class="flex justify-center">
-        <div class="w-4/5 h-auto py-6 bg-white flex-col flex items-center mt-12 mb-10 "> 
+        <div class="w-4/5 py-6 px-20 bg-white flex-col flex items-center mt-12 mb-10 "> 
             <div class="flex justify-center">
                 <input  type="text" id="MenuName" name="MenuName"
                     v-model="listMenu.menu"
-                    class=" placeholder:text-gray-400 font-medium rounded-xl border-2 border-gray-400 px-3 py-2 h-10 w-80"
+                    class=" placeholder:text-gray-400 font-medium rounded-xl border-2 border-gray-400 px-3 py-2 h-10 lg:w-80 sm:w-40"
                     placeholder="เพิ่มเมนู"
                 />
                 <div class="pl-2">
-                    <button @click="submitMenu()" class=" bg-green px-3 py-2 h-10 w-20 rounded-3xl font-semibold">
+                    <button @click="submitMenu()" class=" bg-green px-3 py-2 h-10 w-20 sm:w-16 rounded-3xl font-semibold">
                         เพิ่ม
                     </button>
                 </div>
             </div>
             <p v-if="invalidMenu" class="error -ml-64">กรุณาใส่ชื่อเมนูอาหาร</p>
-            <div class="bg-yellow1 h-96 w-2/5 p-6 rounded-lg flex flex-col mt-6" >
-              <div class="bg-white w-full h-screen rounded-md overflow-auto">
+            <div class="bg-yellow1 lg:w-1/2 h-96 p-6 rounded-lg flex flex-col mt-6" >
+              <div class="bg-white w-full h-full rounded-md overflow-auto">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
                     <div class="w-full">
