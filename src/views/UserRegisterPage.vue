@@ -47,10 +47,21 @@
                         <p class="text-sm text-left font-medium ">ชื่อผู้ใช้งาน</p>
                         <input v-model="username" id="username" type="text" class="flex-grow h-7 px-2 rounded border border-grey-400 bg-gray-200" name="username"  required >
                       </div>
-                      <div class="flex flex-col mt-1">
+                      <div class="flex flex-col mt-1">  
                         <p class="text-sm text-left font-medium ">รหัสผ่าน</p>
-                        <input v-model="password" id="password" type="password" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="password"  required>
-                      </div>        
+                        <input v-model="password" id="password" type="password" @input="checkPassword" class="flex-grow h-7 px-2 border rounded border-grey-400 bg-gray-200" name="password"  required>
+                        <div> 
+                        <p class="frmValidation" :class="{ 'frmValidation--passed': inputMinimum }">
+                          <!--<i :class="inputMinimum ? 'has_required' : '' "></i>-->ความยาว 8 ตัวอักษรขึ้นไป</p>
+                        <p class="frmValidation" :class="{ 'frmValidation--passed': inputUpperCase }">
+                          <!--<i :class="inputUpperCase ? 'has_required' : '' "></i>-->อักษร A-Z</p>
+                        <p class="frmValidation" :class="{ 'frmValidation--passed': inputNumber }">
+                          <!--<i :class="inputNumber ? has_required : '' "></i>-->ตัวเลข 0-9</p>
+                        <p class="frmValidation" :class="{ 'frmValidation--passed': inputSpecial }">
+                          <!--<i :class="inputSpecial ? 'has_required' : '' "></i>-->อักษรพิเศษ ! @ # % ^ & * ) ( + = . _ -</p>
+                      </div>  
+                      </div>  
+    
                     </div>
 
                     <div class="flex lg:flex-row lg:space-x-3 md:flex-row sm:flex-col md:space-x-2">
@@ -157,8 +168,12 @@ export default {
         foodallergens: "",
         successful: false,
         loading: false,
-        message: ""
-      }
+        message: "",
+        inputNumber: false,
+        inputUpperCase: false,
+        inputSpecial: false,
+        inputMinimum: false
+      };
   },
 
   computed: {
@@ -173,6 +188,13 @@ export default {
   },
 
   methods: {
+      checkPassword: function () {
+        this.inputMinimum = (this.password.length > 8)
+        this.inputNumber = /\d/.test(this.password);
+        this.inputUpperCase = /[A-Z]/.test(this.password);
+        this.inputSpecial = /[!@#%^&*)(+=._-]/.test(this.password);
+      },
+
       signUp(firstname, lastname, email, tel, username, password, gender, birth, religion, foodallergens) {
           const users = {firstname:firstname, lastname:lastname, birth:birth, gender:gender, email:email, tel:tel, 
           username:username, password:password, religion:religion, foodallergens: foodallergens}
@@ -211,5 +233,20 @@ export default {
   .fontNoto {
     font-family: 'Noto Sans Thai', sans-serif;
   }
+  .frmValidation {
+    font-size: 0.7rem;
+    line-height: 1rem;
+    color: gray;
+  }
+  .frmValidation--passed {
+    color: red;
+  }
+  .has_required {
+    text-decoration: line-through;
+    color: red;
+}
+
+
+
 
 </style>

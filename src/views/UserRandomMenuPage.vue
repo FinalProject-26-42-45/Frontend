@@ -139,8 +139,8 @@ export default {
           }
           var random = Math.floor(Math.random() * this.menuInCategory.length);
           this.randomMenu = this.menuInCategory[random];
-          // this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-          this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+           this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+          //this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
           this.showImg = true;
         }
       );
