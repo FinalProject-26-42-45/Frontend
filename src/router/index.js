@@ -11,6 +11,8 @@ import AdminPage from '../views/AdminPage.vue'
 import AnonymousSelectCategoryPage from '../views/AnonymousSelectCategoryPage.vue'
 import AnonymousRandomMenuPage from '../views/AnonymousRandomMenuPage.vue'
 import AnonymousRecommendMenuPage from '../views/AnonymousRecommendMenuPage.vue'
+import UserProfilePage from '../views/UserProfilePage.vue'
+import UserMenuHistoryPage from '../views/UserMenuHistoryPage.vue'
 
 
 const routes = [
@@ -78,6 +80,18 @@ const routes = [
     path: '/user-random-menu-custom',
     name: 'user-random-menu-custom',
     component: UserRandomMenuCustomPage
+  },
+
+  {
+    path: '/user-profile',
+    name: 'user-profile',
+    component: UserProfilePage
+  },
+
+  {
+    path: '/user-menu-history',
+    name: 'user-menu-history',
+    component: UserMenuHistoryPage
   },
   
   {

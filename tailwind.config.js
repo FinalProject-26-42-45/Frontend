@@ -15,10 +15,14 @@ module.exports = {
         coral1: '#F95335',
         coral2: '#FD756D',
         gray1: '#F3F4F5',
+        gray2: '#EAE8E8',
         nood: '#E8DFDE',
         oldrose: '#F8DAD4',
         green: '#36E07A'
       },
+      backgroundImage: {
+        'registerImg': "url('/assets/pic-register.png')"
+      }
     },
   },
   

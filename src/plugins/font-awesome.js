@@ -13,10 +13,11 @@ import {
   faArrowRightFromBracket,
   faEdit,
   faTrashAlt,
-  faSignOutAlt
+  faSignOutAlt,
+  faUtensils
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faUserCircle, faCarrot, faUser, faChevronRight, faChevronLeft, faArrowRight, faRectangleList, faNewspaper, 
-  faAddressBook,faArrowRightFromBracket, faEdit, faTrashAlt, faSignOutAlt);
+  faAddressBook,faArrowRightFromBracket, faEdit, faTrashAlt, faSignOutAlt, faUtensils);
 
 export { FontAwesomeIcon };

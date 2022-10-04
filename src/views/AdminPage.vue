@@ -147,8 +147,8 @@ export default {
         
     },
     getMenuImage(MenuImg){
-      return "http://localhost:3000/images/"+MenuImg;
-      // return "https://foodrand.hopto.org/backend/"+MenuImg;
+       return "http://localhost:3000/"+MenuImg;
+      //return "https://foodrand.hopto.org/backend/"+MenuImg;
     },
     toggleModal: function() {
         this.showModal = !this.showModal;

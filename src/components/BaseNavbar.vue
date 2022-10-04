@@ -46,7 +46,7 @@
 
         <div v-if="currentUser">
             <div class="flex mt-2">
-              <router-link to="/" >
+              <router-link to="/user-profile">
                 <div class="flex pr-3">
                   <font-awesome-icon icon="user-circle" class="block rounded-full h-10 w-10 bg-white border-2 border-white lg:mt-0" style="color:#F95335" />
                   <p class="mt-2 pl-2 text-white text-base font-semibold"> {{ currentUser.Username }} </p>

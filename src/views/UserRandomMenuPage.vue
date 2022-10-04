@@ -5,17 +5,19 @@
       <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
         <div class="px-5 py-6 flex w-full items-center">
           <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-            <!-- <router-link to="/">
-                <div><a class="hover:text-coral1">หน้าแรก</a></div>
-              </router-link> -->
             <router-link to="/user-recommend-menu">
               <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
             </router-link>
-            <!-- <router-link to="/">
-                <div><a class="hover:text-coral1">บทความ</a></div>
-              </router-link> -->
             <router-link to="/user-random">
               <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
+            </router-link>
+            <router-link to="/user-menu-history">
+              <div>
+                <a class="hover:text-coral1">ประวัติเมนูอาหารที่สุ่มได้</a>
+              </div>
+            </router-link>
+            <router-link to="/user-profile">
+              <div><a class="hover:text-coral1">บัญชีผู้ใช้</a></div>
             </router-link>
           </ul>
         </div>
@@ -139,8 +141,8 @@ export default {
           }
           var random = Math.floor(Math.random() * this.menuInCategory.length);
           this.randomMenu = this.menuInCategory[random];
-          this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-          // this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+           this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+          //this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
           this.showImg = true;
         }
       );
