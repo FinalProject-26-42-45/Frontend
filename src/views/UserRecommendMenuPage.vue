@@ -7,19 +7,25 @@
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-              <router-link to="/user-recommend-menu">
-                <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
+              <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                <i class="material-icons">home</i>
+                <div><a>หน้าแรก</a></div>
               </router-link>
-              <router-link to="/user-random">
-                <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
+              <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">restaurant_menu</i>
+                <div><a>แนะนำอาหาร</a></div>
               </router-link>
-              <router-link to="/user-menu-history">
-                <div>
-                  <a class="hover:text-coral1">ประวัติเมนูอาหารที่สุ่มได้</a>
-                </div>
+              <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">attractions</i>
+                <div><a>สุ่มอาหาร</a></div>
               </router-link>
-              <router-link to="/user-profile">
-                <div><a class="hover:text-coral1">บัญชีผู้ใช้</a></div>
+              <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">history</i>
+                <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
+              </router-link>
+              <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">manage_accounts</i>
+                <div><a>บัญชีผู้ใช้</a></div>
               </router-link>
             </ul>
           </div>
@@ -85,12 +91,10 @@
             <p class="mt-3">แคลอรี: {{ m.Calories }}</p>
           </div>
           <div class="mt-8">
-            <router-link to="/">
               <button @click="clickRecipe(m.MenuId)"  class="bg-yellow hover:text-white py-1.5 w-32 rounded-md text-black text-base absolute bottom-2 right-2">
                 <p class="lg:inline">สูตรอาหาร</p>
                 <!-- <font-awesome-icon class="sm:hidden md:hidden lg:inline" icon="arrow-right"/> -->
               </button>
-            </router-link>
           </div>
         </base-block>
       </div> 
@@ -145,7 +149,6 @@ export default {
     return {
       menu: [],
       category: [],
-      // recipe: [],
       popupMenu: [],
       MenuId: null,
       CategoryId: null,

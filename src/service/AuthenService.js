@@ -24,17 +24,15 @@ logout() {
 }
 
 register(users) {
-    const data = JSON.parse(JSON.stringify({
+    const data = JSON.parse(JSON.stringify({      
       "Firstname": users.firstname,
       "Lastname": users.lastname,
       "Username": users.username,
-      "Password": users.password,
+      "Password": users.password, 
       "DOB": users.birth,
-      "Gender": users.gender,
-      "Email": users.email,
-      "Tel": users.tel,
-      "FoodAllergens": users.foodallergens,
       "Religion": users.religion,
+      "FoodAllergens": users.foodAllergens,
+      "DislikedFood": users.dislikedFood
     }));
     //return axios.post("https://foodrand.hopto.org/backend/auth/register", data)
     return axios.post("http://localhost:3000/auth/register", data)

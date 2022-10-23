@@ -97,7 +97,7 @@ export default {
   },
   created() {
       if (this.loggedIn) {
-          this.$router.push('/user-random');
+          this.$router.push('/user-statistic-random-menu');
       }
   },
   methods: {
@@ -106,7 +106,7 @@ export default {
       this.loading = true;
       this.$store.dispatch("auth/login", users).then(
         () => {
-          this.$router.push('/user-random');
+          this.$router.push('/user-statistic-random-menu');
         },
         (error) => {
           this.loading = false;

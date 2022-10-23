@@ -5,19 +5,25 @@
           <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
             <div class="px-5 py-6 flex w-full items-center">
               <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-                <router-link to="/user-recommend-menu">
-                  <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
+                <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                  <i class="material-icons">home</i>
+                  <div><a>หน้าแรก</a></div>
                 </router-link>
-                <router-link to="/user-random">
-                  <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
+                <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                  <i class="material-icons">restaurant_menu</i>
+                  <div><a>แนะนำอาหาร</a></div>
                 </router-link>
-                <router-link to="/user-menu-history">
-                  <div>
-                    <a class="hover:text-coral1">ประวัติเมนูอาหารที่สุ่มได้</a>
-                  </div>
+                <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                  <i class="material-icons">attractions</i>
+                  <div><a>สุ่มอาหาร</a></div>
                 </router-link>
-                <router-link to="/user-profile">
-                  <div><a class="hover:text-coral1">บัญชีผู้ใช้</a></div>
+                <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                  <i class="material-icons">history</i>
+                  <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
+                </router-link>
+                <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                  <i class="material-icons">manage_accounts</i>
+                  <div><a>บัญชีผู้ใช้</a></div>
                 </router-link>
               </ul>
             </div>
@@ -29,19 +35,19 @@
                 <div class="bg-white shadow-md rounded my-12">
                     <table class="min-w-max w-full table-auto">
                         <thead>
-                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-lg leading-normal">
                                 <th class="py-3 px-6 text-left">ชื่อเมนู</th>
-                                <th class="py-3 px-6 text-center">ลบเมนู</th>
+                                <th class="py-3 px-6 text-center">จัดการเมนู</th>
                             </tr>
                         </thead>
-                        <tbody v-for="h in menuHistory" :key="h.HistoryId" class="text-gray-600 text-sm font-light">
+                        <tbody v-for="h in menuHistory" :key="h.HistoryId" class="text-gray-600 font-light">
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="mr-2">
                                             <font-awesome-icon icon="utensils" class="text-yellow"/>
                                         </div>
-                                        <span class="font-medium">{{ h.MenuName }}</span>
+                                        <span class="font-medium text-lg">{{ h.MenuName }}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-center">

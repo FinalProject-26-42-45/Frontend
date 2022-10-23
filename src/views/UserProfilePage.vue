@@ -5,47 +5,39 @@
       <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
         <div class="px-5 py-6 flex w-full items-center">
           <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-            <router-link to="/user-recommend-menu">
-              <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
-            </router-link>
-            <router-link to="/user-random">
-              <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
-            </router-link>
-            <router-link to="/user-menu-history">
-              <div>
-                <a class="hover:text-coral1">ประวัติเมนูอาหารที่สุ่มได้</a>
-              </div>
-            </router-link>
-            <router-link to="/user-profile">
-              <div><a class="hover:text-coral1">บัญชีผู้ใช้</a></div>
-            </router-link>
+              <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                <i class="material-icons">home</i>
+                <div><a>หน้าแรก</a></div>
+              </router-link>
+              <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">restaurant_menu</i>
+                <div><a>แนะนำอาหาร</a></div>
+              </router-link>
+              <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">attractions</i>
+                <div><a>สุ่มอาหาร</a></div>
+              </router-link>
+              <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">history</i>
+                <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
+              </router-link>
+              <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">manage_accounts</i>
+                <div><a>บัญชีผู้ใช้</a></div>
+              </router-link>
           </ul>
         </div>
       </nav>
     </section>
-    <div class="flex justify-center text-left my-4">
-      <div class="lg:w-2/4 rounded-xl bg-white shadow-lg p-2 my-8">
+    <div class="flex justify-center items-center text-left my-4">
+      <div class="lg:w-2/4 flex flex-col items-center rounded-xl bg-white shadow-lg p-2 my-8">
         <p class=" text-center text-lg my-4 font-semibold">ข้อมูลบัญชีผู้ใช้งาน</p>
-        <div class="mb-2 md:flex md:justify-center">
-          <div class="mb-4 md:mr-2 md:mb-0">
+          <div class="w-1/2 ">
             <label class="block mb-1 text-sm text-gray-700" for="firstname">
               ชื่อจริง
             </label>
             <input
-              class="
-                w-56
-                px-3
-                py-2
-                text-sm
-                leading-tight
-                text-gray-700
-                bg-gray2
-                border
-                rounded
-                shadow
-                appearance-none
-                focus:outline-none focus:shadow-outline
-              "
+              class="flex-grow h-10 w-full px-2 border rounded border-grey-400"
               v-model="firstname"
               id="firstname"
               type="text"
@@ -53,25 +45,12 @@
               required
             >
           </div>
-          <div class="md:ml-2">
+          <div class="w-1/2 mt-2">
             <label class="block mb-1 text-sm text-gray-700" for="lastname">
               นามสกุล
             </label>
             <input
-              class="
-                w-56
-                px-3
-                py-2
-                text-sm
-                leading-tight
-                text-gray-700
-                bg-gray2
-                border
-                rounded
-                shadow
-                appearance-none
-                focus:outline-none focus:shadow-outline
-              "
+              class="flex-grow h-10 w-full px-2 border rounded border-grey-400"
               v-model="lastname"
               id="lastname"
               type="text"
@@ -79,127 +58,54 @@
               required
             >
           </div>
-        </div>
 
-        <div class="mb-2 md:flex md:justify-center">
-          <div class="mb-4 md:mr-2 md:mb-0">
-            <label class="block mb-1 text-sm text-gray-700" for="tel">
-              เบอร์โทรศัพท์
-            </label>
-            <input
-              class="
-                w-56
-                px-3
-                py-2
-                text-sm
-                leading-tight
-                text-gray-700
-                bg-gray2
-                border
-                rounded
-                shadow
-                appearance-none
-                focus:outline-none focus:shadow-outline
-              "
-              v-model="tel"
-              id="tel"
-              type="text"
-              name="tel"
-              required
-            >
-          </div>
-          <div class="md:ml-2">
-            <label class="block mb-1 text-sm text-gray-700" for="gender">
-              เพศ
-            </label>
-            <select
-              class="
-                w-56
-                px-3
-                py-2
-                text-sm
-                leading-tight
-                text-gray-700
-                bg-gray2
-                border
-                rounded
-                shadow
-                appearance-none
-                focus:outline-none focus:shadow-outline
-              "
-              v-model="gender"
-              id="gender"
-              name="gender"
-            >
-              <option disabled value="">เลือกเพศ</option>
-              <option>หญิง</option>
-              <option>ชาย</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="mb-4 md:flex md:justify-center">
-          <div class="mb-4 md:mr-2 md:mb-0">
+          <div class="w-1/2 mt-2">
             <label class="block mb-1 text-sm text-gray-700" for="religion">
               ศาสนา
             </label>
-            <input
-              class="
-                w-56
-                px-3
-                py-2
-                text-sm
-                leading-tight
-                text-gray-700
-                bg-gray2
-                border
-                rounded
-                shadow
-                appearance-none
-                focus:outline-none focus:shadow-outline
-              "
-              v-model="religion"
-              id="religion"
-              type="text"
-              name="religion"
-              required
-            >
+            <select v-model="religion" id="religion" class="flex-grow h-10 w-full px-2 border rounded border-grey-400" name="religion">
+              <option disabled value="">เลือกศาสนา</option>
+              <option>พุทธ</option>
+              <option>คริสต์</option>
+              <option>อิสลาม</option>
+              <option>ไม่นับถือศาสนา</option>
+            </select>
           </div>
-          <div class="md:ml-2">
+          
+          <div class="w-1/2 mt-2">
             <label class="block mb-1 text-sm text-gray-700" for="foodallergens">
               อาหารที่แพ้
             </label>
-            <input
-              class="
-                w-56
-                px-3
-                py-2
-                text-sm
-                leading-tight
-                text-gray-700
-                bg-gray2
-                border
-                rounded
-                shadow
-                appearance-none
-                focus:outline-none focus:shadow-outline
-              "
-              v-model="foodallergens"
-              id="foodallergens"
-              type="text"
-              name="foodallergens"
-              required
-            >
+            <VueMultiselect 
+                        v-model="foodallergens"
+                        :multiple="true"
+                        :options="foodallergens"
+                        :taggable="true"
+                        @tag="addTagFoodAllergens"
+                        placeholder="เช่น ไข่ นม ถั่ว"
+                      />
           </div>
-        </div>
 
+          <div class="w-1/2 mt-2">
+            <label class="block mb-1 text-sm text-gray-700" for="dislikedFood">
+              อาหารที่ไม่ชอบทาน
+            </label>
+            <VueMultiselect 
+                        v-model="dislikedFood"
+                        :multiple="true"
+                        :options="dislikedFood"
+                        :taggable="true"
+                        @tag="addTagDislikedFood"
+                        placeholder="เช่น ไข่ นม ถั่ว"
+                      />
+          </div>
         <div class="text-center">
           <button
             class="
               w-auto
               px-4
               py-2
-              mb-2
+              my-2
               font-bold
               rounded-lg
               bg-yellow
@@ -223,59 +129,48 @@
 <script>
 import MenuService from "../service/MenuService";
 import authHeader from "../service/AuthenHeader.js";
+import VueMultiselect from 'vue-multiselect';
 export default {
-  components: {},
+  components: {
+    VueMultiselect
+  },
   data() {
     return {
       user: [],
       firstname: "",
       lastname: "",
-      gender: "",
-      tel: "",
       religion: "",
-      foodallergens: "",
+      foodallergens: [],
+      dislikedFood: [],
       userId: null,
       edited: null,
     };
   },
   methods: {
     retrieveUser() {
-      MenuService.get(`/users`, {
+      MenuService.get(`/users/info`, {
         headers: {
           Authorization: authHeader().Authorization,
         },
       }).then((response) => {
-        for (let i in response.data) {
-          (this.userId = response.data[i].UserId),
-            (this.firstname = response.data[i].Firstname),
-            (this.lastname = response.data[i].Lastname),
-            (this.gender = response.data[i].Gender),
-            (this.tel = response.data[i].Tel),
-            (this.religion = response.data[i].Religion),
-            (this.foodallergens = response.data[i].FoodAllergens);
-        }
+        this.firstname = response.data.Firstname
+        this.lastname = response.data.Lastname
+        this.religion = response.data.Religion
+        this.foodallergens = response.data.FoodAllergens
+        this.dislikedFood = response.data.DislikedFood
       });
     },
     updateProfile() {
-      const formData = new FormData();
       let edit = {
-        UserId: this.userId,
         Firstname: this.firstname,
         Lastname: this.lastname,
-        Gender: this.gender,
-        Tel: this.tel,
         Religion: this.religion,
         FoodAllergens: this.foodallergens,
+        DislikedFood: this.dislikedFood
       };
-      const userData = JSON.stringify(edit);
-      const blob = new Blob([userData], {
-        type: "application/json",
-      });
-      formData.append("json", blob);
-      MenuService.put(`/users`, formData, {
+      MenuService.put(`/users`, edit, {
         headers: {
           Authorization: authHeader().Authorization,
-          "Content-Type": "multipart/form-data",
         },
       }).then(response => {
                 if(response.status === 200){
@@ -289,6 +184,12 @@ export default {
                 }
       }) 
     },
+    addTagFoodAllergens(newTagAller){
+      this.foodallergens.push(newTagAller);
+    },
+    addTagDislikedFood(newTagDisliked){
+      this.dislikedFood.push(newTagDisliked);
+    }
   },
   created() {
     this.retrieveUser();

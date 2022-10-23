@@ -5,19 +5,25 @@
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-              <router-link to="/user-recommend-menu">
-                <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
+              <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                <i class="material-icons">home</i>
+                <div><a>หน้าแรก</a></div>
               </router-link>
-              <router-link to="/user-random">
-                <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
+              <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">restaurant_menu</i>
+                <div><a>แนะนำอาหาร</a></div>
               </router-link>
-              <router-link to="/user-menu-history">
-                <div>
-                  <a class="hover:text-coral1">ประวัติเมนูอาหารที่สุ่มได้</a>
-                </div>
+              <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">attractions</i>
+                <div><a>สุ่มอาหาร</a></div>
               </router-link>
-              <router-link to="/user-profile">
-                <div><a class="hover:text-coral1">บัญชีผู้ใช้</a></div>
+              <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">history</i>
+                <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
+              </router-link>
+              <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">manage_accounts</i>
+                <div><a>บัญชีผู้ใช้</a></div>
               </router-link>
             </ul>
           </div>
@@ -26,7 +32,7 @@
       <div class="flex justify-center">
         <div class="w-4/5 py-6 px-20 bg-white flex-col flex items-center mt-12 mb-10 "> 
             <div class="flex justify-center">
-                <input  type="text" id="MenuName" name="MenuName"
+                <input type="text" id="MenuName" name="MenuName"
                     v-model="listMenu.menu"
                     class=" placeholder:text-gray-400 font-medium rounded-xl border-2 border-gray-400 px-3 py-2 h-10 lg:w-80 sm:w-40"
                     placeholder="เพิ่มเมนู"
@@ -38,32 +44,31 @@
                 </div>
             </div>
             <p v-if="invalidMenu" class="error -ml-64">กรุณาใส่ชื่อเมนูอาหาร</p>
-            <div class="bg-yellow1 lg:w-1/2 h-96 p-6 rounded-lg flex flex-col mt-6" >
-              <div class="bg-white w-full h-full rounded-md overflow-auto">
+            <div class="relative bg-randomCutomImg w-3/6 heightBg bg-no-repeat bg-contain bg-center" >
+              <div class="w-96 h-64 rounded-md overflow-auto mt-16">
                 <ul v-for="m in order" :key="m.id">
-                  <li class="relative flex my-2 mx-4">
-                    <div class="w-full">
-                      <p class=" bg-gray-300 rounded-md py-2 px-2 w-full">{{ m.menu }}</p>
+                  <li class="relative flex my-2 mx-4 pl-10">
+                    <div class="w-80">
+                      <p class=" bg-gray-300 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
                     <div @click="deleteList(id)" class="absolute inset-y-0 right-2 cursor-pointer">
                       <p class=" bg-red-500 uppercase px-2 mt-1.5 rounded-md text-white text-xl text-center">x</p>
                     </div>
                   </li>  
                 </ul> 
-                <div v-if="showBtn" class="mt-2 mb-2 flex justify-center">
-                  <button @click="randomMenu()" class="bg-green px-3 py-2 h-10 w-20 rounded-3xl font-semibold">สุ่มเมนู</button>
+                <div v-if="showBtn" class="my-2 ml-10 flex justify-center">
+                  <button @click="randomMenu()" class="bg-green px-2 py-2 h-10 w-16 rounded-3xl font-semibold">สุ่มเมนู</button>
                 </div>
               </div>
-              <div>
-                <div class="flex justify-center mt-2">
-                  <input type="text" class="font-medium text-center rounded-md border-2 border-yellow border-opacity-50y w-48 px-3 py-2"
-                    v-model="menuIsRandom.menu" disabled/>
+              <div v-if="shown">
+                <div class="absolute inset-x-0 bottom-16 mb-4 -ml-10 text-center">
+                  <p class="font-medium text-lg">{{menuIsRandom.menu}} </p>
                 </div>
-                <div v-if="shown" class="flex flex-col justify-center ">
+                <div class="flex flex-col justify-center -ml-20">
                   <p class="text-center">คุณต้องการเก็บประวัติผลการสุ่มเมนูหรือไม่</p>
                   <div class="flex justify-center space-x-3 mt-2">
-                    <button @click="addMenuHistory()" class="bg-green px-3 py-2 h-10 w-20 rounded-3xl font-semibold">ใช่</button>
-                    <button @click="clickNo()" class="bg-red-500  px-3 py-2 h-10 w-20 rounded-3xl font-semibold">ไม่</button>
+                    <button @click="addMenuHistory()" class="bg-green px-3 py-1 h-8 w-16 rounded-3xl font-semibold">ใช่</button>
+                    <button @click="clickNo()" class="bg-red-500  px-3 py-1 h-8 w-16 rounded-3xl font-semibold">ไม่</button>
                   </div>
                 </div>
               </div>
@@ -130,19 +135,12 @@ export default {
         this.shown = false;
       },
       addMenuHistory(){
-        const formData = new FormData();
         let add = {
           MenuName: this.menuIsRandom.menu,
         }
-        const menuData = JSON.stringify(add);
-        const blob = new Blob([menuData], {
-          type: 'application/json'
-        });
-        formData.append('menu', blob);
         MenuService.post("/menuhistory", add, {
           headers: {
             Authorization: authHeader().Authorization,
-            'Content-Type' : 'multipart/form-data'
           }
         }).then(response => {
           if (response.status === 201) {
@@ -199,8 +197,12 @@ export default {
   }
 
   .box {
-    width: 393;
-    height: 512;
+    width: 393px;
+    height: 512px;
+  }
+
+  .heightBg{
+    height: 512px;
   }
 
 </style>
