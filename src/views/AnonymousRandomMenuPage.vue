@@ -217,8 +217,8 @@ export default {
             }
             var random = Math.floor(Math.random() * this.menuInCategory.length);
             this.randomMenu = this.menuInCategory[random];
-            this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-            //this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+            // this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+            this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
             this.showMenu = true;
             this.menuInCategory = [];
             this.allSelected = false;
@@ -240,8 +240,8 @@ export default {
         this.dislikedFood.push(newTagDisliked);
       },
       getMenuImage(MenuImg){
-       return "http://localhost:3000/images/"+MenuImg;
-      //return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      //  return "http://localhost:3000/images/"+MenuImg;
+      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
       },
    
     },

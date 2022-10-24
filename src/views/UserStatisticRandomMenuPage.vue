@@ -158,8 +158,8 @@ import MenuService from '../service/MenuService.js';
                 this.openMenu = true;
             },
             getMenuImage(MenuImg){
-                return "http://localhost:3000/images/"+MenuImg;
-                //return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+                // return "http://localhost:3000/images/"+MenuImg;
+                return "https://foodrand.hopto.org/backend/images/"+MenuImg;
             },
             getStatistic(){
                 MenuService.get("/randomstatistics").then(response => {

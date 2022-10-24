@@ -188,8 +188,8 @@ export default {
         })
     },
     getMenuImage(MenuImg){
-       return "http://localhost:3000/images/"+MenuImg;
-      //return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      //  return "http://localhost:3000/images/"+MenuImg;
+      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
     },
     // getRecipe(MenuId) {
     //   console.log("MenuId:"+MenuId);
