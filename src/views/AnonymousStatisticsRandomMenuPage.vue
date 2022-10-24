@@ -85,7 +85,7 @@
                                 <p class="text-center flex items-center text-lg">{{ s.RandomCount }} ครั้ง</p>
                             </div>
                             <div class="bg-white w-full h-14 rounded-xl z-20 flex justify-start items-center">
-                                <font-awesome-icon icon="trophy" class="pl-5" style="color:#FBCB22" />
+                                <!-- <font-awesome-icon icon="trophy" class="pl-5" style="color:#FBCB22" /> -->
                                 <p @click="clickMenu(s.MenuId)" class="text-left text-lg pl-3 cursor-pointer">{{ s.MenuName }}</p>
                             </div>
                         </div>
@@ -264,9 +264,8 @@ import MenuService from '../service/MenuService.js';
     width: 209px;
     height: 139px;
   }
+  
 
-  .active {
-    color: #F95335;
-  }
+
 
 </style>

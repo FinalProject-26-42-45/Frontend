@@ -10,6 +10,7 @@ import UserMenuHistoryPage from '../views/UserMenuHistoryPage.vue'
 import UserStatisticRandomMenuPage from '../views/UserStatisticRandomMenuPage.vue'
 import AdminLoginPage from '../views/AdminLoginPage.vue'
 import AdminPage from '../views/AdminPage.vue'
+import AdminPageUser from '../views/AdminPageUser.vue'
 import AnonymousRandomMenuPage from '../views/AnonymousRandomMenuPage.vue'
 import AnonymousRecommendMenuPage from '../views/AnonymousRecommendMenuPage.vue'
 import AnonymousStatisticsRandomMenuPage from '../views/AnonymousStatisticsRandomMenuPage.vue'
@@ -26,6 +27,23 @@ const routes = [
     path: '/admin-manage',
     name: 'admin-manage',
     component: AdminPage,
+    beforeEnter: (to, from, next) => {
+      const role = localStorage.getItem("role");
+      const login = localStorage.getItem("accessToken");    
+      if (login && role == 1) {
+        next();
+        
+      }else {
+        next("/login-admin");
+        alert("คุณไม่มีสิทธิ์เข้าถึงหน้านี้")
+      } 
+      
+    }
+  }, 
+  {
+    path: '/admin-user',
+    name: 'admin-user',
+    component: AdminPageUser,
     beforeEnter: (to, from, next) => {
       const role = localStorage.getItem("role");
       const login = localStorage.getItem("accessToken");    

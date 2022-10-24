@@ -37,6 +37,7 @@
                         <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-lg leading-normal">
                                 <th class="py-3 px-6 text-left">ชื่อเมนู</th>
+                                <th class="py-3 px-6 text-cente">จำนวนครั้ง</th>
                                 <th class="py-3 px-6 text-center">จัดการเมนู</th>
                             </tr>
                         </thead>
@@ -48,6 +49,11 @@
                                             <font-awesome-icon icon="utensils" class="text-yellow"/>
                                         </div>
                                         <span class="font-medium text-lg">{{ h.MenuName }}</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        <span class="font-medium text-lg">{{ h.HistoryCount }}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-center">

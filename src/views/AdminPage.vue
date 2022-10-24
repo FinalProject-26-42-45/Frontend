@@ -1,22 +1,20 @@
 <template>
   <div class="bg-nood fontNoto flex relative overflow-y-auto">
-    <aside class="fixed left-0 top-0 h-screen p-10 px-4 py-8 border-r dark:bg-yellow">
+    <aside class="fixed z-50 left-0 top-0 h-screen p-10 px-4 py-8 border-r dark:bg-yellow">
       <div class="flex justify-center">
         <img src="../assets/logo.png" class="object-cover h-36 w-auto">
       </div>
       <p class="text-3xl font-bold text-white text-center mt-5 textShadow">FOODRAND</p>
             
       <div id="nav" class="flex flex-col flex-1 mt-10">
-        <router-link class="active" to="/admin-manage" exact>
-          <a class="cursor-pointer  flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200">
+        <router-link to="/admin-manage" class="cursor-pointer active  flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" exact>
             <font-awesome-icon icon="rectangle-list" class="block h-6 w-6 " />
             <span class="mx-4 font-medium">เมนูอาหาร</span>
-          </a>
         </router-link>
-        <a class="cursor-pointer flex items-center px-4 py-3 mt-8 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" >
-          <font-awesome-icon icon="address-book" class="block h-6 w-6 " />
-          <span class="mx-4 font-medium">ข้อมูลผู้ใช้</span>
-        </a>
+        <router-link to="/admin-user" class="cursor-pointer active  flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" exact>
+            <font-awesome-icon icon="address-book" class="block h-6 w-6 " />
+            <span class="mx-4 font-medium">ข้อมูลผู้ใช้</span>
+        </router-link>
         <a v-if="currentUser" class="cursor-pointer absolute inset-x-4 bottom-3 flex px-4 py-3 rounded-full dark:bg-coral1 dark:text-white hover:bg-coral2" @click.prevent="logOut">
           <span class="font-medium pl-2 pr-4">ออกจากระบบ</span>
           <font-awesome-icon icon="arrow-right-from-bracket" class="block h-6 w-6 " />
@@ -34,29 +32,35 @@
             <span class="material-icons">search</span>
           </button>
         </div>
-      /div> -->
-      <!-- <div>
-        <div class="flex items-center">
-            <button id="left-button" @click="scroll_left">
-              <font-awesome-icon icon="chevron-left" class="block h-14 w-14 mt-4" style="color:#FFB911" />
-            </button>
-            <ul class="container wrapper-box mt-8">
-              <li v-for="list in category" :key="list.id" @click="clickCategory(list.CategoryId)">
-                <div class=" w-36">
-                  <img :src="require(`../assets/${list.CategoryName}.png`)" 
-                      class="object-cover h-32 w-auto"/>
-                  <p class="text-lg whitespace-nowrap text-center">{{ list.CategoryName }} </p>
-                </div>
-              </li>
-            </ul>
-            <button id="right-button" @click="scroll_right" class="page-item">
-              <font-awesome-icon icon="chevron-right" class="block h-14 w-14 mt-12" style="color:#FFB911"/>
-            </button>            
-        </div>
-        <button @click="retrieveMenu">
-          เมนูทั้งหมด
-        </button>  
       </div> -->
+      <!-- <div class="flex items-center w-full">
+          <button id="left-button" @click="scroll_left">
+            <font-awesome-icon icon="chevron-left" class="block lg:inline sm:hidden h-14 w-14 mt-4" style="color:#FFB911" />
+          </button>
+          <ul class="container wrapper-box mt-8 list-style-none">
+            <li @click="retrieveMenu" class="hoverCate">
+              <div class=" w-28 cursor-pointer">
+                <img src="../assets/อาหารทั้งหมด.png" 
+                class="object-cover w-auto picCateAll mt-1 ml-1" />
+                <p class="text-lg mt-2 pl-4">เมนูทั้งหมด</p>  
+              </div>
+            </li>
+            <li v-for="list in category" 
+                :key="list.id" 
+                @click="clickCategory(list.CategoryId)"
+                class="hoverCate ">
+              <div class=" w-28 cursor-pointer">
+                <img :src="require(`../assets/${list.CategoryName}.png`)" 
+                    class="object-cover w-auto lg:h-28"/>
+                <p class="text-lg text-center">{{ list.CategoryName }} </p>
+              </div>
+            </li>
+          </ul>
+      <button id="right-button" @click="scroll_right" class="page-item">
+        <font-awesome-icon icon="chevron-right" class="block lg:inline sm:hidden h-14 w-14 mt-4" style="color:#FFB911"/>
+      </button>
+          
+    </div> -->
       <div class="flex justify-center my-4">
         <div>
           <input v-model="boxsearch" v-show="search.click" placeholder="ค้นหา"
@@ -84,7 +88,7 @@
             </edit-menu>
             <div v-if="openEdit" class="show-modal"></div>
 
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-left">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-left pl-2">
                 <div v-for="(m, index) in filterMenu" :key="index" :id="m.MenuId" class="w-full p-1 md:p-2">
                     <base-block class="relative bg-oldrose">
                         <img :src="getMenuImage(m.MenuImg)" class="object-cover w-full rounded-t-md border-gray-200 lg:h-56 sm:h-36 bg-gray-200"/>
@@ -147,7 +151,7 @@ export default {
         
     },
     getMenuImage(MenuImg){
-       return "http://localhost:3000/"+MenuImg;
+       return "http://localhost:3000/images/"+MenuImg;
       //return "https://foodrand.hopto.org/backend/"+MenuImg;
     },
     toggleModal: function() {
@@ -201,11 +205,11 @@ export default {
     },
     scroll_left() {
       let content = document.querySelector(".wrapper-box");
-      content.scrollLeft -= 1000;
+      content.scrollLeft -= 500;
     },
     scroll_right() {
       let content = document.querySelector(".wrapper-box");
-      content.scrollLeft += 1000;
+      content.scrollLeft += 500;
     }
   },
   created() {
@@ -244,23 +248,22 @@ export default {
   }
 
   .container {
-    display: flex;
     overflow-x: auto;
+    width: 1024px;
   } 
   .container::-webkit-scrollbar {
     display: none;
   }
 
   .wrapper-box {
-  max-width: 1000px;
   overflow: auto;
   scroll-behavior: smooth;
   }
 
-  nav li.active {
-    background-color: #F95335;
-    
+  .picCateAll {
+    height: 100px;
   }
+
 
 
 </style>
