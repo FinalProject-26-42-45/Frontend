@@ -1,7 +1,7 @@
 <template>
     <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
         <base-navbar></base-navbar>
-        <section class="relative mx-auto">
+        <section class="relative mx-auto z-50">
             <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
                 <div class="px-5 py-6 pt-6 flex w-full items-center ">
                     <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">

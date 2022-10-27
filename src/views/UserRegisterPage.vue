@@ -1,8 +1,8 @@
 <template>
   <div class="h-screen overflow-y-auto bg-coral2 fontNoto">
     <base-navbar></base-navbar>
-    <div class="flex flex-col items-center h-full justify-center px-4 sm:px-0 ">
-      <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 h-auto bg-white sm:mx-0 ">
+    <div class="flex items-center h-auto justify-center px-4 sm:px-0 sm:py-4">
+      <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 h-auto bg-white sm:mx-0 overflow-y-auto">
         
         <div class="flex flex-col justify-center w-full my-3">
           <div class="flex flex-col">
@@ -18,10 +18,10 @@
           <div class="flex justify-center">
             <img src="../assets/line.png" class="object-cover h-1 w-44" />
           </div>
-          <div class="flex flex-row justify-center items-center ">
+          <div class="flex justify-center items-center">
             <form @submit.prevent="signUp(firstname, lastname, username, password, birth, religion, foodAllergens, dislikedFood)" class="form-horizontal w-3/4 mx-auto p-2">
-              <div v-if="!successful" class="flex flex-row space-x-4">
-                <div class="w-1/2">
+              <div v-if="!successful" class="flex lg:flex-row md:flex-row sm:flex-col lg:space-x-4 md:space-x-4">
+                <div class="w-1/2 sm:w-full">
                   <div class="flex flex-col mt-1">
                     <p class="text-sm text-left font-medium ">ชื่อจริง</p>
                     <input v-model="firstname" id="firstname" type="text" class="flex-grow h-10 px-2 border rounded border-grey-400 bg-gray-200" name="firstname"  required >
@@ -70,7 +70,7 @@
                   </div> 
                       
                 </div>
-                <div class="w-1/2">
+                <div class="w-1/2 sm:w-full">
                   <div class="flex flex-col mt-1"> 
                     <p class="text-sm text-left font-medium ">อาหารที่แพ้</p>
                       <VueMultiselect 

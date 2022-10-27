@@ -95,7 +95,8 @@
                 </button>
               </div>
           </div>
-          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex flex-col justify-center">
+          <!-- <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex flex-col justify-center"> -->
+          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 ">
               <div class="flex justify-center space-x-2 mt-2">
                 <button
                   @click="clickRecipe(randomMenu.MenuId)"
@@ -103,11 +104,11 @@
                 >
                   ดูสูตรอาหาร
                 </button>
-                <button
+                <!-- <button
                   class="bg-red-500 px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
                 >
                   ดูร้านอาหาร
-                </button>
+                </button> -->
               </div>
           </div>
           <div v-if="showMenu" class="absolute inset-x-0 bottom-16 mb-2 -ml-12 text-center">
