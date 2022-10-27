@@ -5,17 +5,25 @@
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-              <!-- <router-link to="/">
-                <div><a class="hover:text-coral1">หน้าแรก</a></div>
-              </router-link> -->
-              <router-link to="/user-recommend-menu">
-                <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
+              <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                <i class="material-icons">home</i>
+                <div><a>หน้าแรก</a></div>
               </router-link>
-              <!-- <router-link to="/">
-                <div><a class="hover:text-coral1">บทความ</a></div>
-              </router-link> -->
-              <router-link to="/user-random">
-                <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
+              <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">restaurant_menu</i>
+                <div><a>แนะนำอาหาร</a></div>
+              </router-link>
+              <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">attractions</i>
+                <div><a>สุ่มอาหาร</a></div>
+              </router-link>
+              <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">history</i>
+                <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
+              </router-link>
+              <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                <i class="material-icons">manage_accounts</i>
+                <div><a>บัญชีผู้ใช้</a></div>
               </router-link>
             </ul>
           </div>

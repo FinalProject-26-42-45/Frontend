@@ -13,6 +13,7 @@ export default {
   #nav {
     padding: 16px;
   }
+
   .fontKanit {
     font-family: 'Kanit', sans-serif;
     

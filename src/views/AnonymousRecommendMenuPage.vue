@@ -7,18 +7,18 @@
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-              <!-- <router-link to="/">
+              <router-link to="/" class="flex flex-row hover:text-coral1 ">
+                <i class="material-icons">home</i>
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
-              </router-link> -->
-              <router-link to="/">
+              </router-link>
+              <router-link to="/anonymous-recommend-menu" class="flex flex-row hover:text-coral1 ">
+                <i class="material-icons">restaurant_menu</i>
                 <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
               </router-link>
-              <!-- <router-link to="/">
-                <div><a class="hover:text-coral1">บทความ</a></div>
-              </router-link> -->
-              <router-link to="/anonymous-random-menu">
+              <router-link to="/anonymous-random-menu" class="flex flex-row hover:text-coral1 ">
+                <i class="material-icons">attractions</i>
                 <div><a class="hover:text-coral1">สุ่มอาหาร</a></div>
-              </router-link>
+              </router-link> 
             </ul>
           </div>
         </nav>
@@ -82,12 +82,10 @@
             <p class="mt-3">แคลอรี: {{ m.Calories }}</p>
           </div>
           <div class="mt-8">
-            <router-link to="/">
               <button @click="clickRecipe(m.MenuId)"  class="bg-yellow hover:text-white py-1.5 w-32 rounded-md text-black text-base absolute bottom-2 right-2">
                 <p class="lg:inline">สูตรอาหาร</p>
                 <!-- <font-awesome-icon class="sm:hidden md:hidden lg:inline" icon="arrow-right"/> -->
               </button>
-            </router-link>
           </div>
         </base-block>
       </div> 
@@ -190,7 +188,7 @@ export default {
         })
     },
     getMenuImage(MenuImg){
-      // return "http://localhost:3000/images/"+MenuImg;
+      //  return "http://localhost:3000/images/"+MenuImg;
       return "https://foodrand.hopto.org/backend/images/"+MenuImg;
     },
     // getRecipe(MenuId) {

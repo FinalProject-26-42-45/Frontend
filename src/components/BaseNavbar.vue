@@ -1,5 +1,5 @@
 <template>
-    <div id="nav" class=" w-full flex items-center justify-between flex-wrap bg-yellow fontNoto">
+    <div id="nav" class=" w-full flex justify-between lg:flex-row md:flex-row sm:flex-col items-center bg-yellow fontNoto">
       <div class="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2">
         <div class="flex items-center flex-shrink-0 text-gray-800 mr-16">
           <div class="flex flex-row">
@@ -11,7 +11,7 @@
         </div>
       </div>
     
-      <div class="menu w-full flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
+      <div class="flex lg:justify-between md:justify-between sm:justify-center lg:w-auto w-full">
         <div class="font-bold text-black text-base lg:flex-grow">
           <!-- <p
             class="block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-coral1 mr-2">
@@ -46,7 +46,7 @@
 
         <div v-if="currentUser">
             <div class="flex mt-2">
-              <router-link to="/" >
+              <router-link to="/user-profile">
                 <div class="flex pr-3">
                   <font-awesome-icon icon="user-circle" class="block rounded-full h-10 w-10 bg-white border-2 border-white lg:mt-0" style="color:#F95335" />
                   <p class="mt-2 pl-2 text-white text-base font-semibold"> {{ currentUser.Username }} </p>

@@ -24,12 +24,17 @@
               <form class="form-horizontal w-3/4 mx-auto" @submit.prevent="signIn(username,password)">
                 <div class="flex flex-col mt-2">
                   <p class="text-base text-left font-medium ">ชื่อผู้ใช้งาน</p>
-                  <input v-model="username" id="username" type="text" class="flex-grow h-8 px-2 border rounded border-grey-400 bg-gray-200" name="username" required >
+                  <input v-model="username" id="username" type="text" class="flex-grow h-10 px-2 border rounded border-grey-400 bg-gray-200" name="username" required >
                 </div>
-                <div class="flex flex-col mt-2">
-                  <p class="text-base text-left font-medium ">รหัสผ่าน</p>
-                  <input v-model="password" id="password" type="password" class="flex-grow h-8 px-2 rounded border border-grey-400 bg-gray-200" name="password" required >
+                
+                <div class="flex flex-col mt-1" >   
+                  <p class="text-base text-left font-medium mt-2">รหัสผ่าน</p> 
+                  <div class="relative flex">          
+                    <input v-model="password" id="password" :type="showPasswordField?'password':'text'" class="flex-grow h-10 px-2 rounded border border-grey-400 bg-gray-200" name="password" required >
+                    <button class="block w-7 h-7 text-center text-xl leading-0 absolute top-1 right-2 text-gray-400 focus:outline-none hover:text-indigo-500 transition-colors" @click.prevent="showPasswordField=!showPasswordField"><i class="mdi" :class="`mdi-${showPasswordField?'eye-outline':'eye-off-outline'}`"></i></button> 
+                  </div>
                 </div>
+
                 <!-- <div class="flex justify-between mt-2">
                   <div>
                     <input type="checkbox" name="remember" id="remember" class="mr-2 "> 
@@ -40,7 +45,7 @@
                   </div>
                 </div> -->
                 <div class="flex flex-col mt-4">
-                  <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 rounded">
+                  <button type="submit" class="bg-yellow hover:bg-coral1 text-black hover:text-white text-sm font-semibold py-2 px-4 h-10 rounded">
                     <span
                       v-show="loading"
                       class="spinner-border spinner-border-sm"
@@ -82,6 +87,7 @@ export default {
           password: "",
           loading: false,
           message: "",
+          showPasswordField: true,
       };
   },
   computed: {
@@ -91,7 +97,7 @@ export default {
   },
   created() {
       if (this.loggedIn) {
-          this.$router.push('/user-random');
+          this.$router.push('/user-statistic-random-menu');
       }
   },
   methods: {
@@ -100,7 +106,7 @@ export default {
       this.loading = true;
       this.$store.dispatch("auth/login", users).then(
         () => {
-          this.$router.push('/user-random');
+          this.$router.push('/user-statistic-random-menu');
         },
         (error) => {
           this.loading = false;
@@ -117,6 +123,7 @@ export default {
 }
 </script>
 <style>
+@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
   .fontKanit {
     font-family: 'Kanit', sans-serif;
     
