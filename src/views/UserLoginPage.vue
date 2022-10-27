@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen overflow-y-hidden bg-coral2 fontNoto pb-24">
     <base-navbar></base-navbar>
-    <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
+    <div class="flex items-center flex-1 h-full justify-center px-4 sm:px-0 sm:py-4">
       <div class="flex rounded-3xl drop-shadow-xl w-full lg:w-2/3 bg-white sm:mx-0" style="height: 500px">
         <div class="hidden md:block md:w-2/3">
           <img src="../assets/pic-login.png" class="rounded-l-3xl h-full">

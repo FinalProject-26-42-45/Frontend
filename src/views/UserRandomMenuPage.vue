@@ -95,7 +95,8 @@
                 </button>
               </div>
           </div>
-          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex flex-col justify-center">
+          <!-- <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex flex-col justify-center"> -->
+          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 ">
               <div class="flex justify-center space-x-2 mt-2">
                 <button
                   @click="clickRecipe(randomMenu.MenuId)"
@@ -103,11 +104,11 @@
                 >
                   ดูสูตรอาหาร
                 </button>
-                <button
+                <!-- <button
                   class="bg-red-500 px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
                 >
                   ดูร้านอาหาร
-                </button>
+                </button> -->
               </div>
           </div>
           <div v-if="showMenu" class="absolute inset-x-0 bottom-16 mb-2 -ml-12 text-center">
@@ -234,8 +235,8 @@ export default {
           }
           var random = Math.floor(Math.random() * this.menuInCategory.length);
           this.randomMenu = this.menuInCategory[random];
-          //  this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-          this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+           this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
+          // this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
           this.showMenu = true;
           this.showQuestion1 = true;
           this.showQuestion2 = false;
@@ -281,8 +282,8 @@ export default {
         });
     },
     getMenuImage(MenuImg){
-      //  return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+       return "http://localhost:3000/images/"+MenuImg;
+      // return "https://foodrand.hopto.org/backend/images/"+MenuImg;
     },
   },
   created() {
