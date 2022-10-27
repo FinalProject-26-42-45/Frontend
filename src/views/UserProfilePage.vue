@@ -1,43 +1,43 @@
 <template>
   <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
     <base-navbar></base-navbar>
-    <section class="relative mx-auto">
-      <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
-        <div class="px-5 py-6 flex w-full items-center">
-          <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-              <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
-                <i class="material-icons">home</i>
-                <div><a>หน้าแรก</a></div>
-              </router-link>
-              <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">restaurant_menu</i>
-                <div><a>แนะนำอาหาร</a></div>
-              </router-link>
-              <router-link to="/user-random" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">attractions</i>
-                <div><a>สุ่มอาหาร</a></div>
-              </router-link>
-              <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">history</i>
-                <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
-              </router-link>
-              <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">manage_accounts</i>
-                <div><a>บัญชีผู้ใช้</a></div>
-              </router-link>
-          </ul>
-        </div>
-      </nav>
-    </section>
+    <section class="relative mx-auto z-50">
+        <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
+          <div class="px-5 py-6 flex w-full items-center">
+            <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
+                <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                    <i class="material-icons">home</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">หน้าแรก</p></div>
+                </router-link>
+                <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">restaurant_menu</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">แนะนำอาหาร</p></div>
+                </router-link>
+                <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">attractions</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">สุ่มอาหาร</p></div>
+                </router-link>
+                <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">history</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">ประวัติเมนูอาหารที่สุ่มได้</p></div>
+                </router-link>
+                <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">manage_accounts</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">บัญชีผู้ใช้</p></div>
+                </router-link>
+                </ul>
+          </div>
+        </nav>
+      </section>
     <div class="flex justify-center items-center text-left my-4">
-      <div class="lg:w-2/4 flex flex-col items-center rounded-xl bg-white shadow-lg p-2 my-8">
-        <p class=" text-center text-lg my-4 font-semibold">ข้อมูลบัญชีผู้ใช้งาน</p>
+      <div class="lg:w-2/4 w-full flex flex-col items-center rounded-xl bg-white shadow-lg p-2 my-8">
+        <p class=" text-center text-xl my-4 font-semibold">ข้อมูลบัญชีผู้ใช้งาน</p>
           <div class="w-1/2 ">
-            <label class="block mb-1 text-sm text-gray-700" for="firstname">
+            <label class="block mb-1 text-lg text-gray-700" for="firstname">
               ชื่อจริง
             </label>
             <input
-              class="flex-grow h-10 w-full px-2 border rounded border-grey-400"
+              class="flex-grow h-10 w-full text-lg px-2 border rounded border-grey-400"
               v-model="firstname"
               id="firstname"
               type="text"
@@ -46,11 +46,11 @@
             >
           </div>
           <div class="w-1/2 mt-2">
-            <label class="block mb-1 text-sm text-gray-700" for="lastname">
+            <label class="block mb-1 text-lg text-gray-700" for="lastname">
               นามสกุล
             </label>
             <input
-              class="flex-grow h-10 w-full px-2 border rounded border-grey-400"
+              class="flex-grow h-10 w-full text-lg px-2 border rounded border-grey-400"
               v-model="lastname"
               id="lastname"
               type="text"
@@ -60,10 +60,10 @@
           </div>
 
           <div class="w-1/2 mt-2">
-            <label class="block mb-1 text-sm text-gray-700" for="religion">
+            <label class="block mb-1 text-lg text-gray-700" for="religion">
               ศาสนา
             </label>
-            <select v-model="religion" id="religion" class="flex-grow h-10 w-full px-2 border rounded border-grey-400" name="religion">
+            <select v-model="religion" id="religion" class="flex-grow text-lg h-10 w-full px-2 border rounded border-grey-400" name="religion">
               <option disabled value="">เลือกศาสนา</option>
               <option>พุทธ</option>
               <option>คริสต์</option>
@@ -73,7 +73,7 @@
           </div>
           
           <div class="w-1/2 mt-2">
-            <label class="block mb-1 text-sm text-gray-700" for="foodallergens">
+            <label class="block mb-1 text-lg text-gray-700" for="foodallergens">
               อาหารที่แพ้
             </label>
             <VueMultiselect 
@@ -82,12 +82,12 @@
                         :options="foodallergens"
                         :taggable="true"
                         @tag="addTagFoodAllergens"
-                        placeholder="เช่น ไข่ นม ถั่ว"
+                        placeholder="เช่น ไข่ นม ถั่ว หรือถ้าไม่มีให้ใส่ -"
                       />
           </div>
 
           <div class="w-1/2 mt-2">
-            <label class="block mb-1 text-sm text-gray-700" for="dislikedFood">
+            <label class="block mb-1 text-lg text-gray-700" for="dislikedFood">
               อาหารที่ไม่ชอบทาน
             </label>
             <VueMultiselect 
@@ -96,10 +96,10 @@
                         :options="dislikedFood"
                         :taggable="true"
                         @tag="addTagDislikedFood"
-                        placeholder="เช่น ไข่ นม ถั่ว"
+                        placeholder="เช่น ไข่ นม ถั่ว หรือถ้าไม่มีให้ใส่ -"
                       />
           </div>
-        <div class="text-center">
+        <div class="text-center mt-2">
           <button
             class="
               w-auto
@@ -113,6 +113,7 @@
               text-black
               hover:text-white
               focus:outline-none focus:shadow-outline
+              text-lg
             "
             type="button"
             @click="updateProfile()"

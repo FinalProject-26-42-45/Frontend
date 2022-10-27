@@ -1,17 +1,17 @@
 <template>
-  <div class="bg-nood fontNoto flex relative overflow-y-auto">
-    <aside class="fixed z-50 left-0 top-0 h-screen p-10 px-4 py-8 border-r dark:bg-yellow">
+  <div class="fontNoto flex relative overflow-y-auto">
+    <div class="fixed z-50 left-0 top-0 h-screen p-10 px-4 py-8 border-r bg-yellow">
       <div class="flex justify-center">
         <img src="../assets/logo.png" class="object-cover h-36 w-auto">
       </div>
       <p class="text-3xl font-bold text-white text-center mt-5 textShadow">FOODRAND</p>
             
       <div id="nav" class="flex flex-col flex-1 mt-10">
-        <router-link to="/admin-manage" class="cursor-pointer active  flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" exact>
+        <router-link to="/admin-manage" class="cursor-pointer flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" exact>
             <font-awesome-icon icon="rectangle-list" class="block h-6 w-6 " />
             <span class="mx-4 font-medium">เมนูอาหาร</span>
         </router-link>
-        <router-link to="/admin-user" class="cursor-pointer active  flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" exact>
+        <router-link to="/admin-user" class="cursor-pointer flex items-center px-4 py-3 mt-5 rounded-full dark:bg-white dark:text-black hover:bg-gray-200" exact>
             <font-awesome-icon icon="address-book" class="block h-6 w-6 " />
             <span class="mx-4 font-medium">ข้อมูลผู้ใช้</span>
         </router-link>
@@ -20,8 +20,8 @@
           <font-awesome-icon icon="arrow-right-from-bracket" class="block h-6 w-6 " />
         </a>
       </div>
-    </aside>
-    <main class="flex-1 ml-52">
+    </div>
+    <div class="flex-1 ml-52 bg-nood">
       <!-- <div class="flex my-4">
         <div>
           <input placeholder="ค้นหา" v-model="search"
@@ -111,7 +111,7 @@
                 </div> 
             </div>
 
-    </main>
+    </div>
   </div>
 </template>
 

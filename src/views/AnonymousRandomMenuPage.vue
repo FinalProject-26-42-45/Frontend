@@ -1,10 +1,10 @@
 <template>
   <div class="fontNoto bg-gray1 overflow-x-hidden">
     <base-navbar></base-navbar>
-    <section class="relative mx-auto">
+    <section class="relative mx-auto z-50">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
-            <ul class="md:flex px-4 mx-auto font-heading space-x-12">
+            <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
               <router-link to="/" class="flex flex-row hover:text-coral1 ">
                 <i class="material-icons">home</i>
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
@@ -87,18 +87,19 @@
             <div v-if="showMenu" class="flex justify-center -ml-32 mt-32">
               <img :src="imgSrc" class="object-cover h-auto w-56" />
             </div>
-            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 pl-32 flex space-x-2">
+            <!-- <div v-if="showMenu" class="absolute inset-x-0 bottom-48 pl-32 flex space-x-2"> -->
+            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 pl-48 flex"> 
                 <button
                    @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-green px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
                 >
                   ดูสูตรอาหาร
                 </button>
-                <button
+                <!-- <button
                   class="bg-red-500 px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
                 >
                   ดูร้านอาหาร
-                </button>
+                </button> -->
             </div>
             <div class="absolute inset-x-0 bottom-24 mb-1 -ml-10 text-center">
                 <p class="font-medium text-lg">

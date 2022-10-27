@@ -7,7 +7,7 @@ class AuthenService {
         "Username": users.username,
         "Password": users.password
     }));
-    return axios.post("https://foodrand.hopto.org/backend/auth/login", data)
+    return axios.post("https://foodrand.hopto.org/backen?d/auth/login", data)
     //  return axios.post("http://localhost:3000/auth/login", data)
         .then(response => {
             if (response.data.accessToken) {

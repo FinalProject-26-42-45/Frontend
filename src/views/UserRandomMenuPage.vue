@@ -1,35 +1,35 @@
 <template>
   <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
     <base-navbar></base-navbar>
-    <section class="relative mx-auto">
-      <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
-        <div class="px-5 py-6 flex w-full items-center">
-          <div class="md:flex px-4 mx-auto font-heading lg:space-x-12">
-              <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
-                <i class="material-icons">home</i>
-                <div><a>หน้าแรก</a></div>
-              </router-link>
-              <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">restaurant_menu</i>
-                <div><a>แนะนำอาหาร</a></div>
-              </router-link>
-              <router-link to="/user-random" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">attractions</i>
-                <div><a>สุ่มอาหาร</a></div>
-              </router-link>
-              <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">history</i>
-                <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
-              </router-link>
-              <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
-                <i class="material-icons">manage_accounts</i>
-                <div><a>บัญชีผู้ใช้</a></div>
-              </router-link>
+    <section class="relative mx-auto z-50">
+        <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
+          <div class="px-5 py-6 flex w-full items-center">
+            <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
+                <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                    <i class="material-icons">home</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">หน้าแรก</p></div>
+                </router-link>
+                <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">restaurant_menu</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">แนะนำอาหาร</p></div>
+                </router-link>
+                <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">attractions</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">สุ่มอาหาร</p></div>
+                </router-link>
+                <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">history</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">ประวัติเมนูอาหารที่สุ่มได้</p></div>
+                </router-link>
+                <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">manage_accounts</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">บัญชีผู้ใช้</p></div>
+                </router-link>
+                </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
     </section>
-    <div class="flex justify-center">
+    <div class="flex lg:flex-row sm:flex-col justify-center">
       <div class="w-5/6 h-full py-10 p-4 bg-white flex lg:flex-row md:flex-row sm:flex-col justify-center mt-12 mb-10 lg:space-x-4 lg:space-y-0 md:space-x-8 md:space-y-0 sm:space-y-4">
         <div class="bg-yellow1 w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
             <div class="grid grid-cols-2 gap-x-4 gap-y-4">
@@ -64,7 +64,7 @@
               </button>
             </div>
           </div> 
-        <div class=" relative bg-randomImg w-3/6 bg-no-repeat bg-contain bg-center">
+        <div class=" relative bg-randomImg lg:w-3/6 bg-no-repeat bg-contain bg-center">
           <div v-if="showMenu" class="justify-center pl-44 -ml-2 mt-14">
             <img :src="imgSrc" class="object-cover h-auto w-44" /> 
           </div>
@@ -238,6 +238,7 @@ export default {
           this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
           this.showMenu = true;
           this.showQuestion1 = true;
+          this.showQuestion2 = false;
           this.menuInCategory = [];
           this.allSelected = false;
           this.addStatistic();
