@@ -79,8 +79,7 @@
                         :options="foodAllergens"
                         :taggable="true"
                         @tag="addTagFoodAllergens"
-                        placeholder="เช่น ไข่ นม ถั่ว"
-                        class=""
+                        placeholder="เช่น ไข่ นม ถั่ว หรือถ้าไม่มีให้ใส่ -"
                     />
                   </div>
                   <div class="flex flex-col mt-16"> 
@@ -91,7 +90,7 @@
                         :options="dislikedFood"
                         :taggable="true"
                         @tag="addTagDislikedFood"
-                        placeholder="เช่น ไข่ นม ถั่ว"
+                        placeholder="เช่น ไข่ นม ถั่ว หรือถ้าไม่มีให้ใส่ -"
                       />
                   </div>
                 </div>
@@ -156,7 +155,6 @@ export default {
       signUp(firstname, lastname, username, password, birth, religion, foodAllergens, dislikedFood) {
           const users = {firstname:firstname, lastname:lastname, birth:birth, username:username, 
           password:password, religion:religion, foodAllergens: foodAllergens, dislikedFood: dislikedFood}
-          console.log(users);
           this.message = "";
           this.successful = false;
           this.loading = true;

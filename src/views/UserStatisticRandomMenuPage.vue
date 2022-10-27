@@ -1,38 +1,44 @@
 <template>
     <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
         <base-navbar></base-navbar>
-        <section class="relative mx-auto">
+        <section class="relative mx-auto z-50">
             <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
-                <div class="px-5 py-6 flex w-full items-center">
-                    <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-                        <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
-                            <i class="material-icons">home</i>
-                            <div><a>หน้าแรก</a></div>
-                        </router-link>
-                        <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
-                            <i class="material-icons">restaurant_menu</i>
-                            <div><a>แนะนำอาหาร</a></div>
-                        </router-link>
-                        <router-link to="/user-random" class="flex flex-row hover:text-coral1">
-                            <i class="material-icons">attractions</i>
-                            <div><a>สุ่มอาหาร</a></div>
-                        </router-link>
-                        <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
-                            <i class="material-icons">history</i>
-                            <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
-                        </router-link>
-                        <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
-                            <i class="material-icons">manage_accounts</i>
-                            <div><a>บัญชีผู้ใช้</a></div>
-                        </router-link>
-                    </ul>
-                </div>
-            </nav>    
-        </section>
-        <div>
-            <div class="text-center text-xl font-bold py-8">
-                <p> สถิติการสุ่มเมนูอาหารรายสัปดาห์ </p>
+            <div class="px-5 py-6 flex w-full items-center">
+                <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
+                <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
+                    <i class="material-icons">home</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">หน้าแรก</p></div>
+                </router-link>
+                <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">restaurant_menu</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">แนะนำอาหาร</p></div>
+                </router-link>
+                <router-link to="/user-random" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">attractions</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">สุ่มอาหาร</p></div>
+                </router-link>
+                <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">history</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">ประวัติเมนูอาหารที่สุ่มได้</p></div>
+                </router-link>
+                <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
+                    <i class="material-icons">manage_accounts</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">บัญชีผู้ใช้</p></div>
+                </router-link>
+                </ul>
             </div>
+            </nav>
+        </section>
+        <div class="sm:hidden lg:inline md:inline"> 
+            <div class="bg-bannerStat h-full w-full bg-center bg-no-repeat bg-contain lg:-mt-5 md:-mt-36">
+                <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
+                    <div class="absolute inset-x-0 lg:bottom-28 md:bottom-44 text-center">
+                        <p class="text-3xl lg:text-5xl md:text-3xl whitespace-pre-line">อันดับการสุ่มอาหารยอดนิยม</p>
+                        <p class="text-3xl lg:text-5xl md:text-3xl whitespace-pre-line mt-1">ประจำสัปดาห์</p>
+                    </div>
+                </div>
+            </div>
+        </div>
             <!-- <div class="flex justify-center">
                 <div class="flex flex-row">
                     <div v-for="(s, index) in secondStatistic(2)" :key="index" class="flex flex-col items-center mt-24">
@@ -86,7 +92,7 @@
                 </div>
             </div> -->
             <div class="flex justify-center">
-                <div class="bg-blue1 box4 h-auto rounded-2xl p-8 mb-4">
+                <div class="bg-blue1 box4 h-auto rounded-2xl pt-8 px-14 lg:pb-40 sm:pb-32 md:pb-40 mb-4 sm:mt-4 lg:mt-4 md:-mt-32 relative">
                     <div v-for="(s, index) in theRestStatistic(10)" :key="index" >
                         <div class="flex flex-row-reverse mb-2">
                         <div class="bg-yellow4 w-56 h-14 rounded-r-xl z-0 -ml-8 flex justify-center">
@@ -97,9 +103,11 @@
                         </div>
                         </div>
                     </div>
+                        <div class="absolute inset-x-0 bottom-0 flex justify-center w-full">
+                        <img src="../assets/โต๊ะอาหาร.png" class="w-4/5 object-contain h-full" />
+                    </div>
                 </div>
             </div>
-        </div>
         <div v-if="openMenu" class="overflow-x-hidden overflow-y-hidden fixed inset-10 z-50 outline-none focus:outline-none flex justify-center items-center">
             <div class="h-auto border-0 rounded-md shadow-lg flex flex-col lg:w-1/2 md:w-1/2 bg-white outline-none focus:outline-none overflow-auto">
                     

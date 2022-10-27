@@ -27,7 +27,9 @@ module.exports = {
       },
       backgroundImage: {
         'randomImg': "url('./random.png')",
-        'randomCutomImg': "url('./menu-custom.png')"
+        'randomCutomImg': "url('./menu-custom.png')",
+        'bannerStat': "url('../assets/banner-stat.png')",
+        'bannerRecommend': "url('../assets/banner-recommend.png')"
       }
     },
   },

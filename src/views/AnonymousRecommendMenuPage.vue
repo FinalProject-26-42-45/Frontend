@@ -3,15 +3,15 @@
     <base-navbar>
       
     </base-navbar>
-      <section class="relative mx-auto">
+      <div class="relative z-50 mx-auto">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
-            <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-              <router-link to="/" class="flex flex-row hover:text-coral1 ">
+            <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
+              <router-link to="/" class="flex flex-row hover:text-coral1">
                 <i class="material-icons">home</i>
                 <div><a class="hover:text-coral1">หน้าแรก</a></div>
               </router-link>
-              <router-link to="/anonymous-recommend-menu" class="flex flex-row hover:text-coral1 ">
+              <router-link to="/anonymous-recommend-menu" class="flex flex-row hover:text-coral1">
                 <i class="material-icons">restaurant_menu</i>
                 <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
               </router-link>
@@ -22,13 +22,19 @@
             </ul>
           </div>
         </nav>
-        
-      </section>
-      
-    <div>
-      <img class="object-cover w-full" alt="home" src="../assets/pic-home1.png">
-    </div>
-      <div class="flex items-center w-screen">
+      </div>
+      <div class="sm:hidden lg:inline md:inline">
+        <div class=" bg-bannerRecommend w-full bg-center bg-no-repeat bg-contain lg:-mt-32 md:-mt-52">
+              <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
+                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-60 text-center">
+                      <p class="text-3xl lg:text-6xl md:text-2xl whitespace-pre-line mb-2 mt-8">แนะนำอาหาร</p>
+                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มาแนะนำอาหารยอดฮิต</p>
+                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
+                  </div>
+              </div>
+        </div>
+      </div>
+      <div class="flex justify-center w-screen sm:-mt-4 md:-mt-52 lg:-mt-32">
           <button id="left-button" @click="scroll_left">
             <font-awesome-icon icon="chevron-left" class="block lg:inline sm:hidden h-14 w-14 mt-4" style="color:#FFB911" />
           </button>

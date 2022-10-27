@@ -3,13 +3,13 @@
         <base-navbar></base-navbar>
         <section class="relative mx-auto">
             <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
-                <div class="px-5 py-6 flex w-full items-center">
-                    <ul class="md:flex px-4 mx-auto font-heading space-x-12">
-                        <router-link to="/" class="flex flex-row hover:text-coral1 ">
+                <div class="px-5 py-6 pt-6 flex w-full items-center ">
+                    <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
+                        <router-link to="/" class="flex flex-row hover:text-coral1">
                             <i class="material-icons">home</i>
                             <div><a class="hover:text-coral1">หน้าแรก</a></div>
                         </router-link>
-                        <router-link to="/anonymous-recommend-menu" class="flex flex-row hover:text-coral1 ">
+                        <router-link to="/anonymous-recommend-menu" class="flex flex-row hover:text-coral1">
                             <i class="material-icons">restaurant_menu</i>
                             <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
                         </router-link>
@@ -21,75 +21,31 @@
                 </div>
             </nav>    
         </section>
-        <div>
-            <div class="text-center text-xl font-bold py-8">
-                <p> สถิติการสุ่มเมนูอาหารรายสัปดาห์ </p>
+        <div class="sm:hidden lg:inline md:inline">
+            <div class="bg-bannerStat h-full w-full bg-center bg-no-repeat bg-contain lg:-mt-5 sm:-mt-64 md:-mt-36">
+                <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
+                    <div class="absolute inset-x-0 lg:bottom-24 md:bottom-44 text-center">
+                        <p class="text-3xln lg:text-6xl md:text-3xl whitespace-pre-line">อันดับการสุ่มอาหารยอดนิยม</p>
+                        <p class="text-3xl lg:text-6xl md:text-3xl whitespace-pre-line">ประจำสัปดาห์</p>
+                    </div>
+                </div>
             </div>
-            <!-- <div class="flex justify-center">
-                <div class="flex flex-row">
-                    <div v-for="(s, index) in secondStatistic(2)" :key="index" class="flex flex-col items-center mt-24">
-                        <img class="img2" src="../assets/trophy2.png" />
-                        <hr class="-ml-1 -mt-1 border-4 rounded-l-full border-blue dark:bg-blue line2" />
-                        <div class="bg-yellow3 box2 flex flex-col items-center">
-                            <div>
-                                <img class="foodImg mt-8" :src="getMenuImage(s.MenuImg)" />
-                            </div>
-                            <div>
-                                <p class="text-center text-xl font-semibold mt-4">{{ s.MenuName }}</p>
-                            </div>
-                            <div>
-                                <p class="text-center text-xl mt-4">{{ s.RandomCount }} ครั้ง</p>
-                            </div>
+        </div>
+        <div class="flex justify-center">
+            <div class="bg-blue1 box4 h-auto rounded-2xl pt-8 px-14 lg:pb-40 sm:pb-32 md:pb-40 mb-4 sm:mt-4 lg:mt-4 md:-mt-32 relative">
+                <div v-for="(s, index) in statistic(10)" :key="index" >
+                    <div class="flex flex-row-reverse mb-2">
+                        <div class="bg-yellow4 w-56 h-14 rounded-r-xl z-0 -ml-8 flex justify-center">
+                            <p class="text-center flex items-center text-lg">{{ s.RandomCount }} ครั้ง</p>
                         </div>
-                    </div>
-                    <div v-for="(s, index) in firstStatistic(1)" :key="index" class="flex flex-col items-center -ml-2">
-                        <img class="img1" src="../assets/trophy1.png" />
-                        <hr class="border-4 rounded-full border-blue dark:bg-blue line1" />
-                        <div class="bg-yellow box1 flex flex-col items-center">
-                            <div>
-                                <img class="foodImg mt-8" :src="getMenuImage(s.MenuImg)" />
-                            </div>
-                            <div>
-                                <p class="text-center text-xl font-semibold mt-4">{{ s.MenuName }}</p>
-                            </div>
-                            <div>
-                                <p class="text-center text-xl mt-4">{{ s.RandomCount }} ครั้ง</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-for="(s, index) in thirdStatistic(3)" :key="index" class="flex flex-col items-center -ml-2.5 mt-40 mb-2">
-                        <img class="img3" src="../assets/trophy3.png" />
-                        <hr class="ml-1 -mt-1 border-4 rounded-r-full border-blue dark:bg-blue line2" />
-                        <div class="bg-yellow4 box3 flex flex-col items-center">
-                            <div>
-                                <img class="foodImg mt-8" :src="getMenuImage(s.MenuImg)" />
-                            </div>
-                            <div>
-                                <p class="text-center text-xl font-semibold mt-4">{{ s.MenuName }}</p>
-                            </div>
-                            <div>
-                                <p class="text-center text-xl mt-4">{{ s.RandomCount }} ครั้ง</p>
-                            </div>
+                        <div class="bg-white w-full h-14 rounded-xl z-20 flex justify-start items-center">
+                            <!-- <font-awesome-icon icon="trophy" class="pl-5" style="color:#FBCB22" /> -->
+                            <p @click="clickMenu(s.MenuId)" class="text-left text-lg pl-3 cursor-pointer">{{ s.MenuName }}</p>
                         </div>
                     </div>
                 </div>
-
-                <div>
-                </div>
-            </div> -->
-            <div class="flex justify-center">
-                <div class="bg-blue1 box4 h-auto rounded-2xl p-8 mb-4">
-                    <div v-for="(s, index) in statistic(10)" :key="index" >
-                        <div class="flex flex-row-reverse mb-2">
-                            <div class="bg-yellow4 w-56 h-14 rounded-r-xl z-0 -ml-8 flex justify-center">
-                                <p class="text-center flex items-center text-lg">{{ s.RandomCount }} ครั้ง</p>
-                            </div>
-                            <div class="bg-white w-full h-14 rounded-xl z-20 flex justify-start items-center">
-                                <!-- <font-awesome-icon icon="trophy" class="pl-5" style="color:#FBCB22" /> -->
-                                <p @click="clickMenu(s.MenuId)" class="text-left text-lg pl-3 cursor-pointer">{{ s.MenuName }}</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="absolute inset-x-0 bottom-0 flex justify-center w-full">
+                    <img src="../assets/โต๊ะอาหาร.png" class="w-4/5 object-contain h-full" />
                 </div>
             </div>
         </div>

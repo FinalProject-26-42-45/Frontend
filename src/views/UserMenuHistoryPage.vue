@@ -1,33 +1,33 @@
 <template>
     <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
         <base-navbar></base-navbar>
-        <section class="relative mx-auto">
+        <section class="relative mx-auto z-50">
           <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
             <div class="px-5 py-6 flex w-full items-center">
-              <ul class="md:flex px-4 mx-auto font-heading space-x-12">
+              <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
                 <router-link to="/user-statistic-random-menu" class="flex flex-row hover:text-coral1 ">
-                  <i class="material-icons">home</i>
-                  <div><a>หน้าแรก</a></div>
+                    <i class="material-icons">home</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">หน้าแรก</p></div>
                 </router-link>
                 <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
-                  <i class="material-icons">restaurant_menu</i>
-                  <div><a>แนะนำอาหาร</a></div>
+                    <i class="material-icons">restaurant_menu</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">แนะนำอาหาร</p></div>
                 </router-link>
                 <router-link to="/user-random" class="flex flex-row hover:text-coral1">
-                  <i class="material-icons">attractions</i>
-                  <div><a>สุ่มอาหาร</a></div>
+                    <i class="material-icons">attractions</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">สุ่มอาหาร</p></div>
                 </router-link>
                 <router-link to="/user-menu-history" class="flex flex-row hover:text-coral1">
-                  <i class="material-icons">history</i>
-                  <div><a>ประวัติเมนูอาหารที่สุ่มได้</a></div>
+                    <i class="material-icons">history</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">ประวัติเมนูอาหารที่สุ่มได้</p></div>
                 </router-link>
                 <router-link to="/user-profile" class="flex flex-row hover:text-coral1">
-                  <i class="material-icons">manage_accounts</i>
-                  <div><a>บัญชีผู้ใช้</a></div>
+                    <i class="material-icons">manage_accounts</i>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">บัญชีผู้ใช้</p></div>
                 </router-link>
-              </ul>
+                </ul>
             </div>
-          </nav>    
+          </nav>
         </section>
 
         <div class="min-w-screen min-h-screen bg-gray-100 flex justify-center overflow-hidden">
