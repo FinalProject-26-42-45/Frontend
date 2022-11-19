@@ -1,7 +1,7 @@
 <template>
   <div class="h-full fontNoto bg-gray1 overflow-x-hidden overflow-y-auto">
     <base-navbar></base-navbar>
-    <section class="relative mx-auto z-50">
+    <section class="relative mx-auto z-40">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
@@ -11,7 +11,7 @@
                 </router-link>
                 <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
                     <i class="material-icons">restaurant_menu</i>
-                    <div><p class="sm:text-sm md:text-sm lg:text-lg">แนะนำอาหาร</p></div>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">เมนูอาหาร</p></div>
                 </router-link>
                 <router-link to="/user-random" class="flex flex-row hover:text-coral1">
                     <i class="material-icons">attractions</i>

@@ -28,8 +28,9 @@ module.exports = {
       backgroundImage: {
         'randomImg': "url('./random.png')",
         'randomCutomImg': "url('./menu-custom.png')",
-        'bannerStat': "url('../assets/banner-stat.png')",
-        'bannerRecommend': "url('../assets/banner-recommend.png')"
+        'banner1': "url('../assets/banner-1.png')",
+        'banner2': "url('../assets/banner-2.png')",
+        'banner3': "url('../assets/banner-3.png')"
       }
     },
   },

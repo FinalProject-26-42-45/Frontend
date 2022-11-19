@@ -3,7 +3,7 @@
     <base-navbar>
       
     </base-navbar>
-      <div class="relative z-50 mx-auto">
+      <div class="relative z-40 mx-auto">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
@@ -13,7 +13,7 @@
               </router-link>
               <router-link to="/anonymous-recommend-menu" class="flex flex-row hover:text-coral1">
                 <i class="material-icons">restaurant_menu</i>
-                <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
+                <div><a class="hover:text-coral1">เมนูอาหาร</a></div>
               </router-link>
               <router-link to="/anonymous-random-menu" class="flex flex-row hover:text-coral1 ">
                 <i class="material-icons">attractions</i>
@@ -24,12 +24,12 @@
         </nav>
       </div>
       <div class="sm:hidden lg:inline md:inline">
-        <div class=" bg-bannerRecommend w-full bg-center bg-no-repeat bg-contain lg:-mt-32 md:-mt-52">
+        <div class=" bg-banner2 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-52 md:pt-6">
               <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
                   <div class="absolute inset-x-0 lg:bottom-60 md:bottom-60 text-center">
-                      <p class="text-3xl lg:text-6xl md:text-2xl whitespace-pre-line mb-2 mt-8">แนะนำอาหาร</p>
-                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มาแนะนำอาหารยอดฮิต</p>
-                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
+                      <p class="text-3xl lg:text-5xl md:text-2xl whitespace-pre-line mb-2 mt-12">เมนูอาหาร</p>
+                      <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มีเมนูอาหารมาแนะนำ</p>
+                      <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
                   </div>
               </div>
         </div>
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 text-left justify-items-center my-4 mx-16">
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 text-left justify-items-center">
       <div v-for="(m, index) in filterMenu" :key="index" :id="m.MenuId"  class="w-full p-1 md:p-2">
         <base-block class="relative bg-nood">
           <img :src="getMenuImage(m.MenuImg)" class="object-cover w-full rounded-t-md border-gray-200 lg:h-48 sm:h-36 bg-gray-200"/>
@@ -99,7 +99,7 @@
     
     
     <div v-if="openRecipe" class="overflow-x-hidden overflow-y-hidden fixed inset-10 z-50 outline-none focus:outline-none flex justify-center items-center">
-      <div class="h-full border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 md:w-1/2 bg-white outline-none focus:outline-none overflow-auto">
+      <div class="h-full border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 md:w-full bg-white outline-none focus:outline-none overflow-auto">
               
         <div class="flex justify-end pr-3 pt-2">
           <button class="close text-black" type="button" @click="closeModal()" > X </button>
@@ -109,13 +109,11 @@
           <div class="pt-3 flex justify-center md:justify-center">
             <h3 class="text-3xl uppercase text-darkgray">{{ n.MenuName }}</h3>
           </div>
-          <div class="lg:flex lg:flex-row justify-around mt-2 sm:flex sm:flex-col">
-            <div class="lg:flex lg:justify-center sm:justify-center md:justify-center  w-3/4 rounded-md">
+          <div class="lg:flex lg:flex-row justify-center mt-2">
+            <div class="flex justify-center w-full rounded-md">
               <img class="object-cover w-auto lg:h-80" :src="getMenuImage( n.MenuImg )"/>
             </div>
-
-        
-        </div>   
+          </div>   
             <div class="mt-6 ">
               <p class="text-xl font-semibold pl-4">วัตถุดิบ</p>
               <p class="text-lg whitespace-pre-line pl-8">{{ n.Ingredients }}</p>
@@ -178,6 +176,7 @@ export default {
       MenuService.get("/menucategory")
         .then(response => {
           this.category = response.data;
+          this.category.reverse();
         })
     },
     clickCategory(CategoryId) {
@@ -231,7 +230,10 @@ export default {
       .includes(this.boxsearch.toLowerCase())
       }
     );
-    }
+    },
+    // reverse: function() {
+    //     return this.category.reverse();
+    // }
   }
 };
 </script>

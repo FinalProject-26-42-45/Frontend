@@ -15,10 +15,12 @@ import {
   faTrashAlt,
   faSignOutAlt,
   faUtensils,
-  faTrophy
+  faTrophy,
+  faLocationCrosshairs,
+  faLocationArrow
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faUserCircle, faCarrot, faUser, faChevronRight, faChevronLeft, faArrowRight, faRectangleList, faNewspaper, 
-  faAddressBook,faArrowRightFromBracket, faEdit, faTrashAlt, faSignOutAlt, faTrophy, faUtensils);
+  faAddressBook,faArrowRightFromBracket, faEdit, faTrashAlt, faSignOutAlt, faTrophy, faUtensils, faLocationCrosshairs, faLocationArrow);
 
 export { FontAwesomeIcon };
