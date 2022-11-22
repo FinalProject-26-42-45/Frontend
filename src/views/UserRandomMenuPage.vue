@@ -1,7 +1,7 @@
 <template>
   <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
     <base-navbar></base-navbar>
-    <section class="relative mx-auto z-40">
+    <section class="relative mx-auto z-10">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
@@ -41,10 +41,10 @@
         </div>
     </div>
     <div class="flex lg:flex-row sm:flex-col justify-center">
-      <div class="lg:w-5/6 md:w-5/6 sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4">
+      <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4 z-20">
         <div class="bg-yellow1 lg:w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
-            <p class="text-left font-medium lg:text-base sm:text-xs">เลือกประเภทอาหาร:</p>
-            <div class="grid grid-cols-2 gap-x-4 gap-y-4">
+            <p class="text-left font-medium lg:text-base sm:text-xs lg:-ml-48">เลือกประเภทอาหาร:</p>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-4 mt-2">
               <div class="flex">
                   <input type="checkbox" v-model="allSelected" @change="selectAll"
                     class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
@@ -76,7 +76,7 @@
               </button>
             </div>
         </div> 
-        <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:block md:w-3/6 sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
+        <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:hidden md:w-3/6 sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
           <div v-if="showMenu" class="justify-center pl-44 -ml-2 mt-14">
             <img :src="imgSrc" class="object-cover h-auto w-44" /> 
           </div>
@@ -129,7 +129,8 @@
           </div>
             
         </div>
-        <div class="lg:hidden md:hidden bg-nood sm:w-full h-full pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center">
+        <div class="lg:hidden md:block bg-nood sm:w-full md:w-2/4 md:py-8 h-full pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center">
+            <p class="text-center font-bold text-sm pb-2">เมนูที่คุณได้คือ...</p>
             <div v-if="showMenu">
               <div class="flex justify-center">
                 <img :src="imgSrc" class="object-cover h-64 w-auto" />
@@ -169,7 +170,7 @@
                     </button>
                   </div>
               </div> 
-              <div v-if="showQuestion2" class="mb-4 space-x-2">
+              <div v-if="showQuestion2" class="mb-4 space-x-2 flex justify-center">
                 <button
                   @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-yellow3 px-2 py-1 h-8 w-28 rounded-3xl font-semibold text-sm"
