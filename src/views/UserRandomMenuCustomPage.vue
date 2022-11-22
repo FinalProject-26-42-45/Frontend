@@ -57,7 +57,7 @@
                   </li>  
                 </ul> 
                 <div v-if="showBtn" class="my-2 ml-10 flex justify-center">
-                  <button @click="randomMenu()" class="bg-green px-2 py-2 h-10 w-16 rounded-3xl font-semibold">สุ่มเมนู</button>
+                  <button @click="randomMenu()" class="bg-green px-2 py-2 h-10 lg:w-16 md:w-24 rounded-3xl font-semibold">สุ่มเมนู</button>
                 </div>
               </div>
               <div v-if="shown">
