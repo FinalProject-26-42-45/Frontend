@@ -44,20 +44,20 @@
                 </div>
             </div>
             <p v-if="invalidMenu" class="error -ml-64">กรุณาใส่ชื่อเมนูอาหาร</p>
-            <div class="relative bg-randomCutomImg lg:w-3/6 md:full heightBg bg-no-repeat bg-contain bg-center lg:block md:block sm:hidden" >
-              <div class="w-96 h-64 rounded-md overflow-auto mt-16">
+            <div class="relative bg-randomCutomImg lg:w-3/6 md:w-full heightBg bg-no-repeat bg-contain bg-center lg:block md:block sm:hidden" >
+              <div class="w-96 h-64 rounded-md overflow-auto lg:mt-16 md:mt-6">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
-                    <div class="lg:w-80 md:w-72">
+                    <div class="lg:w-80 md:w-64">
                       <p class=" bg-gray-300 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
-                    <div @click="deleteList(id)" class="absolute inset-y-0 lg:right-2 md:right-12 cursor-pointer">
+                    <div @click="deleteList(id)" class="absolute inset-y-0 lg:right-2 md:right-20 cursor-pointer">
                       <p class=" bg-red-500 uppercase px-2 mt-1.5 rounded-md text-white text-xl text-center">x</p>
                     </div>
                   </li>  
                 </ul> 
                 <div v-if="showBtn" class="my-2 ml-10 flex justify-center">
-                  <button @click="randomMenu()" class="bg-green px-2 py-2 h-10 lg:w-16 md:w-24 rounded-3xl font-semibold">สุ่มเมนู</button>
+                  <button @click="randomMenu()" class="bg-green px-2 py-2 h-10 lg:w-16 md:w-2 md:text-sm 4 rounded-3xl font-semibold">สุ่มเมนู</button>
                 </div>
               </div>
               <div v-if="shown">
