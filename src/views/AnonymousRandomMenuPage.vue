@@ -22,9 +22,9 @@
         </nav>    
       </section>
       <div class="sm:hidden lg:inline md:inline">
-        <div class=" bg-banner3 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-52 md:pt-7">
+        <div class=" bg-banner3 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-56 md:pt-7">
               <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
-                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-60 text-center">
+                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-64 text-center">
                       <p class="text-3xl lg:text-5xl md:text-2xl whitespace-pre-line mb-2 pt-14">สุ่มเมนูอาหาร</p>
                       <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มีเมนูอาหารมาแนะนำ</p>
                       <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
@@ -34,11 +34,11 @@
       </div>
       <div class="flex justify-center">
         <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-4 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-44 sm:mt-8 mb-8 lg:space-x-14 lg:space-y-0 md:space-x-4 md:space-y-0 sm:space-y-4">
-          <div class="bg-yellow1 lg:w-2/6 md:w-3/6 sm:w-full h-full py-4 px-4 pl-3 rounded-lg">
+          <div class="bg-yellow1 lg:w-2/6 md:w-2/6 sm:w-full h-full py-4 px-4 pl-3 rounded-lg">
             <div class="flex flex-col space-x-8">
               <div class="flex flex-col">
                 <div class="flex flex-col"> 
-                    <p class="text-left font-medium lg:text-base sm:text-xs">อาหารที่แพ้:</p>
+                    <p class="text-left font-medium text-base sm:text-sm">อาหารที่แพ้:</p>
                       <VueMultiselect 
                         v-model="foodAllergens"
                         :multiple="true"
@@ -50,7 +50,7 @@
                     />
                 </div>
                 <div class="flex flex-col mt-2"> 
-                    <p class="text-left font-medium lg:text-base sm:text-xs">อาหารที่ไม่ชอบทาน:</p>
+                    <p class="text-left font-medium text-base sm:text-sm">อาหารที่ไม่ชอบทาน:</p>
                       <VueMultiselect 
                         v-model="dislikedFood"
                         :multiple="true"
@@ -62,13 +62,13 @@
                 </div>
               </div>
               <div class="flex flex-col mt-4">
-                <p class="text-left font-medium -ml-8 lg:text-base sm:text-xs">เลือกประเภทอาหาร:</p>
+                <p class="text-left font-medium -ml-8 text-base sm:text-sm">เลือกประเภทอาหาร:</p>
                 <div class="grid grid-cols-2 gap-x-4 gap-y-4 mt-2">
                   <div class="flex">
                       <input type="checkbox" v-model="allSelected" @change="selectAll"
                         class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
                       />
-                      <p class="pl-1 lg:text-base sm:text-xs ">เมนูทั้งหมด</p>
+                      <p class="pl-1 text-base sm:text-sm ">เมนูทั้งหมด</p>
                     </div>
                   <div
                     v-for="c in Category"
@@ -83,7 +83,7 @@
                       name="category"
                       class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
                     />
-                    <p class="pl-1 lg:text-base sm:text-xs">{{ c.CategoryName }}</p>
+                    <p class="pl-1 text-base sm:text-sm">{{ c.CategoryName }}</p>
                   </div>
                 </div>
               </div>
@@ -98,7 +98,7 @@
             <div v-if="showMenu" class="flex justify-center lg:-ml-32 md:-ml-20 mt-32">
               <img :src="imgSrc" class="object-cover h-auto lg:w-56 md:w-40 " />
             </div>
-            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 lg:pl-32 md:pl-9 md:pr-2 flex lg:space-x-2"> 
+            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 lg:pl-32 md:pl-14 md:pr-2 flex lg:space-x-2"> 
                 <button
                    @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-yellow3 px-2 py-1 lg:h-8 lg:w-28 md:h-7 md:w-24 rounded-3xl font-semibold md:text-sm"
@@ -112,7 +112,7 @@
                   ดูร้านอาหาร
                 </button>
             </div>
-            <div class="absolute inset-x-0 lg:bottom-24 lg:mb-1 -ml-10 md:bottom-32 md:mb-3 text-center">
+            <div class="absolute inset-x-0 lg:bottom-24 lg:mb-1 -ml-10 md:bottom-28 md:mb-3 text-center">
                 <p class="font-bold lg:text-lg md:text-base">
                 {{ randomMenu.Menuname }}
                 </p>
@@ -132,7 +132,7 @@
                   disabled
                 />
               </div> 
-              <div class="mb-4 space-x-2">
+              <div class="mb-4 space-x-2 flex justify-center">
                 <button
                   @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-yellow3 px-2 py-1 h-8 w-28 rounded-3xl font-semibold text-sm"
