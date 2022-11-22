@@ -34,16 +34,16 @@
               <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
                   <div class="absolute inset-x-0 lg:bottom-60 md:bottom-80 text-center">
                       <p class="text-3xl lg:text-5xl md:text-2xl whitespace-pre-line mb-2 mt-12">สุ่มเมนูอาหาร</p>
-                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มีเมนูอาหารมาแนะนำ</p>
-                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
+                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">"กินอะไรดี?" ใครที่มีคำถามนี้ทุกวัน มาสุ่มเมนูอาหารกับ Foodrand สิ่</p>
+                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีประเภทอาหารอะไรให้สุ่มบ้าง</p>
                   </div>
               </div>
         </div>
     </div>
     <div class="flex lg:flex-row sm:flex-col justify-center">
       <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 sm:mt-4 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4 z-20">
-        <div class="bg-yellow1 lg:w-2/6 md:w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
-            <p class="text-left font-medium text-base sm:text-sm lg:-ml-48 md:-ml-32">เลือกประเภทอาหาร:</p>
+        <div class="bg-yellow1 lg:w-2/6 md:w-1/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
+            <p class="text-left font-medium text-base sm:text-sm lg:-ml-48 md:-ml-36">เลือกประเภทอาหาร:</p>
             <div class="grid grid-cols-2 gap-x-4 gap-y-4 mt-2">
               <div class="flex">
                   <input type="checkbox" v-model="allSelected" @change="selectAll"
