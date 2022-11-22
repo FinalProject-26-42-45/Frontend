@@ -48,7 +48,7 @@
               <div class="w-96 h-64 rounded-md overflow-auto mt-16">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
-                    <div class="w-80">
+                    <div class="w-80 md:-ml-8">
                       <p class=" bg-gray-300 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
                     <div @click="deleteList(id)" class="absolute inset-y-0 right-2 cursor-pointer">
