@@ -22,9 +22,9 @@
         </nav>    
       </section>
       <div class="sm:hidden lg:inline md:inline">
-        <div class=" bg-banner3 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-56 md:pt-7">
+        <div class=" bg-banner3 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-60 md:pt-7">
               <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
-                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-64 text-center">
+                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-72 text-center">
                       <p class="text-3xl lg:text-5xl md:text-2xl whitespace-pre-line mb-2 pt-14">สุ่มเมนูอาหาร</p>
                       <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มีเมนูอาหารมาแนะนำ</p>
                       <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
@@ -95,10 +95,10 @@
               
           </div>
           <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:block md:w-3/6 sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
-            <div v-if="showMenu" class="flex justify-center lg:-ml-32 md:-ml-20 mt-32">
+            <div v-if="showMenu" class="flex justify-center lg:-ml-32 md:-ml-24 mt-32">
               <img :src="imgSrc" class="object-cover h-auto lg:w-56 md:w-40 " />
             </div>
-            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 lg:pl-32 md:pl-14 md:pr-2 flex lg:space-x-2"> 
+            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 lg:pl-32 md:pl-20 md:pr-2 flex space-x-2"> 
                 <button
                    @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-yellow3 px-2 py-1 lg:h-8 lg:w-28 md:h-7 md:w-24 rounded-3xl font-semibold md:text-sm"
@@ -112,7 +112,7 @@
                   ดูร้านอาหาร
                 </button>
             </div>
-            <div class="absolute inset-x-0 lg:bottom-24 lg:mb-1 -ml-10 md:bottom-28 md:mb-3 text-center">
+            <div class="absolute inset-x-0 lg:bottom-24 lg:mb-1 -ml-10 md:bottom-20 md:mb-3 text-center">
                 <p class="font-bold lg:text-lg md:text-base">
                 {{ randomMenu.Menuname }}
                 </p>
