@@ -44,14 +44,14 @@
                 </div>
             </div>
             <p v-if="invalidMenu" class="error -ml-64">กรุณาใส่ชื่อเมนูอาหาร</p>
-            <div class="relative bg-randomCutomImg lg:w-3/6 heightBg bg-no-repeat bg-contain bg-center lg:block md:block sm:hidden" >
+            <div class="relative bg-randomCutomImg lg:w-3/6 heightBg bg-no-repeat bg-contain bg-center lg:block md:hidden sm:hidden" >
               <div class="w-96 h-64 rounded-md overflow-auto lg:mt-16 md:mt-24">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
-                    <div class="lg:w-80 md:w-64 md:pl-2">
+                    <div class="lg:w-80 md:w-64 md:pl-3">
                       <p class=" bg-gray-300 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
-                    <div @click="deleteList(id)" class="absolute inset-y-0 lg:right-2 md:right-24 cursor-pointer">
+                    <div @click="deleteList(id)" class="absolute inset-y-0 lg:right-2 md:right-28 cursor-pointer">
                       <p class=" bg-red-500 uppercase px-2 mt-1.5 rounded-md text-white text-xl text-center">x</p>
                     </div>
                   </li>  
@@ -61,11 +61,11 @@
                 </div>
               </div>
               <div v-if="shown">
-                <div class="absolute inset-x-0 bottom-16 mb-4 -ml-10 text-center">
+                <div class="absolute inset-x-0 lg:bottom-16 md:bottom-24 mb-4 -ml-10 text-center">
                   <p class="font-medium text-lg">{{menuIsRandom.menu}} </p>
                 </div>
-                <div class="flex flex-col justify-center -ml-20">
-                  <p class="text-center">คุณต้องการเก็บประวัติผลการสุ่มเมนูหรือไม่</p>
+                <div class="flex flex-col justify-center -ml-20 md:pl-1">
+                  <p class="text-center md:text-sm">คุณต้องการเก็บประวัติผลการสุ่มเมนูหรือไม่</p>
                   <div class="flex justify-center space-x-3 mt-2">
                     <button @click="addMenuHistory()" class="bg-green px-3 py-1 h-8 w-16 rounded-3xl font-semibold">ใช่</button>
                     <button @click="clickNo()" class="bg-red-500  px-3 py-1 h-8 w-16 rounded-3xl font-semibold">ไม่</button>
@@ -73,7 +73,7 @@
                 </div>
               </div>
             </div>  
-            <div class="lg:hidden md:hidden bg-yellow1 md:w-2/4 sm:w-72 h-full md:pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center mt-4">
+            <div class="lg:hidden bg-yellow1 md:w-2/4 sm:w-72 h-full md:pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center mt-4">
               <div class="w-96 h-64 rounded-md overflow-auto -mt-2">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
