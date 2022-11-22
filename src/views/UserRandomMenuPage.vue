@@ -41,15 +41,15 @@
         </div>
     </div>
     <div class="flex lg:flex-row sm:flex-col justify-center">
-      <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4 z-20">
-        <div class="bg-yellow1 lg:w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
-            <p class="text-left font-medium lg:text-base sm:text-xs lg:-ml-48">เลือกประเภทอาหาร:</p>
+      <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 sm:mt-4 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4 z-20">
+        <div class="bg-yellow1 lg:w-2/6 md:w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
+            <p class="text-left font-medium text-base sm:text-sm lg:-ml-48 md:-ml-32">เลือกประเภทอาหาร:</p>
             <div class="grid grid-cols-2 gap-x-4 gap-y-4 mt-2">
               <div class="flex">
                   <input type="checkbox" v-model="allSelected" @change="selectAll"
                     class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
                   />
-                  <p class="pl-1 lg:text-base sm:text-xs">เมนูทั้งหมด</p>
+                  <p class="pl-1 text-base sm:text-sm">เมนูทั้งหมด</p>
                 </div>
               <div
                 v-for="c in Category"
@@ -64,7 +64,7 @@
                   name="category"
                   class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
                 />
-                <p class="pl-1 lg:text-base sm:text-xs">{{ c.CategoryName }}</p>
+                <p class="pl-1 text-base sm:text-sm">{{ c.CategoryName }}</p>
               </div>
             </div>
             <div class="mt-3 flex justify-center">
@@ -76,7 +76,7 @@
               </button>
             </div>
         </div> 
-        <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:hidden md:w-3/6 sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
+        <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:hidden sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
           <div v-if="showMenu" class="justify-center pl-44 -ml-2 mt-14">
             <img :src="imgSrc" class="object-cover h-auto w-44" /> 
           </div>
@@ -138,7 +138,7 @@
               <div class="flex justify-center mt-4">
                 <input
                   type="text"
-                  class="font-bold text-sm text-center rounded-md border-2 border-blue1 border-opacity-50y w-full px-3 py-2 mb-2"
+                  class="font-bold text-sm text-center text-black rounded-md border-2 border-blue1 border-opacity-50y w-full px-3 py-2 mb-2"
                   v-model="randomMenu.Menuname"
                   disabled
                 />
