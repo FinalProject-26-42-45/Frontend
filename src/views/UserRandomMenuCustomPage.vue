@@ -44,7 +44,7 @@
                 </div>
             </div>
             <p v-if="invalidMenu" class="error -ml-64">กรุณาใส่ชื่อเมนูอาหาร</p>
-            <div class="relative bg-randomCutomImg lg:w-3/6 md:w-3/6 heightBg bg-no-repeat bg-contain bg-center lg:block md:block sm:hidden" >
+            <div class="relative bg-randomCutomImg lg:w-3/6 heightBg bg-no-repeat bg-contain bg-center lg:block md:block sm:hidden" >
               <div class="w-96 h-64 rounded-md overflow-auto lg:mt-16 md:mt-6">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
