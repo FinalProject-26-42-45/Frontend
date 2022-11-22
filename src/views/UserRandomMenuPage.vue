@@ -1,7 +1,7 @@
 <template>
   <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
     <base-navbar></base-navbar>
-    <section class="relative mx-auto z-50">
+    <section class="relative mx-auto z-40">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
@@ -11,7 +11,7 @@
                 </router-link>
                 <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
                     <i class="material-icons">restaurant_menu</i>
-                    <div><p class="sm:text-sm md:text-sm lg:text-lg">แนะนำอาหาร</p></div>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">เมนูอาหาร</p></div>
                 </router-link>
                 <router-link to="/user-random" class="flex flex-row hover:text-coral1">
                     <i class="material-icons">attractions</i>
@@ -29,15 +29,27 @@
           </div>
         </nav>
     </section>
+    <div class="sm:hidden lg:inline md:inline">
+        <div class=" bg-banner3 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-52 md:pt-7">
+              <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
+                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-60 text-center">
+                      <p class="text-3xl lg:text-5xl md:text-2xl whitespace-pre-line mb-2 mt-12">สุ่มเมนูอาหาร</p>
+                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มีเมนูอาหารมาแนะนำ</p>
+                      <p class="text-3xl lg:text-lg md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
+                  </div>
+              </div>
+        </div>
+    </div>
     <div class="flex lg:flex-row sm:flex-col justify-center">
-      <div class="w-5/6 h-full py-10 p-4 bg-white flex lg:flex-row md:flex-row sm:flex-col justify-center mt-12 mb-10 lg:space-x-4 lg:space-y-0 md:space-x-8 md:space-y-0 sm:space-y-4">
-        <div class="bg-yellow1 w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
+      <div class="lg:w-5/6 md:w-5/6 sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4">
+        <div class="bg-yellow1 lg:w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
+            <p class="text-left font-medium lg:text-base sm:text-xs">เลือกประเภทอาหาร:</p>
             <div class="grid grid-cols-2 gap-x-4 gap-y-4">
               <div class="flex">
                   <input type="checkbox" v-model="allSelected" @change="selectAll"
                     class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
                   />
-                  <p class="pl-1 lg:text-base sm:text-xs ">เมนูทั้งหมด</p>
+                  <p class="pl-1 lg:text-base sm:text-xs">เมนูทั้งหมด</p>
                 </div>
               <div
                 v-for="c in Category"
@@ -52,7 +64,7 @@
                   name="category"
                   class="lg:w-5 lg:h-5 sm:w-4 sm:h-4 accent-coral1"
                 />
-                <p class="pl-1">{{ c.CategoryName }}</p>
+                <p class="pl-1 lg:text-base sm:text-xs">{{ c.CategoryName }}</p>
               </div>
             </div>
             <div class="mt-3 flex justify-center">
@@ -63,8 +75,8 @@
                 สุ่มเมนู
               </button>
             </div>
-          </div> 
-        <div class=" relative bg-randomImg lg:w-3/6 bg-no-repeat bg-contain bg-center">
+        </div> 
+        <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:block md:w-3/6 sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
           <div v-if="showMenu" class="justify-center pl-44 -ml-2 mt-14">
             <img :src="imgSrc" class="object-cover h-auto w-44" /> 
           </div>
@@ -72,7 +84,7 @@
               <p class="text-center text-sm">
                 คุณต้องการเก็บประวัติผลการสุ่มเมนูหรือไม่
               </p>
-              <div class="flex justify-center space-x-3 mt-2">
+              <div class="flex justify-center space-x-3 mt-2 mb-2">
                 <button
                   @click="addMenuHistory()"
                   class="bg-green px-3 py-1 h-8 w-16 rounded-3xl font-semibold"
@@ -95,22 +107,21 @@
                 </button>
               </div>
           </div>
-          <!-- <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex flex-col justify-center"> -->
-          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 ">
-              <div class="flex justify-center space-x-2 mt-2">
+
+          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex lg:space-x-2 justify-center mt-2 mb-2"> 
                 <button
-                  @click="clickRecipe(randomMenu.MenuId)"
-                  class="bg-green px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
+                   @click="clickRecipe(randomMenu.MenuId)"
+                  class="bg-yellow3 px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
                 >
                   ดูสูตรอาหาร
                 </button>
-                <!-- <button
-                  class="bg-red-500 px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
+                <button
+                  @click="openGoogleMap()"
+                  class="bg-coral2 px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
                 >
                   ดูร้านอาหาร
-                </button> -->
-              </div>
-          </div>
+                </button>
+            </div>
           <div v-if="showMenu" class="absolute inset-x-0 bottom-16 mb-2 -ml-12 text-center">
             <p class="font-medium text-lg">
                 {{ randomMenu.Menuname }}
@@ -118,7 +129,62 @@
           </div>
             
         </div>
-        
+        <div class="lg:hidden md:hidden bg-nood sm:w-full h-full pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center">
+            <div v-if="showMenu">
+              <div class="flex justify-center">
+                <img :src="imgSrc" class="object-cover h-64 w-auto" />
+              </div>
+              <div class="flex justify-center mt-4">
+                <input
+                  type="text"
+                  class="font-bold text-sm text-center rounded-md border-2 border-blue1 border-opacity-50y w-full px-3 py-2 mb-2"
+                  v-model="randomMenu.Menuname"
+                  disabled
+                />
+              </div>
+              <div v-if="showQuestion1" class="mb-4 space-x-2">
+                  <p class="text-center text-sm">
+                    คุณต้องการเก็บประวัติผลการสุ่มเมนูหรือไม่
+                  </p>
+                  <div class="flex justify-center space-x-3 mt-2">
+                    <button
+                      @click="addMenuHistory()"
+                      class="bg-green px-3 py-1 h-8 w-16 rounded-3xl font-semibold"
+                    >
+                      ใช่
+                    </button>
+                    <button
+                      @click="clickNo()"
+                      class="
+                        bg-red-500
+                        px-3
+                        py-1
+                        h-8
+                        w-16
+                        rounded-3xl
+                        font-semibold
+                      "
+                    >
+                      ไม่
+                    </button>
+                  </div>
+              </div> 
+              <div v-if="showQuestion2" class="mb-4 space-x-2">
+                <button
+                  @click="clickRecipe(randomMenu.MenuId)"
+                  class="bg-yellow3 px-2 py-1 h-8 w-28 rounded-3xl font-semibold text-sm"
+                >
+                  ดูสูตรอาหาร
+                </button>
+                <button
+                  @click="openGoogleMap()"
+                  class="bg-coral2 px-2 py-1 h-8 w-28 rounded-3xl font-semibold text-sm"
+                >
+                  ดูร้านอาหาร
+                </button>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     <div v-if="openRecipe" class="overflow-x-hidden overflow-y-hidden fixed inset-10 z-50 outline-none focus:outline-none flex justify-center items-center">
@@ -196,6 +262,7 @@ export default {
       });
       // this.getRecipe(MenuId);
       this.openRecipe = true;
+      this.addStatistic();
     },
     listCategory() {
       MenuService.get("/menucategory").then((response) => {
@@ -206,6 +273,13 @@ export default {
     clickNo() {
       this.showQuestion1 = false;
       this.showQuestion2 = true;
+    },
+    openGoogleMap() {
+        this.addStatistic();
+        var search = this.randomMenu.Menuname;
+        window.open(
+          "https://www.google.co.th/maps/search/" + search
+        );
     },
     selectAll() {       
         if (this.allSelected) {
@@ -236,13 +310,13 @@ export default {
           var random = Math.floor(Math.random() * this.menuInCategory.length);
           this.randomMenu = this.menuInCategory[random];
           //  this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-          this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+          this.imgSrc = `https://foodrand-sitproject.servepics.com/backend/images/${this.randomMenu.MenuImg}`;
           this.showMenu = true;
           this.showQuestion1 = true;
           this.showQuestion2 = false;
           this.menuInCategory = [];
           this.allSelected = false;
-          this.addStatistic();
+          
         })
         .catch((error) => {
             if (error.response.status === 401) {
@@ -283,7 +357,7 @@ export default {
     },
     getMenuImage(MenuImg){
       //  return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
     },
   },
   created() {

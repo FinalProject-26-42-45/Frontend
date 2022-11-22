@@ -1,7 +1,7 @@
 <template>
     <div class="h-full fontNoto bg-gray1 overflow-x-hidden">
         <base-navbar></base-navbar>
-        <section class="relative mx-auto z-50">
+        <section class="relative mx-auto z-40">
             <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
                 <div class="px-5 py-6 pt-6 flex w-full items-center ">
                     <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
@@ -11,7 +11,7 @@
                         </router-link>
                         <router-link to="/anonymous-recommend-menu" class="flex flex-row hover:text-coral1">
                             <i class="material-icons">restaurant_menu</i>
-                            <div><a class="hover:text-coral1">แนะนำอาหาร</a></div>
+                            <div><a class="hover:text-coral1">เมนูอาหาร</a></div>
                         </router-link>
                         <router-link to="/anonymous-random-menu" class="flex flex-row hover:text-coral1 ">
                             <i class="material-icons">attractions</i>
@@ -22,17 +22,17 @@
             </nav>    
         </section>
         <div class="sm:hidden lg:inline md:inline">
-            <div class="bg-bannerStat h-full w-full bg-center bg-no-repeat bg-contain lg:-mt-5 sm:-mt-64 md:-mt-36">
+            <div class="bg-banner1 h-full w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 sm:-mt-64 md:-mt-52 md:pt-7">
                 <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
-                    <div class="absolute inset-x-0 lg:bottom-24 md:bottom-44 text-center">
-                        <p class="text-3xln lg:text-6xl md:text-3xl whitespace-pre-line">อันดับการสุ่มอาหารยอดนิยม</p>
-                        <p class="text-3xl lg:text-6xl md:text-3xl whitespace-pre-line">ประจำสัปดาห์</p>
+                    <div class="absolute inset-x-0 lg:bottom-60 md:bottom-60 text-center">
+                        <p class="text-3xl lg:text-5xl md:text-3xl whitespace-pre-line">อันดับการสุ่มอาหารยอดนิยม</p>
+                        <p class="text-3xl lg:text-5xl md:text-3xl whitespace-pre-line">ประจำสัปดาห์</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="flex justify-center">
-            <div class="bg-blue1 box4 h-auto rounded-2xl pt-8 px-14 lg:pb-40 sm:pb-32 md:pb-40 mb-4 sm:mt-4 lg:mt-4 md:-mt-32 relative">
+            <div class="bg-blue1 box4 rounded-2xl pt-4 px-14 lg:pb-40 sm:pb-32 md:pb-40 mb-4 lg:-mt-24 sm:mt-4 md:-mt-48 relative">
                 <div v-for="(s, index) in statistic(10)" :key="index" >
                     <div class="flex flex-row-reverse mb-2">
                         <div class="bg-yellow4 w-56 h-14 rounded-r-xl z-0 -ml-8 flex justify-center">
@@ -113,37 +113,12 @@ import MenuService from '../service/MenuService.js';
             },
             getMenuImage(MenuImg){
                 // return "http://localhost:3000/images/"+MenuImg;
-                return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+                return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
             },
             getStatistic(){
                 MenuService.get("/randomstatistics").then(response => {
                 this.statisticMenu = response.data;
                 });
-            },
-
-            // rankStatistic() {
-            //     const playersSorted = this.players.sort((a, b)=> a.goals - b.goals);
-            //     //console.log(playersSorted)
-            //     let currentPosition = 1; let lastGoalsNbr =playersSorted[0].goals;
-            //     const playersPositioned =  playersSorted.map(({name, goals})=> {
-            //         if(lastGoalsNbr !== goals ) currentPosition ++;
-            //     lastGoalsNbr = goals;
-            //         return {name, goals, position:currentPosition}   
-            //     }
-            //     )
-            //     console.log(playersPositioned)     
-            // },
-
-            rankMenuStatistic() {
-                const statisticsSorted = this.statisticMenu.sort((a, b)=> a.RandomCount - b.RandomCount);
-                let currentPosition = 1; let lastRandomCountNbr = statisticsSorted[0].RandomCount;
-                const statisticPositioned =  statisticsSorted.map(({MenuName, RandomCount})=> {
-                    if(lastRandomCountNbr !== RandomCount ) currentPosition ++;
-                lastRandomCountNbr = RandomCount;
-                    return {MenuName, RandomCount, position:currentPosition}   
-                }
-                )
-                console.log(statisticPositioned)     
             },
 
             statistic(shortListSize){
@@ -152,8 +127,6 @@ import MenuService from '../service/MenuService.js';
         },
         created() {
             this.getStatistic();
-            // this.rankStatistic();
-            // this.rankMenuStatistic();
         },
         computed: {
         }
@@ -190,7 +163,7 @@ import MenuService from '../service/MenuService.js';
 
   .box4 {
     width: 630px;
-    height: 500px;
+    height: 850px;
   }
 
   .line2 {

@@ -1,7 +1,7 @@
 <template>
   <div class="h-full fontNoto bg-gray1 overflow-x-hidden overflow-y-auto">
     <base-navbar></base-navbar>
-    <section class="relative mx-auto z-50">
+    <section class="relative mx-auto z-40">
         <nav class="flex justify-between bg-white text-black w-screen shadow-lg">
           <div class="px-5 py-6 flex w-full items-center">
             <ul class="md:flex px-4 mx-auto font-heading lg:space-x-12 md:space-x-12">
@@ -11,7 +11,7 @@
                 </router-link>
                 <router-link to="/user-recommend-menu" class="flex flex-row hover:text-coral1">
                     <i class="material-icons">restaurant_menu</i>
-                    <div><p class="sm:text-sm md:text-sm lg:text-lg">แนะนำอาหาร</p></div>
+                    <div><p class="sm:text-sm md:text-sm lg:text-lg">เมนูอาหาร</p></div>
                 </router-link>
                 <router-link to="/user-random" class="flex flex-row hover:text-coral1">
                     <i class="material-icons">attractions</i>
@@ -30,11 +30,11 @@
         </nav>
       </section>
       <div class="flex justify-center">
-        <div class="w-4/5 py-6 px-20 bg-white flex-col flex items-center mt-12 mb-10 "> 
+        <div class="lg:w-4/5 md:w-4/5 sm:w-full py-6 px-20 bg-white flex-col flex items-center mt-12 mb-10 "> 
             <div class="flex justify-center">
                 <input type="text" id="MenuName" name="MenuName"
                     v-model="listMenu.menu"
-                    class=" placeholder:text-gray-400 font-medium rounded-xl border-2 border-gray-400 px-3 py-2 h-10 lg:w-80 sm:w-40"
+                    class=" placeholder:text-gray-400 font-medium rounded-xl border-2 border-gray-400 px-3 py-2 h-10 lg:w-80 md:w-72 sm:w-44"
                     placeholder="เพิ่มเมนู"
                 />
                 <div class="pl-2">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <p v-if="invalidMenu" class="error -ml-64">กรุณาใส่ชื่อเมนูอาหาร</p>
-            <div class="relative bg-randomCutomImg w-3/6 heightBg bg-no-repeat bg-contain bg-center" >
+            <div class="relative bg-randomCutomImg w-3/6 heightBg bg-no-repeat bg-contain bg-center lg:block md:hidden sm:hidden" >
               <div class="w-96 h-64 rounded-md overflow-auto mt-16">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4 pl-10">
@@ -73,6 +73,41 @@
                 </div>
               </div>
             </div>  
+            <div class="lg:hidden bg-yellow1 md:w-full sm:w-72 h-full md:pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center mt-4">
+              <div class="w-96 h-64 rounded-md overflow-auto -mt-2">
+                <ul v-for="m in order" :key="m.id">
+                  <li class="relative flex my-2 mx-4 md:pl-8">
+                    <div class="md:w-80 sm:w-64">
+                      <p class=" bg-gray-200 rounded-md py-2 px-2">{{ m.menu }}</p>
+                    </div>
+                    <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-0 cursor-pointer">
+                      <p class=" bg-red-500 uppercase px-2 mt-1.5 rounded-md text-white text-xl text-center">x</p>
+                    </div>
+                  </li>  
+                </ul> 
+                <div v-if="showBtn" class="my-2 flex justify-center sm:-ml-20 md:pl-24">
+                  <button @click="randomMenu()" class="bg-green px-2 py-2 h-10 w-16 rounded-3xl font-semibold">สุ่มเมนู</button>
+                </div>
+              </div>
+              <div v-if="shown">
+                <p class="text-center font-bold text-sm pb-2">เมนูที่คุณได้คือ...</p>
+                <div class="flex justify-center">
+                  <input
+                    type="text"
+                    class="font-bold text-sm text-center rounded-md border-2 border-blue1 border-opacity-50y w-1/2 px-3 py-2 mb-2"
+                    v-model="menuIsRandom.menu"
+                    disabled
+                  />
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-sm text-center sm:pl-7">คุณต้องการเก็บประวัติผลการสุ่มเมนูหรือไม่</p>
+                  <div class="flex justify-center space-x-3 my-2">
+                    <button @click="addMenuHistory()" class="bg-green px-3 py-1 h-8 w-16 rounded-3xl font-semibold">ใช่</button>
+                    <button @click="clickNo()" class="bg-red-500  px-3 py-1 h-8 w-16 rounded-3xl font-semibold">ไม่</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div> 
     <base-footer></base-footer>

@@ -7,7 +7,7 @@ class AuthenService {
         "Username": users.username,
         "Password": users.password
     }));
-    return axios.post("https://foodrand.hopto.org/backend/auth/login", data)
+    return axios.post("https://foodrand-sitproject.servepics.com/backend/auth/login", data)
     //  return axios.post("http://localhost:3000/auth/login", data)
         .then(response => {
             if (response.data.accessToken) {
@@ -34,7 +34,7 @@ register(users) {
       "FoodAllergens": users.foodAllergens,
       "DislikedFood": users.dislikedFood
     }));
-    return axios.post("https://foodrand.hopto.org/backend/auth/register", data)
+    return axios.post("https://foodrand-sitproject.servepics.com/backend/auth/register", data)
     // return axios.post("http://localhost:3000/auth/register", data)
     }
 

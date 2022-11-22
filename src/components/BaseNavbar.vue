@@ -3,9 +3,7 @@
       <div class="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2">
         <div class="flex items-center flex-shrink-0 text-gray-800 mr-16">
           <div class="flex flex-row">
-            <router-link to="/">
-              <img class="object-cover h-16 w-auto mt-1" alt="logo" src="../assets/logo.png" />
-            </router-link>
+            <img class="object-cover h-16 w-auto mt-1" alt="logo" src="../assets/logo.png" />
             <p class="text-3xl font-bold text-white mt-5 ml-3 textShadow">FOODRAND</p>
           </div>
         </div>
