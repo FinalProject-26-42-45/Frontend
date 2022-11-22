@@ -24,7 +24,7 @@
         </nav>
       </div>
       <div class="sm:hidden lg:inline md:inline">
-        <div class=" bg-banner2 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-5 md:-mt-80 md:pt-12">
+        <div class=" bg-banner2 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-5 md:-mt-80 md:pt-20">
               <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
                   <div class="absolute inset-x-0 lg:bottom-60 md:bottom-80 text-center">
                       <p class="text-3xl lg:text-5xl md:text-2xl whitespace-pre-line mb-2 mt-12">เมนูอาหาร</p>

@@ -95,10 +95,10 @@
               
           </div>
           <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:block md:w-3/6 sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
-            <div v-if="showMenu" class="flex justify-center lg:-ml-32 md:-ml-24 mt-32">
+            <div v-if="showMenu" class="flex justify-center lg:-ml-32 md:-ml-20 mt-32">
               <img :src="imgSrc" class="object-cover h-auto lg:w-56 md:w-40 " />
             </div>
-            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 lg:pl-32 md:pl-20 md:pr-2 flex space-x-2"> 
+            <div v-if="showMenu" class="absolute inset-x-0 bottom-48 lg:pl-32 md:pl-28 md:pr-2 flex space-x-2"> 
                 <button
                    @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-yellow3 px-2 py-1 lg:h-8 lg:w-28 md:h-7 md:w-24 rounded-3xl font-semibold md:text-sm"
