@@ -1,6 +1,6 @@
 <template>
-  <div class="fontNoto flex relative overflow-y-auto">
-    <div class="fixed z-50 left-0 top-0 h-screen p-10 px-4 py-8 border-r bg-yellow">
+  <div class="fontNoto flex relative overflow-y-auto overflow-x-hidden">
+    <aside class="fixed z-10 left-0 top-0 h-screen p-10 px-4 py-8 bg-yellow">
       <div class="flex justify-center">
         <img src="../assets/logo.png" class="object-cover h-36 w-auto">
       </div>
@@ -20,20 +20,9 @@
           <font-awesome-icon icon="arrow-right-from-bracket" class="block h-6 w-6 " />
         </a>
       </div>
-    </div>
-    <div class="flex-1 ml-52 bg-nood">
-      <!-- <div class="flex my-4">
-        <div>
-          <input placeholder="ค้นหา" v-model="search"
-            class="p-2 py-2 mt-1 lg:w-80 sm:w-60 bg-white rounded-l-md border-2 border-gray-400">
-        </div>
-        <div class="">
-          <button class="bg-coral1 rounded-r-md text-white py-2 px-2 w-11 h-11 mt-1">
-            <span class="material-icons">search</span>
-          </button>
-        </div>
-      </div> -->
-      <!-- <div class="flex items-center w-full">
+    </aside>
+    <div class=" bg-nood ml-auto lg:w-[86%] md:w-[73%]">
+      <div class="flex justify-center mt-6">
           <button id="left-button" @click="scroll_left">
             <font-awesome-icon icon="chevron-left" class="block lg:inline sm:hidden h-14 w-14 mt-4" style="color:#FFB911" />
           </button>
@@ -60,7 +49,7 @@
         <font-awesome-icon icon="chevron-right" class="block lg:inline sm:hidden h-14 w-14 mt-4" style="color:#FFB911"/>
       </button>
           
-    </div> -->
+    </div>
       <div class="flex justify-center my-4">
         <div>
           <input v-model="boxsearch" v-show="search.click" placeholder="ค้นหา"
@@ -75,7 +64,7 @@
           </button>
         </div>
       </div>
-            <div class="lg:flex lg:justify-center pb-4">
+            <div class="flex justify-center pb-4">
                 <button @click="toggleModal" class=" hover:bg-amber-400 bg-yellow py-2 px-20 rounded-sm text-black hover:text-white text-lg font-medium">
                     เพิ่มเมนู
                 </button>
@@ -86,7 +75,7 @@
 
             <edit-menu v-if="openEdit" @close="closeModal" :mId="menuEdit">
             </edit-menu>
-            <div v-if="openEdit" class="show-modal"></div>
+            <div v-if="openEdit" class="show-modal flex justify-center items-center"></div>
 
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-left pl-2">
                 <div v-for="(m, index) in filterMenu" :key="index" :id="m.MenuId" class="w-full p-1 md:p-2">
@@ -152,7 +141,7 @@ export default {
     },
     getMenuImage(MenuImg){
       //  return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
     },
     toggleModal: function() {
         this.showModal = !this.showModal;
@@ -194,6 +183,7 @@ export default {
       MenuService.get("/menucategory")
         .then(response => {
           this.category = response.data;
+          this.category.reverse();
         })
     },
     clickCategory(CategoryId) {

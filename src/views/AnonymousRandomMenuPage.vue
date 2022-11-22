@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="flex justify-center">
-        <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-4 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-4 md:space-y-0 sm:space-y-4">
+        <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-4 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-44 sm:mt-8 mb-8 lg:space-x-14 lg:space-y-0 md:space-x-4 md:space-y-0 sm:space-y-4">
           <div class="bg-yellow1 lg:w-2/6 md:w-3/6 sm:w-full h-full py-4 px-4 pl-3 rounded-lg">
             <div class="flex flex-col space-x-8">
               <div class="flex flex-col">
@@ -119,6 +119,7 @@
             </div>
           </div>
           <div class="lg:hidden md:hidden bg-nood sm:w-full h-full pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center">
+            <p class="text-center font-bold text-sm pb-2">เมนูที่คุณได้คือ...</p>
             <div v-if="showMenu">
               <div class="flex justify-center">
                 <img :src="imgSrc" class="object-cover h-64 w-auto" />
@@ -162,7 +163,7 @@
             <h3 class="text-3xl uppercase text-darkgray">{{ n.MenuName }}</h3>
           </div>
           <div class="lg:flex lg:flex-row justify-around mt-2 sm:flex sm:flex-col">
-            <div class="lg:flex lg:justify-center sm:justify-center md:justify-center  w-3/4 rounded-md">
+            <div class="flex lg:justify-center sm:justify-center md:justify-center md:pl-28  w-3/4 rounded-md">
               <img class="object-cover w-auto lg:h-80" :src="getMenuImage( n.MenuImg )"/>
             </div>
         </div>   
@@ -268,7 +269,7 @@ export default {
             var random = Math.floor(Math.random() * this.menuInCategory.length);
             this.randomMenu = this.menuInCategory[random];
             // this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-            this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+            this.imgSrc = `https://foodrand-sitproject.servepics.com/backend/images/${this.randomMenu.MenuImg}`;
             this.showMenu = true;
             this.menuInCategory = [];
             this.allSelected = false;
@@ -290,7 +291,7 @@ export default {
       },
       getMenuImage(MenuImg){
       //  return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
       },
    
     },

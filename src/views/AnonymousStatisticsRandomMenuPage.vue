@@ -113,37 +113,12 @@ import MenuService from '../service/MenuService.js';
             },
             getMenuImage(MenuImg){
                 // return "http://localhost:3000/images/"+MenuImg;
-                return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+                return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
             },
             getStatistic(){
                 MenuService.get("/randomstatistics").then(response => {
                 this.statisticMenu = response.data;
                 });
-            },
-
-            // rankStatistic() {
-            //     const playersSorted = this.players.sort((a, b)=> a.goals - b.goals);
-            //     //console.log(playersSorted)
-            //     let currentPosition = 1; let lastGoalsNbr =playersSorted[0].goals;
-            //     const playersPositioned =  playersSorted.map(({name, goals})=> {
-            //         if(lastGoalsNbr !== goals ) currentPosition ++;
-            //     lastGoalsNbr = goals;
-            //         return {name, goals, position:currentPosition}   
-            //     }
-            //     )
-            //     console.log(playersPositioned)     
-            // },
-
-            rankMenuStatistic() {
-                const statisticsSorted = this.statisticMenu.sort((a, b)=> a.RandomCount - b.RandomCount);
-                let currentPosition = 1; let lastRandomCountNbr = statisticsSorted[0].RandomCount;
-                const statisticPositioned =  statisticsSorted.map(({MenuName, RandomCount})=> {
-                    if(lastRandomCountNbr !== RandomCount ) currentPosition ++;
-                lastRandomCountNbr = RandomCount;
-                    return {MenuName, RandomCount, position:currentPosition}   
-                }
-                )
-                console.log(statisticPositioned)     
             },
 
             statistic(shortListSize){
@@ -152,8 +127,6 @@ import MenuService from '../service/MenuService.js';
         },
         created() {
             this.getStatistic();
-            // this.rankStatistic();
-            // this.rankMenuStatistic();
         },
         computed: {
         }

@@ -7,7 +7,7 @@
             <img src="../assets/line.png" class="object-cover h-1 w-16" />
             <nav class="list-none w-full">
                 <li>
-                  <p class="mt-3 text-sm text-white break-normal no-underline">https://foodrand.hopto.org</p>
+                  <p class="mt-3 text-sm text-white break-normal no-underline">https://foodrand-sitproject.servepics.com</p>
                 </li>
                 <li>
                   <p class="text-sm text-white">เป็นเว็บแอปพลิเคชั่นสำหรับคนที่ไม่ทราบว่าจะรับประทานอะไร</p>
@@ -17,7 +17,7 @@
                 </li>
             </nav>
         </div>
-        <div class="w-full  lg:w-1/3 md:w-1/2 md:pl-4 lg:pl-6">
+        <!-- <div class="w-full  lg:w-1/3 md:w-1/2 md:pl-4 lg:pl-6">
               <h1 class="text-lg font-bold tracking-widest text-white">Recent Post</h1>
             <img src="../assets/line.png" class="object-cover h-1 w-16" />
               <nav class="mb-8 list-none">
@@ -31,18 +31,18 @@
                     <p class="text-sm text-white">อาหารทานเล่นที่มีค่าดัชนีน้ำตาลต่ำ</p>
                 </li>
               </nav>
-        </div>
+        </div> -->
         <div class="w-full lg:w-1/3 md:w-1/2 md:pl-4 lg:pl-6">
             <h1 class="text-lg font-bold tracking-widest text-white">Contact Us</h1>
           <img src="../assets/line.png" class="object-cover h-1 w-16" />
             <nav class="mb-8 list-none">
-                <li>
+                <li @click="openIgPukboong()" class=" cursor-pointer">
                   <p class="mt-3 text-sm text-white">Jeong Chedah</p>
                 </li>
-                <li>
+                <li @click="openIgJam()" class=" cursor-pointer">
                   <p class="text-sm text-white">Jam</p>
                 </li>
-                <li>
+                <li @click="openIgApple()" class=" cursor-pointer">
                   <p class="text-sm text-white">Apple</p>
                 </li>
             </nav>
@@ -54,3 +54,32 @@
   </footer>
   <slot></slot>
 </template>
+
+<script>
+export default {
+  data(){
+    return {
+    }
+  },
+  computed: {
+
+  },
+  methods: {
+    openIgApple() {
+        window.open(
+          "https://www.instagram.com/o0_apple/"
+        );
+    },
+    openIgJam() {
+        window.open(
+          "https://www.instagram.com/jxxntm_/"
+        );
+    },
+    openIgPukboong() {
+        window.open(
+          "https://www.instagram.com/donla_boong/"
+        );
+    },
+  }
+};
+</script>

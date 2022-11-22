@@ -194,15 +194,8 @@ export default {
     },
     getMenuImage(MenuImg){
       //  return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
     },
-    // getRecipe(MenuId) {
-    //   console.log("MenuId:"+MenuId);
-    //   MenuService.get("/menu/ingredient/"+MenuId)
-    //     .then(response => {
-    //       this.recipe = response.data;
-    //     })
-    // },
     statusSearch(){
       this.search.click = !this.search.click
       this.search.nClick = !this.search.nClick

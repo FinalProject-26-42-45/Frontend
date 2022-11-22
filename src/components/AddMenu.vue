@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="fontNoto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 top-10 outline-none focus:outline-none flex justify-center mb-4">
-            <div class="h-96 border-0 rounded-md shadow-lg flex flex-col lg:w-2/3 bg-oldrose outline-none focus:outline-none">
+            <div class="h-96 border-0 rounded-md shadow-lg flex flex-col lg:w-3/4 bg-oldrose outline-none focus:outline-none">
                 <div class="flex justify-end">
                     <button class="close text-black pt-2 pr-2" type="button" @click="closeModal" > X </button>
                 </div>

@@ -43,6 +43,7 @@
     <div class="flex lg:flex-row sm:flex-col justify-center">
       <div class="lg:w-5/6 md:w-5/6 sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4">
         <div class="bg-yellow1 lg:w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
+            <p class="text-left font-medium lg:text-base sm:text-xs">เลือกประเภทอาหาร:</p>
             <div class="grid grid-cols-2 gap-x-4 gap-y-4">
               <div class="flex">
                   <input type="checkbox" v-model="allSelected" @change="selectAll"
@@ -74,7 +75,7 @@
                 สุ่มเมนู
               </button>
             </div>
-          </div> 
+        </div> 
         <div class="relative bg-randomImg lg:w-3/6 lg:block sm:hidden md:block md:w-3/6 sm:w-full h-full bg-no-repeat bg-contain bg-center"> 
           <div v-if="showMenu" class="justify-center pl-44 -ml-2 mt-14">
             <img :src="imgSrc" class="object-cover h-auto w-44" /> 
@@ -83,7 +84,7 @@
               <p class="text-center text-sm">
                 คุณต้องการเก็บประวัติผลการสุ่มเมนูหรือไม่
               </p>
-              <div class="flex justify-center space-x-3 mt-2">
+              <div class="flex justify-center space-x-3 mt-2 mb-2">
                 <button
                   @click="addMenuHistory()"
                   class="bg-green px-3 py-1 h-8 w-16 rounded-3xl font-semibold"
@@ -107,7 +108,7 @@
               </div>
           </div>
 
-          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex lg:space-x-2 justify-center mt-2"> 
+          <div v-if="showQuestion2" class="absolute inset-x-0 bottom-32 -ml-28 pl-2 flex lg:space-x-2 justify-center mt-2 mb-2"> 
                 <button
                    @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-yellow3 px-2 py-1 h-8 w-28 rounded-3xl font-semibold"
@@ -309,7 +310,7 @@ export default {
           var random = Math.floor(Math.random() * this.menuInCategory.length);
           this.randomMenu = this.menuInCategory[random];
           //  this.imgSrc = `http://localhost:3000/images/${this.randomMenu.MenuImg}`;
-          this.imgSrc = `https://foodrand.hopto.org/backend/images/${this.randomMenu.MenuImg}`;
+          this.imgSrc = `https://foodrand-sitproject.servepics.com/backend/images/${this.randomMenu.MenuImg}`;
           this.showMenu = true;
           this.showQuestion1 = true;
           this.showQuestion2 = false;
@@ -356,7 +357,7 @@ export default {
     },
     getMenuImage(MenuImg){
       //  return "http://localhost:3000/images/"+MenuImg;
-      return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+      return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
     },
   },
   created() {

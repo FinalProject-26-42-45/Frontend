@@ -167,7 +167,7 @@ import MenuService from '../service/MenuService.js';
             },
             getMenuImage(MenuImg){
                 // return "http://localhost:3000/images/"+MenuImg;
-                return "https://foodrand.hopto.org/backend/images/"+MenuImg;
+                return "https://foodrand-sitproject.servepics.com/backend/images/"+MenuImg;
             },
             getStatistic(){
                 MenuService.get("/randomstatistics").then(response => {
