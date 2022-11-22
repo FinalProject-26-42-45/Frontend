@@ -80,7 +80,7 @@
                     <div class="md:w-72 md:ml-2 sm:w-64">
                       <p class=" bg-gray-200 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
-                    <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-14 cursor-pointer">
+                    <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-14 md:pr-2 cursor-pointer">
                       <p class=" bg-red-500 uppercase px-2 mt-1.5 rounded-md text-white text-xl text-center">x</p>
                     </div>
                   </li>  
@@ -91,7 +91,7 @@
               </div>
               <div v-if="shown">
                 <p class="text-center font-bold text-sm pb-2">เมนูที่คุณได้คือ...</p>
-                <div class="flex justify-center sm:pl-3">
+                <div class="flex justify-center sm:pl-4">
                   <input
                     type="text"
                     class="font-bold text-sm text-center rounded-md border-2 border-blue1 border-opacity-50y w-1/2 sm:w-full px-3 py-2 mb-2"
