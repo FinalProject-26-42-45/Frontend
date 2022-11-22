@@ -22,9 +22,9 @@
             </nav>    
         </section>
         <div class="sm:hidden lg:inline md:inline">
-            <div class="bg-banner1 h-full w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 sm:-mt-64 md:-mt-52 md:pt-7">
+            <div class="bg-banner1 h-full w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-64 md:pt-7">
                 <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
-                    <div class="absolute inset-x-0 lg:bottom-60 md:bottom-60 text-center">
+                    <div class="absolute inset-x-0 lg:bottom-60 md:bottom-72 text-center">
                         <p class="text-3xl lg:text-5xl md:text-3xl whitespace-pre-line">อันดับการสุ่มอาหารยอดนิยม</p>
                         <p class="text-3xl lg:text-5xl md:text-3xl whitespace-pre-line">ประจำสัปดาห์</p>
                     </div>

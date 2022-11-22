@@ -24,9 +24,9 @@
         </nav>
       </div>
       <div class="sm:hidden lg:inline md:inline">
-        <div class=" bg-banner2 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-52 md:pt-6">
+        <div class=" bg-banner2 w-full bg-center bg-no-repeat bg-contain lg:-mt-32 lg:pt-2 md:-mt-80">
               <div class="relative flex h-screen w-screen items-center justify-center container mx-auto px-8 ">
-                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-60 text-center">
+                  <div class="absolute inset-x-0 lg:bottom-60 md:bottom-72 text-center">
                       <p class="text-3xl lg:text-5xl md:text-2xl whitespace-pre-line mb-2 mt-12">เมนูอาหาร</p>
                       <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ใครที่มีคำถามนี้ในใจเป็นประจำทุกวัน วันนี้ Foodrand มีเมนูอาหารมาแนะนำ</p>
                       <p class="text-3xl lg:text-2xl md:text-sm whitespace-pre-line">ไม่ต้องคิดเองให้เสียเวลา ตามเรามาดูกันเลยว่ามีเมนูไหนให้เลือกบ้าง</p>
