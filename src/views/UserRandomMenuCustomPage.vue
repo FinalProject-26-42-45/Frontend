@@ -77,7 +77,7 @@
               <div class="w-96 h-64 rounded-md overflow-auto -mt-2">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
-                    <div class="md:w-72 md:-ml-8 sm:w-64">
+                    <div class="md:w-72 md:ml-2 sm:w-64">
                       <p class=" bg-gray-200 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
                     <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-8 cursor-pointer">
@@ -85,7 +85,7 @@
                     </div>
                   </li>  
                 </ul> 
-                <div v-if="showBtn" class="my-2 flex justify-center sm:-ml-20 md:pl-24">
+                <div v-if="showBtn" class="my-2 flex justify-center sm:-ml-20 md:pl-12">
                   <button @click="randomMenu()" class="bg-green px-2 py-2 h-10 w-24 rounded-3xl font-semibold">สุ่มเมนู</button>
                 </div>
               </div>
@@ -94,7 +94,7 @@
                 <div class="flex justify-center">
                   <input
                     type="text"
-                    class="font-bold text-sm text-center rounded-md border-2 border-blue1 border-opacity-50y w-1/2 px-3 py-2 mb-2"
+                    class="font-bold text-sm text-center rounded-md border-2 border-blue1 border-opacity-50y w-1/2 sm:w-full px-3 py-2 mb-2"
                     v-model="menuIsRandom.menu"
                     disabled
                   />
