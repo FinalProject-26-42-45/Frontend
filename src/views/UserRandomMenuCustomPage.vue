@@ -44,7 +44,7 @@
                 </div>
             </div>
             <p v-if="invalidMenu" class="error -ml-64">กรุณาใส่ชื่อเมนูอาหาร</p>
-            <div class="relative bg-randomCutomImg w-3/6 heightBg bg-no-repeat bg-contain bg-center lg:block md:hidden sm:hidden" >
+            <div class="relative bg-randomCutomImg w-3/6 heightBg bg-no-repeat bg-contain bg-center lg:block md:block sm:hidden" >
               <div class="w-96 h-64 rounded-md overflow-auto mt-16">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
@@ -73,14 +73,14 @@
                 </div>
               </div>
             </div>  
-            <div class="lg:hidden bg-yellow1 md:w-2/4 sm:w-72 h-full md:pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center mt-4">
+            <div class="lg:hidden md:hidden bg-yellow1 md:w-2/4 sm:w-72 h-full md:pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center mt-4">
               <div class="w-96 h-64 rounded-md overflow-auto -mt-2">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
-                    <div class="md:w-full md:-ml-8 sm:w-64">
+                    <div class="md:w-72 md:-ml-8 sm:w-64">
                       <p class=" bg-gray-200 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
-                    <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-4 cursor-pointer">
+                    <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-8 cursor-pointer">
                       <p class=" bg-red-500 uppercase px-2 mt-1.5 rounded-md text-white text-xl text-center">x</p>
                     </div>
                   </li>  
