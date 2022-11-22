@@ -77,10 +77,10 @@
               <div class="w-96 h-64 rounded-md overflow-auto -mt-2">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4">
-                    <div class="md:w-full md:-ml-4 sm:w-64">
+                    <div class="md:w-full md:-ml-8 sm:w-64">
                       <p class=" bg-gray-200 rounded-md py-2 px-2">{{ m.menu }}</p>
                     </div>
-                    <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-0 cursor-pointer">
+                    <div @click="deleteList(id)" class="absolute inset-y-0 sm:right-24 sm:pr-2 md:right-4 cursor-pointer">
                       <p class=" bg-red-500 uppercase px-2 mt-1.5 rounded-md text-white text-xl text-center">x</p>
                     </div>
                   </li>  
