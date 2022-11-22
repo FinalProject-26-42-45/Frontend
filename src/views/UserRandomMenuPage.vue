@@ -42,7 +42,7 @@
     </div>
     <div class="flex lg:flex-row sm:flex-col justify-center">
       <div class="lg:w-5/6 md:w-full sm:w-full py-10 bg-white p-3 flex lg:flex-row md:flex-row sm:flex-col justify-center lg:-mt-24 md:-mt-48 sm:mt-4 mb-10 lg:space-x-14 lg:space-y-0 md:space-x-12 md:space-y-0 sm:space-y-4 z-20">
-        <div class="bg-yellow1 lg:w-2/6 md:w-1/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
+        <div class="bg-yellow1 lg:w-2/6 md:w-2/6 py-4 px-4 pl-3 rounded-lg flex flex-col items-center">
             <p class="text-left font-medium text-base sm:text-sm lg:-ml-48 md:-ml-36">เลือกประเภทอาหาร:</p>
             <div class="grid grid-cols-2 gap-x-4 gap-y-4 mt-2">
               <div class="flex">

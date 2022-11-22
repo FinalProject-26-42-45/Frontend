@@ -73,7 +73,7 @@
                 </div>
               </div>
             </div>  
-            <div class="lg:hidden bg-yellow1 md:w-full sm:w-72 h-full md:pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center mt-4">
+            <div class="lg:hidden bg-yellow1 md:w-2/4 sm:w-72 h-full md:pl-6 pt-6 pr-6 rounded-lg flex flex-col justify-center mt-4">
               <div class="w-96 h-64 rounded-md overflow-auto -mt-2">
                 <ul v-for="m in order" :key="m.id">
                   <li class="relative flex my-2 mx-4 md:pl-8">
