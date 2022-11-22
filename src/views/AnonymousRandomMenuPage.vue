@@ -132,7 +132,7 @@
                   disabled
                 />
               </div> 
-              <div class="mb-4 space-x-2 flex justify-center">
+              <div class="mb-4 space-x-2 flex justify-center sm:pl-10">
                 <button
                   @click="clickRecipe(randomMenu.MenuId)"
                   class="bg-yellow3 px-2 py-1 h-8 w-28 rounded-3xl font-semibold text-sm"
